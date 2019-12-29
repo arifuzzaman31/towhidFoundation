@@ -65,3 +65,12 @@ $('#serviceModal').on('show.bs.modal', function (event) {
         alert(id);
   })
 })
+</script>
+
+@stack('script')
+
+
+
+</body>
+
+</html>
