@@ -2,14 +2,14 @@
     <div class="hero-area-shape-1">
         <img src="assets/img/shape/hero-shape-1.png" alt="">
     </div>
-    <div class="container ">
+    <div class="container">
         <div class="row justify-content-xl-center ">
             <div class="col-xl-7 col-lg-6">
                 <div class="hero-inner-content ">
-                    <h1>LIMMEX AUTOMATION</h1>
-                    <h4>IT, ITES, IOT Service Provider.</h4>
+                    <h1>তৌহিদ ফাউন্ডেশন</h1>
+                    <h4>একটি সম্পূর্ণ অ-রাজনৈতিক ও অ-লাভজনক সেচ্ছাসেবী প্রতিষ্ঠান</h4>
                     <div class="heuse-hero-btn mt-20">
-                        <a href="#contact" class="btn btn-filled ">Contact Us</a>
+                        <a href="#contact" class="btn btn-filled ">যোগাযোগ করুন</a>
                     </div>
                 </div>
             </div>

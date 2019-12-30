@@ -20,16 +20,6 @@ Route::get('blogs', [
 	'uses' => 'FrontController@getAllBlog'
 ]);
 
-Route::get('service/{slug}', [
-	'as'	=> 'get-specific-service',
-	'uses' 	=> 'FrontController@getSpecificService'
-]);
-
-Route::get('ambulance', [
-	'as'	=> 'get-ambulance-service',
-	'uses' 	=> 'FrontController@ServiceForm'
-]);
-
 Route::get('blog/{slug}', [
 	'as'	=> 'get-specific-blog',
 	'uses' 	=> 'FrontController@getSpecificBlog'
@@ -43,3 +33,18 @@ Route::post('contact','ContactController@store');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// towhid foundation fontend route
+Route::get('service/{slug}', [
+	'as'	=> 'get-specific-service',
+	'uses' 	=> 'FrontController@getSpecificService'
+]);
+
+Route::get('ambulance', [
+	'as'	=> 'get-ambulance-service',
+	'uses' 	=> 'FrontController@ServiceForm'
+]);
+
+Route::post('send-user-request', [
+	'as'	=> 'send-user-request',
+	'uses' 	=> 'FrontController@SaveForm'
+]);

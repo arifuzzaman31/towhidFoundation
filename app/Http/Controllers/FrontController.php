@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Portfolio;
 use App\Service;
 use App\Feature;
 use App\Team;
 use App\Blog;
 use App\Priceplan;
+use App\Userquery;
 
 class FrontController extends Controller
 {
@@ -39,15 +41,46 @@ class FrontController extends Controller
     	$allblogs 	 =  Blog::where('status',1)->get();
     	return view('pages.viewBlog', compact('allblogs','allservices','blog'));
     }
+
     public function getAllBlog()
     {
         $allblogs =  Blog::where('status',1)->Paginate(5);
         return view('pages.allblog', compact('allblogs'));
     }
 
-    public function ServiceForm()
+    public function SaveForm(Request $request)
     {
-        return "hi";
-    }
+        $validation = Validator::make($request->all(),[
+            'service_id' => 'required',
+            'name'       => 'required',
+            'phone'      => 'required|numeric',
+            'address'    => 'required',
+            'message'    => 'required|max:600'
+        ]);
+        if (!$validation->fails()) {
+            try {
+                 $store = Userquery::insert([
+                'service_id' => $request->id,
+                'name'       => $request->name,
+                'phone'      => $request->phone,
+                'address'    => $request->address,
+                'message'    => $request->message
+            ]);
+
+                if ($store) {
+                    return response()->json(['alert-type' => 'success','message' => 'আপনার মেসেজটি পাঠানো হয়েছে।']);
+                }
+                else{
+                    return response()->json(['alert-type' => 'error','message' => 'দুঃখিত! আবার চেষ্টা করুন।']);
+                    }
+            }catch (Exception $e) {
+                 return response()->json(['alert-type' => 'error','message' => $e->errorInfo[2]]);
+            }
+                
+        }
+        else{
+            return response()->json(['alert-type' => 'error','message' => 'validation error occured']);
+        }
+    }      
 
 }
