@@ -56,8 +56,8 @@
 
             <li @if(Route::is('team-member')) class="active" @endif>
                  <a href="{{route('team-member')}}">
-                    <i class="material-icons">people</i>
-                    <span>Member</span>
+                    <i class="material-icons">photo_library</i>
+                    <span>Gallary</span>
                 </a>
             </li>
              <li @if(Route::is('portfolio')) class="active" @endif>

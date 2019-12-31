@@ -119,7 +119,7 @@ Route::post('blog-update/{id}', [
 	'uses'  => 'BlogController@update'
 ]);
 
-Route::post('blog-delete/{slug}', [
+Route::post('blog-delete/{id}', [
 	'as' 	=> 'blog-delete',
 	'uses'  => 'BlogController@destroy'
 ]);

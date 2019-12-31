@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
 
      <!-- Title-->
-    <title>@yield('title','Towhid Foundation')</title>
+    <title>@yield('title','তৌহিদ ফাউন্ডেশন')</title>
     <!-- Style CSS -->
   
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">

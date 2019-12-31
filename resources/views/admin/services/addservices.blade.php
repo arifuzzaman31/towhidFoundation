@@ -1,7 +1,7 @@
 <div class="body">
     <form action="{{route('service.store')}}" method="post" enctype="multipart/form-data">
        @csrf
-        <label for="title">Sort Description</label>
+        <label for="title">Title</label>
         <div class="form-group">
             <div class="form-line">
                 <input type="text" id="title" name="title" class="form-control">

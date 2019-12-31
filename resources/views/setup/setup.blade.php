@@ -6,7 +6,7 @@
          content="website" />
 
         <meta property="og:title"        
-         content="Towhid Foundation | Social Charity" />
+         content="তৌহিদ ফাউন্ডেশন | Social Charity" />
         <meta property="og:description"   
         content="Can you avoid technology in modern life? If ‘NO’ then we find you as our speaker, our walk finder. You’ll tell us your suggestion, fascination, need, everything! Trust us, we’ll listen to you like a first grade student.
         We regularly monitor global changes. Thus, our motto is ‘Be Bird’. We fly to embrace best one from any part of the globe. What do you guess? We bring it for only us? ‘NO’ we bring it for you first.
@@ -20,7 +20,7 @@
         @include('section.hero_area')
         <!-- Hero area end -->
         <!-- Feature area start -->
-        @include('section.feature')
+        <!-- include('section.feature') -->
         <!-- Feature area end -->
         <!-- About area start -->
         
@@ -29,7 +29,7 @@
         @include('section.service')
         <!-- Service area end -->
         <!-- Portfolio area start -->
-        @include('section.portfolio')
+        <!-- include('section.portfolio') -->
         <!-- Portfolio area end -->
         <!-- Team area start -->
         @include('section.team_area')

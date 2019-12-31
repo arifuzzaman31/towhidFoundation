@@ -5,7 +5,7 @@
         <div class="row ">
             <div class="col-xl-7  col-lg-7 offset-lg-5 offset-xl-5">
                 <div class="video-content-inner">
-                    <h1 class="mb-20">Limmex Automation</h1>
+                    <h1 class="mb-20">তৌহিদ ফাউন্ডেশন</h1>
                     <h5>
                     Can you avoid technology in modern life? If ‘NO’ then we find you as our speaker, our walk finder. You’ll tell us your suggestion, fascination, need, everything! Trust us, we’ll listen to you like a first grade student.
                     We regularly monitor global changes. Thus, our motto is ‘Be Bird’. We fly to embrace best one from any part of the globe. What do you guess? We bring it for only us? ‘NO’ we bring it for you first. 

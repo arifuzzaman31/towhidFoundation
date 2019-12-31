@@ -19,8 +19,10 @@
                 <input type="file" id="icon" name="image" class="form-control">
             </div>
         </div>
-        <input type="checkbox" id="remember_me" name="status" value="1" class="filled-in">
-        <label for="remember_me">Status</label>
+        <div class="demo-switch-title">Status</div>
+            <div class="switch">
+                <label><input type="checkbox" name="status" value="1" checked><span class="lever switch-col-green"></span></label>
+            </div>
         <br>
         <button type="submit" class="btn btn-primary m-t-15 waves-effect">Add</button>
     </form>

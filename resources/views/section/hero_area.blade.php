@@ -15,7 +15,7 @@
             </div>
             <div class="col-xl-5 col-lg-6">
                 <div class="hero-area-shape ">
-                    <img src="assets/img/shape/hero-area.png " alt=" ">
+                    <img src="{{URL::to('assets/img/shape/hero-area.png')}} " alt=" ">
                 </div>
             </div>
         </div>

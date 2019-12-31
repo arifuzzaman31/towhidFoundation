@@ -10,7 +10,7 @@
          content="{{asset('images/blog-image/'.$blog->blog_image)}}" />
 
     <meta property="og:title" content="{{ $blog->title }}" />
-    <meta property="og:description" content="{{ $blog->sort_description }}" />
+    <meta property="og:description" content="{!! $blog->description !!}" />
 @endsection
 @section('content')
 <!-- Blog post area Start -->
@@ -33,7 +33,7 @@
                     </div>
                     <div class="blog-post-inner-content">
                         <h2 class="post-title">{{ $blog->title }}</h2>
-                        <p class="mt-15">{{$blog->description}}</p>
+                        <p class="mt-15">{!! $blog->description !!}</p>
                     </div>
                 </div>  
             </div>

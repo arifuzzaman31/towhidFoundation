@@ -1,5 +1,5 @@
 @extends('app')
-@section('title','Limmex Automation | Blogs')
+@section('title','তৌহিদ ফাউন্ডেশন | Blogs')
 @section('meta')
     <meta property="og:url"          
         content="{{ route('get-all-blog') }}" />
@@ -7,7 +7,7 @@
             <meta property="og:image"        
          content="{{ asset('images/logo_seo.png') }}" />
 
-    <meta property="og:title" content="Limmex Automation | Blogs" />
+    <meta property="og:title" content="তৌহিদ ফাউন্ডেশন | Blogs" />
     <meta property="og:description" content="IT,ITES,IOT Service Provider" />
 @endsection
 @section('content')
@@ -21,7 +21,7 @@
                     @if(count($allblogs) > 0)
                         @foreach($allblogs as $blog)
                         <div class="single-blog-content">
-                            <div class="single-blo-feature-image mb-45" data-background="assets/img/Blog/blog-1.jpg">
+                            <div class="single-blo-feature-image mb-45" data-background="{{URL::to('images/blog-image/'.$blog->blog_image)}}">
                                 <div class="blog-meta-date">
                                     <div class="blog-post-date-content">
                                         <span class="posted-on"><a href="#">{{date('d F Y', strtotime($blog->created_at))}}</a></span>
@@ -35,7 +35,7 @@
                             </div>
                             <div class="blog-post-inner-content">
                                 <h2 class="post-title"><a href="single-blog.html">{{$blog->title}}</a></h2>
-                                <p class="mt-15">{{$blog->description}}</p>
+                                <p class="mt-15">{!! $blog->description !!}</p>
                             </div>
                             <div class="blog-readmore-btn">
                                 <a href="{{route('get-specific-blog',$blog->slug)}}">read-more <i class="fa fa-angle-right"></i></a>

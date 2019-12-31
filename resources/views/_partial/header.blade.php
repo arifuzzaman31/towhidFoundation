@@ -16,7 +16,7 @@
                 <div class="row justify-content-xl-center">
                     <div class="col-xl-2">
                         <div class="site-logo site-top-logo">
-                            <a href="{{ url('/') }}" title="Limmex Automation">
+                            <a href="{{ url('/') }}" title="তৌহিদ ফাউন্ডেশন">
                                 <img src="{{asset('assets/img/site-logo/limmex_logo.png')}}" alt="Limmex Automation Logo">
                             </a>
                         </div>
@@ -26,17 +26,17 @@
                         <div class="heus-main-menu">
                             <nav id="mobile-menu">
                                 <ul id="menu">
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="#about" title="About Limmex Automation">About</a></li>
-                                    <li><a href="#services" title="Limmex Automation Services">services</a></li>
-                                    <li><a href="#portfolio" title="Limmex Automation Portfolio">Portfolio</a></li>
-                                    <li><a href="#team" title="Limmex Automation Team">Team</a></li>
-                                    <li><a href="{{route('get-all-blog')}}" title="Limmex Automation Blog">Blog</a>
-                                    <li><a href="#contact">Contact</a></li>
+                                    <li><a href="{{ url('/') }}">হোম</a></li>
+                                    <li><a href="#about" title="তৌহিদ ফাউন্ডেশন">আমাদের সম্পর্কে</a></li>
+                                    <li><a href="#services" title="Limmex Automation Services">সেবা সমূহ</a></li>
+                                    <!-- <li><a href="#portfolio" title="Limmex Automation Portfolio">Portfolio</a></li> -->
+                                    <li><a href="#team" title="Limmex Automation Team">ফটো ফাইল</a></li>
+                                    <li><a href="{{route('get-all-blog')}}" title="Limmex Automation Blog">ব্লগ</a>
+                                    <li><a href="#contact">যোগাযোগ করুন</a></li>
                                 </ul>
                             </nav>
                             <div class="support-btn btn">
-                                <a href="tel:+88 01834-394216">Call Us<span>+88 01834-394216</span></a>
+                                <a href="tel:01834-394216">ফোন করুন<span>০১৫৫৪৫৪৩৪৫</span></a>
                             </div>
                         </div>
                     </div>

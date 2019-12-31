@@ -11,6 +11,7 @@ use App\Team;
 use App\Blog;
 use App\Priceplan;
 use App\Userquery;
+use DB;
 
 class FrontController extends Controller
 {
@@ -50,37 +51,35 @@ class FrontController extends Controller
 
     public function SaveForm(Request $request)
     {
+        // return $request->all();
         $validation = Validator::make($request->all(),[
             'service_id' => 'required',
             'name'       => 'required',
-            'phone'      => 'required|numeric',
+            'phone'      => 'required',
             'address'    => 'required',
-            'message'    => 'required|max:600'
+            'message'    => 'required'
         ]);
         if (!$validation->fails()) {
             try {
-                 $store = Userquery::insert([
-                'service_id' => $request->id,
-                'name'       => $request->name,
-                'phone'      => $request->phone,
-                'address'    => $request->address,
-                'message'    => $request->message
-            ]);
+                DB::beginTransaction();
+                $store = Userquery::insert([
+                    'service_id' => $request->service_id,
+                    'name'       => $request->name,
+                    'phone'      => $request->phone,
+                    'address'    => $request->address,
+                    'message'    => $request->message
+                ]);
 
-                if ($store) {
-                    return response()->json(['alert-type' => 'success','message' => 'আপনার মেসেজটি পাঠানো হয়েছে।']);
-                }
-                else{
-                    return response()->json(['alert-type' => 'error','message' => 'দুঃখিত! আবার চেষ্টা করুন।']);
-                    }
+                DB::commit();
+                return response()->json(['alert-type' => 'success','message' => 'আপনার মেসেজটি পাঠানো হয়েছে।']);
+                  
             }catch (Exception $e) {
+                DB::rollback();
                  return response()->json(['alert-type' => 'error','message' => $e->errorInfo[2]]);
             }
                 
         }
-        else{
-            return response()->json(['alert-type' => 'error','message' => 'validation error occured']);
-        }
+        return response()->json(['alert-type' => 'error','message' => 'পূণঃবার সকল তথ্য সঠিকভাবে পূরণ করুন।']);
     }      
 
 }

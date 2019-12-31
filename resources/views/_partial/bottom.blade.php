@@ -51,14 +51,16 @@
 <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery.nav.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}} "></script>
-<!-- <script src="{{asset('assets/js/custom.js')}} "></script> -->
-
+<script src="{{asset('assets/js/custom.js')}} "></script>
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content');
+        }
+    });
+</script>
 <script type="text/javascript">
-  $.ajaxSetup({
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-  });
+  
 $('#serviceModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
   var id = button.data('whatever').split('-')[0]
@@ -71,24 +73,29 @@ $('#serviceModal').on('show.bs.modal', function (event) {
       var phone   = modal.find('#reciept-phone').val();
       var address = modal.find('#recipient-address').val();
       var message = modal.find('#recipient-message').val();
-
+      
       if (name != '' && phone != '' && address != '' && message != '') {}
         $.ajax({
             url : 'send-user-request',
             type: 'POST',
             dataType: 'JSON',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             data : {
-                    'id': id,'name': name,'phone': phone,
+                    'service_id': id,'name': name,'phone': phone,
                     'address': address,'message': message
                   },
             success: function(data){
-                console.log(data);
+                console.log(data.message);
+                $('#serviceModal').modal('hide');
             },
             error: function(data){
-                console.log(data);
+                console.log(data.message);
             }
         });
   });
+  // event.preventDefault();
 })
 </script>
 

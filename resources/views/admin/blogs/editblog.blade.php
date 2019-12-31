@@ -1,5 +1,4 @@
 <div class="card">
-  <!-- <img class="card-img-top" src="..." alt="Card image cap" height="60px" width="80px"> -->
 	  <div class="card-body">
 	    <div class="body">
 		    <form action="{{route('blog.update',$data->id)}}" method="post" enctype="multipart/form-data">
@@ -18,11 +17,15 @@
 		        </div>
 		         <div class="form-group">
 		            <div class="form-line">
+		            	@if($data->blog_image)
+		            	<img class="card-img-top" src="{{URL::to('images/blog-image/'.$data->blog_image)}}" alt="{{$data->title}}" height="60px" width="80px">@endif
 		                <input type="file" id="icon" name="image" class="form-control">
 		            </div>
 		        </div>
-		        <input type="checkbox" id="remember_me" name="status" value="1" class="filled-in">
-		        <label for="remember_me">Status</label>
+		        <div class="demo-switch-title">Status</div>
+		            <div class="switch">
+		                <label><input type="checkbox" name="status" value="1" @if($data->status == 1) checked @endif><span class="lever switch-col-green"></span></label>
+		            </div>
 		        <br>
 		        <button type="submit" class="btn btn-primary m-t-15 waves-effect">Update</button>
 		    </form>

@@ -1,10 +1,10 @@
-<section id="services" class="service position-relative pt-125 pb-120 theme-bg">
+<section id="services" class="service position-relative pt-80 theme-bg">
     @if(count($paidServices) > 0)
     <div class="container">
         <div class="row">
         <div class="col-xl-5">
             <div class="section-title mb-45">
-                <h4 class="text-uppercase">আমাদের সেবা</h4>
+                <h4 class="text-center" style="border-bottom: 2px solid #121d61;">আমাদের সেবা</h4>
                 <h1>সল্পমূল্যে সেবা সমূহ</h1>
             </div>
         </div>
