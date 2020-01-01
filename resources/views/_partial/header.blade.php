@@ -17,7 +17,7 @@
                     <div class="col-xl-2">
                         <div class="site-logo site-top-logo">
                             <a href="{{ url('/') }}" title="তৌহিদ ফাউন্ডেশন">
-                                <img src="{{asset('assets/img/site-logo/limmex_logo.png')}}" alt="Limmex Automation Logo">
+                                <img src="{{asset('assets/img/site-logo/limmex_logo.png')}}" alt="তৌহিদ ফাউন্ডেশন লোগো">
                             </a>
                         </div>
                         <div class="responsive-menu d-xl-none d-lg-none"></div>
@@ -28,15 +28,15 @@
                                 <ul id="menu">
                                     <li><a href="{{ url('/') }}">হোম</a></li>
                                     <li><a href="#about" title="তৌহিদ ফাউন্ডেশন">আমাদের সম্পর্কে</a></li>
-                                    <li><a href="#services" title="Limmex Automation Services">সেবা সমূহ</a></li>
+                                    <li><a href="#services" title="তৌহিদ ফাউন্ডেশন সেবাসমূহ">সেবা সমূহ</a></li>
                                     <!-- <li><a href="#portfolio" title="Limmex Automation Portfolio">Portfolio</a></li> -->
-                                    <li><a href="#team" title="Limmex Automation Team">ফটো ফাইল</a></li>
-                                    <li><a href="{{route('get-all-blog')}}" title="Limmex Automation Blog">ব্লগ</a>
-                                    <li><a href="#contact">যোগাযোগ করুন</a></li>
+                                    <li><a href="#team" title="তৌহিদ ফাউন্ডেশন ফটোফাইল">ফটো ফাইল</a></li>
+                                    <li><a href="{{route('get-all-blog')}}" title="তৌহিদ ফাউন্ডেশন ব্লগ">ব্লগ</a>
+                                    <li><a href="#contact">যোগাযোগ</a></li>
                                 </ul>
                             </nav>
                             <div class="support-btn btn">
-                                <a href="tel:01834-394216">ফোন করুন<span>০১৫৫৪৫৪৩৪৫</span></a>
+                                <a href="tel:01304004000">ফোন করুন<span>০১৩০৪০০৪০০০</span></a>
                             </div>
                         </div>
                     </div>

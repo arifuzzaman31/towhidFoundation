@@ -6,13 +6,13 @@
          content="website" />
 
         <meta property="og:title"        
-         content="তৌহিদ ফাউন্ডেশন | Social Charity" />
+         content="তৌহিদ ফাউন্ডেশন | মানবতার সেবায়" />
         <meta property="og:description"   
         content="Can you avoid technology in modern life? If ‘NO’ then we find you as our speaker, our walk finder. You’ll tell us your suggestion, fascination, need, everything! Trust us, we’ll listen to you like a first grade student.
         We regularly monitor global changes. Thus, our motto is ‘Be Bird’. We fly to embrace best one from any part of the globe. What do you guess? We bring it for only us? ‘NO’ we bring it for you first.
         Again ‘Be Bird’ leads to think you like a Bird. You can have a Birds Eye View to deal with your home and work. So, let’s fly together and bring the best for rest of the world." />
         <meta property="og:image"        
-         content="{{ asset('images/logo_seo.png') }}" />
+         content="{{ asset('images/TF Logo_Bangla.png') }}" />
         @endsection
 
 	@section('content')
@@ -38,7 +38,7 @@
         @include('section.video')
         <!-- Video area end -->
         <!-- Price area start -->
-        @include('section.price_area')
+        <!-- include('section.price_area') -->
         <!-- Price area end -->
         <!-- Plan area Start -->
         @include('section.blog')

@@ -1,10 +1,10 @@
-<section id="services" class="service position-relative pt-80 theme-bg">
+<section id="services" class="service position-relative pt-60">
     @if(count($paidServices) > 0)
-    <div class="container">
+    <div class="container" id="সল্পমূল্যে">
         <div class="row">
         <div class="col-xl-5">
             <div class="section-title mb-45">
-                <h4 class="text-center" style="border-bottom: 2px solid #121d61;">আমাদের সেবা</h4>
+                <h4 class="text-center our-service">আমাদের সেবা</h4>
                 <h1>সল্পমূল্যে সেবা সমূহ</h1>
             </div>
         </div>
@@ -25,7 +25,7 @@
     @endif
 
      @if(count($freeServices) > 0)
-    <div class="container">
+    <div class="container" id="বিনামূল্যে">
         <div class="row">
         <div class="col-xl-5">
             <div class="section-title mb-45">
@@ -48,3 +48,14 @@
     </br>
     @endif
 </section>
+@push('style')
+<style>
+    @media screen and (min-width: 769px) {
+      .our-service {
+        border-bottom: 3px solid #121d61;
+        margin: 25px 330px;
+        padding-bottom: 28px;
+      }
+    }  
+</style>
+@endpush

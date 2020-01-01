@@ -83,22 +83,22 @@ Route::post('service-update/{id}', [
 	'uses'  => 'ServiceController@update'
 ]);
 
-Route::get('service-delete/{slug}', [
+Route::get('service-delete/{id}', [
 	'as' 	=> 'service-delete',
 	'uses'  => 'ServiceController@destroy'
 ]);
 
-Route::get('edit.service/{slug}', [
+Route::get('edit.service/{id}', [
 	'as' 	=> 'edit.Service',
 	'uses'  => 'ServiceController@edit'
 ]);
 
-Route::get('show-service/{slug}', [
+Route::get('show-service/{id}', [
 	'as' 	=> 'show-Service',
 	'uses'  => 'ServiceController@show'
 ]);
 
-Route::get('change-service-status/{slug}', [
+Route::get('change-service-status/{id}', [
 	'as' 	=> 'change-service-status',
 	'uses'  => 'ServiceController@changestatus'
 ]);

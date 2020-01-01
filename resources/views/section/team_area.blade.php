@@ -1,44 +1,23 @@
-<section class="team-membar position-relative pt-30 pb-80 theme-bg" id="team" style="background: #cddee4;">
-     <div class="container">
-        <div class="row">
-            <div class="col-xl-6 offset-xl-3 text-center">
-                <div class="section-title mb-45">
-                    <h4 class="text-uppercase mb-20"></h4>
-                    <h1>Our <br> Gallary </h1>
-                </div>
+<section class="team-membar position-relative pt-30 pb-80 theme-bg" id="team" style="background: #f2f9ff;">
+ <div class="container">
+    <div class="row">
+        <div class="col-xl-6 offset-xl-3 text-center">
+            <div class="section-title mb-45">
+                <h4 class="text-uppercase mb-20"></h4>
+                <h1> আমাদের <br> গ্যালারি </h1>
             </div>
         </div>
-       <!-- <div class="row">
-        @if(count($team_members) > 0)
-        @foreach($team_members as $team_member)
-            <div class="col-xl-4 col-lg-4">
-                <div class="single-team text-center pb-10 pt-10 pl-10 pr-10 bg-white">
-                    <div class="team-bg position-relative" data-background="{{asset('images/team-member-image/'.$team_member->image)}}">
-                        <div class="member-social-link">
-                            <ul>
-                                <li><a href="{{$team_member->fb_link}}" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                <li> <a href="{{$team_member->tw_link}}" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                <li> <a href="{{$team_member->in_link}}" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="team-meta pt-40 pb-40">
-                        <h4>{{$team_member->caption}}<span>{{$team_member->created_at->diffForHumans()}}</span></h4>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-        @endif
-        </div>
-    </div> -->
+    </div>
 <div class="container">
     <div class="row">
             @if(count($team_members) > 0)
                 @foreach($team_members as $team_member)
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+
                 <a class="thumbnail" href="#" data-image-id="$team_member->id" data-toggle="modal" data-title="@if($team_member->caption){{$team_member->caption}} @else This is Nice Picture @endif"
                    data-image="{{asset('images/team-member-image/'.$team_member->image)}}"
                    data-target="#image-gallery">
+                   <p class="text-center">@if($team_member->caption){{$team_member->caption}} @else This is Nice Picture @endif</p>
                     <img class="img-thumbnail"
                          src="{{asset('images/team-member-image/'.$team_member->image)}}"
                          alt="Another alt text">
@@ -86,6 +65,10 @@
     .thumb{
       margin-top: 15px;
       margin-bottom: 15px;
+    }
+
+    .img-thumbnail:hover {
+        box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
     }
 </style>
 @endpush

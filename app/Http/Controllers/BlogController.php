@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Blog;
 use DB;
+use Helper;
 
 class BlogController extends Controller
 {
@@ -41,8 +42,7 @@ class BlogController extends Controller
                 DB::beginTransaction();
                 $insertid = Blog::insertGetId([
                     'title'      =>  $request->title,
-                    'slug'       =>  Str::slug($request->title,'-'),
-                    'sort_description'=> substr($request->description, 0,80),
+                    'slug'       =>  Helper::make_slug($request->title),
                     'description'=>  $request->description,
                     'status'     =>  $status
                 ]);
@@ -93,8 +93,7 @@ class BlogController extends Controller
                 $updated = Blog::where('id',$id)->first();
                     $updated->update([
                         'title'      =>  $request->title,
-                        'slug'       => Str::slug($request->title,'-'),
-                        'sort_description' => substr($request->description, 0,80),
+                        'slug'       => Helper::make_slug($request->title),
                         'description'=>  $request->description,
                         'status'     =>  $status,
                     ]);

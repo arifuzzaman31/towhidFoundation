@@ -1,5 +1,5 @@
 @extends('app')
-@section('title','তৌহিদ ফাউন্ডেশন | Blogs')
+@section('title','তৌহিদ ফাউন্ডেশন | ব্লগ')
 @section('meta')
     <meta property="og:url"          
         content="{{ route('get-all-blog') }}" />
@@ -7,8 +7,8 @@
             <meta property="og:image"        
          content="{{ asset('images/logo_seo.png') }}" />
 
-    <meta property="og:title" content="তৌহিদ ফাউন্ডেশন | Blogs" />
-    <meta property="og:description" content="IT,ITES,IOT Service Provider" />
+    <meta property="og:title" content="তৌহিদ ফাউন্ডেশন | ব্লগ" />
+    <meta property="og:description" content="মানবতার সেবায়। একটি সম্পূর্ণ অ-রাজনৈতিক ও অ-লাভজনক সেচ্ছাসেবী প্রতিষ্ঠান" />
 @endsection
 @section('content')
 <!-- Blog post area Start -->
@@ -24,7 +24,7 @@
                             <div class="single-blo-feature-image mb-45" data-background="{{URL::to('images/blog-image/'.$blog->blog_image)}}">
                                 <div class="blog-meta-date">
                                     <div class="blog-post-date-content">
-                                        <span class="posted-on"><a href="#">{{date('d F Y', strtotime($blog->created_at))}}</a></span>
+                                        <span class="posted-on"><a href="{{route('get-specific-blog',$blog->slug)}}">{{date('d F Y', strtotime($blog->created_at))}}</a></span>
                                     </div>
                                 </div>
                             </div>

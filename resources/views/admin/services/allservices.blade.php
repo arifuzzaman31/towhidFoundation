@@ -27,7 +27,7 @@
 	                <tr>
 	                    <td style="width: 5%">{{$i}}</td>
 	                    <td style="width: 18%">{!! $service->title !!}</td>
-	                    <td style="width: 40%">{!! substr($service->description,0,80) !!}....</td>
+	                    <td style="width: 40%">{{ substr($service->description,0,80) }}....</td>
                         <td>
                         @if($service->image)
                             <img src="{{URL::to('images/service-image/'.$service->image)}}" height="40px" width="50px">
@@ -35,15 +35,15 @@
                         </td>
                         <td style="width: 12%">{{$service->type}}</td>
 	                    <td style="width: 15%">
-	                    	<a onclick="getModal('edit.service/{{$service->slug}}','Edit Service')" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+	                    	<a onclick="getModal('edit.service/{{$service->id}}','Edit Service')" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
                             
-                            <a onclick="getModal('show-service/{{$service->slug}}','Show Service')" title="View" type="button" class="btn btn-primary btn-xs">
+                            <a onclick="getModal('show-service/{{$service->id}}','Show Service')" title="View" type="button" class="btn btn-primary btn-xs">
                             <i class="fa fa-book"></i>
                           </a>
 
-	                    	<a type="button" title="Status" href=" {{route('change-service-status',$service->slug)}}" class="btn @if($service->status > 0) btn-success @else btn-warning @endif btn-xs">@if($service->status > 0)<i class="fa fa-check-circle"></i> @else <i class="fa fa-ban"></i> @endif</a>
+	                    	<a type="button" title="Status" href=" {{route('change-service-status',$service->id)}}" class="btn @if($service->status > 0) btn-success @else btn-warning @endif btn-xs">@if($service->status > 0)<i class="fa fa-check-circle"></i> @else <i class="fa fa-ban"></i> @endif</a>
 
-		                  <a type="button" title="Delete" href="{{route('service-delete',$service->slug)}}" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+		                  <a type="button" title="Delete" href="{{route('service-delete',$service->id)}}" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
 
 	                    </td>
 	                    

@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 use App\Service;
 use DB;
+use Helper;
 
 class ServiceController extends Controller
 {
@@ -17,9 +18,9 @@ class ServiceController extends Controller
     }
 
 
-    public function changestatus($slug)
+    public function changestatus($id)
     {
-        $data = Service::where('slug',$slug)->first();
+        $data = Service::where('id',$id)->first();
             if ($data->status == 0) {
                 $data->status = 1;
             }
@@ -48,13 +49,13 @@ class ServiceController extends Controller
                     $imageName = time().'.'.$image->getClientOriginalExtension();
                     $image->move('images/service-image',$imageName);
                     Service::insert([
-                        'title'            => $request->title,
-                        'slug'             => Str::slug($request->title,'-'),
-                        'description'      => $request->description ,
-                        'type'             => $request->type ,
-                        'image'            => $imageName ,
-                        'service_link'     => $request->service_link,
-                        'status'           => $status
+                        'title'         => $request->title,
+                        'slug'          => Helper::make_slug($request->title),
+                        'description'   => $request->description,
+                        'type'          => $request->type,
+                        'image'         => $imageName,
+                        'service_link'  => $request->service_link,
+                        'status'        => $status
                     ]);
                     DB::commit();
                     return back()->with(['alert-type' => 'success','message' => 'Service Added successfull']);
@@ -67,15 +68,15 @@ class ServiceController extends Controller
         return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
     }
 
-    public function show($slug)
+    public function show($id)
     {
-       $data = Service::where('slug',$slug)->first();
+       $data = Service::where('id',$id)->first();
         return view('admin.services.showservices',compact('data'));
     }
 
-    public function edit($slug)
+    public function edit($id)
     {
-        $data = Service::where('slug',$slug)->first();
+        $data = Service::where('id',$id)->first();
         return view('admin.services.editservices',compact('data'));
     }
 
@@ -92,7 +93,7 @@ public function update(Request $request, $id)
             DB::beginTransaction();
             $updated = Service::where('id',$id)->first();
             $updated->title            = $request->title;
-            $updated->slug             = Str::slug($request->title,'-');
+            $updated->slug             = Helper::make_slug($request->title);
             $updated->description      = $request->description;
             $updated->type             = $request->type;
             $updated->service_link     = $request->service_link;
@@ -126,9 +127,9 @@ public function update(Request $request, $id)
     }
 }
 
-    public function destroy($slug)
+    public function destroy($id)
     {
-        $data = Service::where('slug',$slug)->first();
+        $data = Service::where('id',$id)->first();
         $data->delete();
         return back()->with(['alert-type' => 'warning','message' => 'Data Deleted']);
     }

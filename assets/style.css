@@ -558,7 +558,7 @@ section.hero-area {
 .section-title h4 {
     font-size: 36px;
     color: #1085e4;
-    margin: 25px 330px;
+    
     width: 100%;
 }
 
@@ -826,8 +826,9 @@ section.video-area {
     height: 100%;
     width: 42%;
     background-color: #ddd;
+    display: block;
     background-size: cover;
-    background-position: center;
+    /*background-position: center;*/
 }
 
 .video-after-shape {
