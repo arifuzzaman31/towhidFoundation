@@ -6,7 +6,7 @@
 
     <style type="text/css">
     .register{
-        background: -webkit-linear-gradient(left, #6C147A, #2A80BD);
+        background: -webkit-linear-gradient(left, #37b92fcf, #16496d);
         margin-top: 3%;
         padding: 3%;
     }
@@ -101,9 +101,9 @@
         <div class="row">
             <div class="col-md-3 col-3 register-left">
                 <img src="{{ url('images/logo.png') }}" alt=""/>
-                <h3>Welcome</h3>
-                <p>Limmex Automation Largest Equipment Supplier In Bangladesh <br>
-                     Please Scrol To Get Message
+                <h3>স্বাগতম</h3>
+                <p>তৌহিদ ফাউন্ডেশন। মানবতার সেবায়। <br>
+                     মেসেজটি পেতে স্ক্রল করুন।
 
                   </p>
                 <!-- <input type="submit" name="" value="Login"/><br/> -->
@@ -112,16 +112,16 @@
    
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h3 class="register-heading">Email From Limmex Automation Website</h3>
+                        <h3 class="register-heading">Email From Towhid Foundation</h3>
                         <div class="row register-form">
                             <div class="card">
                               <div class="card-body">
-                                <h5 class="card-title">Subject : {{ $subject }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted"> <a href="mailto:{{ $email }}">From:{{ $email }}</a></h6>
+                                <h5 class="card-title">Subject :  {{ $subject }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted"> <a href="mailto:{{$email}}">From:{{$email}}</a></h6>
                                 <p class="card-text">
                                     {!! $user_message !!}
                                 </p>
-                                <a href="mailto:{{ $email }}" class="card-link">{{ $name }}</a></br>
+                                <a href="mailto:{{$email}}" class="card-link"></a></br>
                                 <a href="#" class="card-link">{{ $phone }}</a>
                             </div>
                         </div>

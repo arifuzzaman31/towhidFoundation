@@ -63,10 +63,10 @@
   
 $('#serviceModal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Button that triggered the modal
-  var id = button.data('whatever').split('-')[0]
-  var title = button.data('whatever').split('-')[1]
+  var id = button.data('whatever')
+  var title = button.data('title')
   var modal = $(this)
-  modal.find('.modal-title').text('আপনি ' + title + ' গ্রহণ করতে আগ্রহী').css('font-style','italic')
+  modal.find('.modal-title').text('আপনি “' + title + ' ” সেবাটি গ্রহণ করতে আগ্রহী').css('font-style','italic')
   
   $('.submit-btn').on('click',function(){
       var name    = modal.find('#recipient-name').val();

@@ -33,7 +33,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Rubik:300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
 body {
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Rubik','SolaimanLipi', sans-serif;
     font-weight: normal;
     font-style: normal;
     font-size: 16px;
@@ -81,6 +81,7 @@ a:hover,
 
 a,
 button {
+    font-family: 'SolaimanLipi';
     color: #1696e7;
     outline: medium none;
 }
@@ -99,7 +100,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans','bangla', sans-serif;
     font-weight: normal;
     color: #0a0c19;
     margin: 0px;
@@ -378,6 +379,7 @@ header.header-area.sticky {
 .heuse-hero-btn a.btn.btn-filled {
     background: #afc536;
     color: #fff;
+    margin-bottom: 35px;
 }
 
 .support-btn.btn a span {
@@ -1730,7 +1732,7 @@ footer.footer-area {
     background-size: cover;
     min-height: 180px;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 12px;
     text-shadow: rgba(0,0,0,.8) 0 1px 0;
     border-radius: 4px;
     }

@@ -185,8 +185,41 @@ Route::get('change-member-status/{id}', [
 	'as' 	=> 'change-member-status',
 	'uses'  => 'MemberController@changeStatus'
 ]);
+	//Album
+Route::get('album', [
+	'as' 	=> 'get-album',
+	'uses'  => 'AlbumController@index'
+]);
 
+Route::get('get-to-create', [
+	'as' 	=> 'get-to-create',
+	'uses'  => 'AlbumController@create'
+]);
 
+Route::post('album.store', [
+	'as' 	=> 'album.store',
+	'uses'  => 'AlbumController@store'
+]);
+
+Route::get('change-album-status/{id}', [
+	'as' 	=> 'change-album-status',
+	'uses'  => 'AlbumController@changeStatus'
+]);
+
+Route::get('album-delete/{id}', [
+	'as' 	=> 'album-delete',
+	'uses'  => 'AlbumController@destroy'
+]);
+
+Route::get('edit.album/{id}', [
+	'as' 	=> 'edit.album',
+	'uses'  => 'AlbumController@edit'
+]);
+
+Route::post('album-update/{id}', [
+	'as' 	=> 'album.update',
+	'uses'  => 'AlbumController@update'
+]);
 	//Portfolio
 
 Route::get('portfolio', [

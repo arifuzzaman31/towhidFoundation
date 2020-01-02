@@ -1,6 +1,6 @@
 @extends('app')
 @section('title')
-{{ $services->sort_description }}
+{!! $services->title !!}
 @endsection
 @section('meta')
     <meta property="og:url"          
@@ -9,7 +9,7 @@
     <meta property="og:image"        
          content="{{asset('assets/service-image/'.$services->image)}}" />
 
-    <meta property="og:title" content="{{ $services->sort_description }}" />
+    <meta property="og:title" content="{{ $services->description }}" />
     <meta property="og:description" content="{{ $services->description }}" />
 @endsection
 @section('content')
@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="single-blog-content">
-                            <div class="single-blo-feature-image mb-45" data-background="{{asset('assets/service-image/'.$services->image)}}">
+                            <div class="single-blo-feature-image mb-45" data-background="{{asset('images/service-image/'.$services->image)}}">
                                 <div class="blog-meta-date">
                                     <div class="blog-post-date-content">
                                         <span class="posted-on"><a href="#" >{{$services->created_at->toFormattedDateString()}}</a></span>
@@ -31,13 +31,12 @@
                             <div class="post-meta ppst-meta-content mb-15">
                                 <ul>
                                     <li> <i class="fa fa-clock-o" aria-hidden="true"></i> {{$services->created_at->diffForHumans()}}</li>
-                                    @if($services->service_link)
-                                    <li class="float-right"><a href="{{$services->service_link}}" target="_blank">Show This Service</a></li>@endif
+                                        <li class="float-right"><button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$services->title}}" data-whatever="{{$services->id}}">সার্ভিসটি গ্রহণ করুন</button></li>
                                 </ul>
                             </div>
                             <div class="blog-post-inner-content">
-                                <h2 class="post-title">{{ $services->sort_description }}</h2>
-                                <p class="mt-15">{{$services->description}}</p>
+                                <h2 class="post-title">{!! $services->title !!}</h2>
+                                <p class="mt-15">{!! $services->description !!}</p>
                             </div>
                         </div>
                        

@@ -1,5 +1,7 @@
 <?php
-
+Route::get('us', function(){
+	return view('contact.us');
+});
 Route::get('login', [
 	'as' 	=> 'login',
 	'uses'  => 'DashboardController@login'

@@ -32,7 +32,7 @@ class ContactController extends Controller
 
       $contact->save();
 
-         $to = "limmexbd@gmail.com";
+         $to = "arifuzzaman.rb@gmail.com";
 
          $name = $request->name;
          $email = $request->email;
@@ -48,8 +48,8 @@ class ContactController extends Controller
      }
 
    catch(\Exception $e){
-           		return $e;
-            return response()->json(['status'=>'error','message'=>'Something Went Wrong !']);
+           		// return $e;
+            return response()->json(['status'=>'error','message'=>'Something Went Wrong !'.$e->errorInfo[2]]);
           }
      
 	}

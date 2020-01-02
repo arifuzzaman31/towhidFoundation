@@ -14,10 +14,10 @@
                 @foreach($team_members as $team_member)
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
 
-                <a class="thumbnail" href="#" data-image-id="$team_member->id" data-toggle="modal" data-title="@if($team_member->caption){{$team_member->caption}} @else This is Nice Picture @endif"
+                <a class="thumbnail" href="#" data-image-id="{{$team_member->id}}" data-toggle="modal" data-title="@if($team_member->caption){{$team_member->caption}} @else This is Nice Picture @endif"
                    data-image="{{asset('images/team-member-image/'.$team_member->image)}}"
                    data-target="#image-gallery">
-                   <p class="text-center">@if($team_member->caption){{$team_member->caption}} @else This is Nice Picture @endif</p>
+                   <!-- <p class="text-center">@if($team_member->caption){{$team_member->caption}} @else This is Nice Picture @endif</p> -->
                     <img class="img-thumbnail"
                          src="{{asset('images/team-member-image/'.$team_member->image)}}"
                          alt="Another alt text">

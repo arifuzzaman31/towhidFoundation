@@ -1,9 +1,7 @@
 <section id="about" class="video-area position-relative pt-125 pb-125">
-    <!-- <div class="video-before align-items-center" data-background="{{asset('assets/img/video/pngtree-charity.jpg')}}"> -->
-    <!-- </div> -->
     <div class="container">
-        <div class="row ">
-            <div class="col-xl-5 col-lg-5 col-md-5">
+        <div class="row">
+            <div class=" col-md-5">
                 <img src="{{asset('assets/img/video/world-transparent-helping-hand-3.png')}}">
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7">

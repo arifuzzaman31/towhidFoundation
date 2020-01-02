@@ -12,11 +12,6 @@
             <div class="btn-group user-helper-dropdown">
                 <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                 <ul class="dropdown-menu pull-right">
-                    <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
-                    <li role="seperator" class="divider"></li>
-                    <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                    <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                    <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                     <li role="seperator" class="divider"></li>
                     <li><a href="{{route('logout')}}"><i class="material-icons">input</i>Sign Out</a></li>
                 </ul>
@@ -53,12 +48,19 @@
                     <span>Blogs</span>
                 </a>
             </li>
-
-            <li @if(Route::is('team-member')) class="active" @endif>
-                 <a href="{{route('team-member')}}">
+            <li @if(Route::is('team-member') || Route::is('get-album')) class="active" @endif>
+                <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">photo_library</i>
-                    <span>Gallary</span>
+                    <span>Gallery</span>
                 </a>
+                <ul class="ml-menu">
+                    <li>
+                        <a href="{{route('get-album')}}">Album</a>
+                    </li>
+                    <li>
+                        <a href="{{route('team-member')}}">Photo</a>
+                    </li>
+                </ul>
             </li>
              <li @if(Route::is('portfolio')) class="active" @endif>
                  <a href="{{route('portfolio')}}">

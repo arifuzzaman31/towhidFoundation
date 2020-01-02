@@ -13,10 +13,10 @@
             @foreach($paidServices as $service)
                 <div class="col-12 col-sm-6 col-md-4 image-grid-item text-center">
                     <div style="background-image: url({{URL:: to('images/service-image/'.$service->image)}} );" class="image-grid-cover">
-                        <a href="#" class="image-grid-clickbox"></a>
-                        <a href="#" class="cover-wrapper">{{$service->title}}</a>
-                        <button class="servicebtn btn btn-info" data-toggle="modal" data-target="#serviceModal" data-whatever="{{$service->id}}-{{$service->title}}">সার্ভিসটি গ্রহণ করুন</button>
+                        <a href="{{route('get-specific-service',$service->slug)}}" class="image-grid-clickbox"></a>
+                        <a href="{{route('get-specific-service',$service->slug)}}" class="cover-wrapper">{{$service->title}}</a>
                     </div>
+                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$service->title}}" data-whatever="{{$service->id}}">সার্ভিসটি গ্রহণ করুন</button>
                 </div>
             @endforeach
         </div>
@@ -37,10 +37,10 @@
             @foreach($freeServices as $service)
                 <div class="col-12 col-sm-6 col-md-4 image-grid-item text-center">
                     <div style="background-image: url({{URL:: to('images/service-image/'.$service->image)}});" class="image-grid-cover">
-                        <a href="#" class="image-grid-clickbox"></a>
-                        <a href="#" class="cover-wrapper">{{$service->title}}</a>
-                        <button class="servicebtn btn btn-info" data-toggle="modal" data-target="#serviceModal" data-whatever="{{$service->id}}-{{$service->title}}">সার্ভিসটি গ্রহণ করুন</button>
+                        <a href="{{route('get-specific-service',$service->slug)}}" class="image-grid-clickbox"></a>
+                        <a href="{{route('get-specific-service',$service->slug)}}" class="cover-wrapper">{{$service->title}}</a>
                     </div>
+                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$service->title}}" data-whatever="{{$service->id}}">সার্ভিসটি গ্রহণ করুন</button>
                 </div>
             @endforeach
         </div>
