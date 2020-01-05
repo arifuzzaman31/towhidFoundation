@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keyword" content="তৌহিদ ফাউন্ডেশন">
     @yield('meta')
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}" />
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/site-logo/fab.png') }}" />
 
      <!-- Title-->
     <title>@yield('title','তৌহিদ ফাউন্ডেশন')</title>

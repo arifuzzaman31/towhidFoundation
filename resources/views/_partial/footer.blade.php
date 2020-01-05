@@ -7,7 +7,7 @@
                             <div class="widget footer-sidebar">
                                 <div class="site-logo footer-site-info">
                                     <a href="index.html">
-                                        <img src="{{asset('assets/img/site-logo/TF Logo_Bangla.png')}}" alt="">
+                                        <img src="{{asset('assets/img/site-logo/logo-bottom.png')}}" alt="">
                                     </a>
                                     <p class="mt-30">একটি সম্পূর্ণ অ-রাজনৈতিক ও অ-লাভজনক সেচ্ছাসেবী প্রতিষ্ঠান।</p>
                                 </div>

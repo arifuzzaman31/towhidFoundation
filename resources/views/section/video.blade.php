@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class=" col-md-5">
-                <img src="{{asset('assets/img/video/world-transparent-helping-hand-3.png')}}">
+                <img src="{{asset('assets/img/site-logo/about.png')}}">
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7">
                 <div class="video-content-inner">

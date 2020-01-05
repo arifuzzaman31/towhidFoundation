@@ -17,7 +17,7 @@
                     <div class="col-xl-2">
                         <div class="site-logo site-top-logo">
                             <a href="{{ url('/') }}" title="তৌহিদ ফাউন্ডেশন">
-                                <img src="{{asset('assets/img/site-logo/limmex_logo.png')}}" alt="তৌহিদ ফাউন্ডেশন লোগো">
+                                <img src="{{asset('assets/img/site-logo/logo-top.png')}}" alt="তৌহিদ ফাউন্ডেশন লোগো">
                             </a>
                         </div>
                         <div class="responsive-menu d-xl-none d-lg-none"></div>

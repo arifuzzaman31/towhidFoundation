@@ -11,20 +11,23 @@ use App\Team;
 use App\Blog;
 use App\Priceplan;
 use App\Userquery;
+use App\Album;
 use DB;
 
 class FrontController extends Controller
 {
     public function index()
     {
-    	$team_members =  Team::where('status',1)->get();
+        $albums = Album::where('status',1)->get();
+    	$galleries =  Team::where('status',1)->get();
+        // $album[$galleries->album_id] = json_encode(value);
     	$portfolios	  =  Portfolio::where('status',1)->get();
     	$features 	  =  Feature::where('status',1)->get();
     	$blogs 		  =  Blog::where('status',1)->take(2)->latest()->get();
         $paidServices   =  Service::where(['status'=>1,'type'=>'সল্পমূল্যে'])->get();
         $freeServices   =  Service::where(['status'=>1,'type'=>'বিনামূল্যে'])->get();
         $priceplans   =  Priceplan::where('status',1)->get();
-    	return view('setup.setup',compact('team_members','portfolios','features','blogs','paidServices','freeServices','priceplans'));
+    	return view('setup.setup',compact('galleries','albums','portfolios','features','blogs','paidServices','freeServices','priceplans'));
     }
 
     public function getSpecificService($slug)

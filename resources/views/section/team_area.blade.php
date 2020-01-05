@@ -9,17 +9,27 @@
         </div>
     </div>
 <div class="container">
+            <div align="center">
+                <button class="btn btn-default filter-button" data-filter="all">All</button>
+                @if(count($albums) > 0)
+                    @foreach($albums as $album)
+                        <button class="btn btn-default filter-button" data-id="{{$album->id}}" data-filter="{{$album->name}}">{{$album->name}}</button>
+                    @endforeach
+                @endif
+            </div>
+            <br>
     <div class="row">
-            @if(count($team_members) > 0)
-                @foreach($team_members as $team_member)
+            @if(count($galleries) > 0)
+            
+                @foreach($galleries as $gallery)
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
 
-                <a class="thumbnail" href="#" data-image-id="{{$team_member->id}}" data-toggle="modal" data-title="@if($team_member->caption){{$team_member->caption}} @else This is Nice Picture @endif"
-                   data-image="{{asset('images/team-member-image/'.$team_member->image)}}"
+                <a class="thumbnail" href="#" data-image-id="{{$gallery->id}}" data-toggle="modal" data-title="@if($gallery->caption){{$gallery->caption}} @else This is Nice Picture @endif"
+                   data-image="{{asset('images/team-member-image/'.$gallery->image)}}"
                    data-target="#image-gallery">
-                   <!-- <p class="text-center">@if($team_member->caption){{$team_member->caption}} @else This is Nice Picture @endif</p> -->
+                   <p class="text-center">@if($gallery->caption){{$gallery->caption}} @else This is Nice Picture @endif</p>
                     <img class="img-thumbnail"
-                         src="{{asset('images/team-member-image/'.$team_member->image)}}"
+                         src="{{asset('images/team-member-image/'.$gallery->image)}}"
                          alt="Another alt text">
                 </a>
             </div>
@@ -48,11 +58,13 @@
                 </div>
             </div>
         </div>
+        
     </div>
 </div>
 </section>
+
 @push('style')
-<style>
+ <style>
     .btn:focus, .btn:active, button:focus, button:active {
       outline: none !important;
       box-shadow: none !important;
@@ -71,4 +83,4 @@
         box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
     }
 </style>
-@endpush
+@endpush 

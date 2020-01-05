@@ -91,6 +91,13 @@ $(document)
     e.preventDefault(); // prevent the default action (scroll / move caret)
   });
 
+
+$(document).ready(function(){
+  $('.filter-button').on('click',function(){
+      var id = $(this).attr('data-filter');
+      alert(id);
+  });
+})
   
 // $('#contact-form').on('click', function(){
 // 	var name = $('#name').val();
@@ -101,7 +108,6 @@ $(document)
 
 // 	if (name != '' && email != '' && phone != '' && subject != '' && message != '') {
 // 		$.ajax({
-
 // 			url : '',
 // 			method: 'post',
 // 			dataType: 'json',
