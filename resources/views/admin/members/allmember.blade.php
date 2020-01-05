@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <th>SL</th>
+                    <th>Album</th>
                     <th>Caption</th>
                     <th>Picture</th>
                     <th>Action</th>
@@ -24,6 +25,7 @@
             	@foreach($members as $member)
 	                <tr>
 	                    <td style="width: 5%">{{$i}}</td>
+                        <td style="width: 10%">{{$member->album_name->name}}</td>
 	                    <td style="width: 30%">{{$member->caption}}</td>
                         <td>
                         @if($member->image)

@@ -16,6 +16,16 @@
 		                <input type="file" id="icon" name="image" class="form-control">
 		            </div>
 		        </div>
+		        <label for="album">Album :</label>
+		        <div class="row clearfix">
+		            <div class="col-sm-12">
+		                <select class="form-control show-tick" name="album_id" id="album">
+		                    @foreach($albums as $album)
+		                        <option value="{{$album->id}}" @if($album->id == $selectValue) selected @endif>{{$album->name}}</option>
+		                    @endforeach
+		                </select>
+		            </div>
+		        </div></br>
 		        <div class="demo-switch-title">Status</div>
 		            <div class="switch">
 		                <label><input type="checkbox" name="status" value="1" @if($data->status == 1) checked @endif><span class="lever switch-col-green"></span></label>

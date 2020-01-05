@@ -15,6 +15,7 @@ class CreateTeamsTable extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('album_id');
             $table->string('image');
             $table->string('caption',255)->nullable();
             $table->tinyInteger('status')->default(1);

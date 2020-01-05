@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Team;
+use App\Album;
 use DB;
 
 class MemberController extends Controller
@@ -34,6 +35,7 @@ class MemberController extends Controller
     {
         $status = $request->status ? 1 : 0;
         $validation = Validator::make($request->all(),[
+            'album_id' => 'required',
             'image' => 'required|image|mimes:jpeg,bmp,jpg,png,gif,svg'
         ]);
         if (!$validation->fails()) {
@@ -45,6 +47,7 @@ class MemberController extends Controller
                 $image->move('images/team-member-image',$imageName);
                 Team::insert([
                             'caption'=>  $request->caption,
+                            'album_id'=>  $request->album_id,
                             'image' => $imageName,
                             'status' =>  $status
                         ]);
@@ -69,8 +72,9 @@ class MemberController extends Controller
   
     public function edit($id)
     {
+        $albums = Album::where('status',1)->get();
         $data = Team::find($id);
-        return view('admin.members.editmember',compact('data'));
+        return view('admin.members.editmember',compact('data','albums'));
     }
 
 	public function update(Request $request, $id)
@@ -79,7 +83,8 @@ class MemberController extends Controller
     	   try {
     	        DB::beginTransaction();
     	        $updated = Team::find($id);
-    	                $updated->caption  =  $request->caption;
+    	                $updated->album_id =  $request->album_id;
+                        $updated->caption  =  $request->caption;
     	                $updated->status   =  $status;
     	            $updated->update();
 
@@ -99,10 +104,10 @@ class MemberController extends Controller
             	                    ->update([
             	                        'image' => $imageName
             	                    ]);
-        	        }
-                }
-                else {
-                    return back()->with(['alert-type' => 'error','message' => 'Validaton error Occured!']);
+        	        } else {
+                        return back()->with(['alert-type' => 'error','message' => 'Validaton error Occured!']);
+                    }
+                
                 }
     	           DB::commit();
                     return back()->with(['alert-type' => 'success','message' => 'Member Updated successfull']);             
@@ -126,7 +131,8 @@ class MemberController extends Controller
 
     public function getMember()
     {
-        return view('admin.members.addmember');
+        $albums = Album::where('status',1)->get();
+        return view('admin.members.addmember',['albums' => $albums]);
         // return "hiee";
     }
 }

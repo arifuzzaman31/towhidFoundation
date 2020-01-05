@@ -9,6 +9,7 @@
 		                <input type="text" id="updatealbum" name="name" class="form-control" value="{{$data->name}}">
 		            </div>
 		        </div>
+		        
 		        <div class="demo-switch-title">Status</div>
 		            <div class="switch">
 		                <label><input type="checkbox" name="status" value="1"  @if($data->status == 1) checked @endif><span class="lever switch-col-green"></span></label>

@@ -9,7 +9,7 @@
         </div>
         <div class="demo-switch-title">Status</div>
             <div class="switch">
-                <label><input type="checkbox" name="status" value="1"><span class="lever switch-col-green"></span></label>
+                <label><input type="checkbox" name="status" checked value="1"><span class="lever switch-col-green"></span></label>
             </div>
         <br>
         <button type="submit" class="btn btn-primary m-t-15 waves-effect">Add</button>

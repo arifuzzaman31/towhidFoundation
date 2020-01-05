@@ -86,6 +86,7 @@ class AlbumController extends Controller
      */
     public function edit($id)
     {
+        
         $data = Album::find($id);
         return view('admin/members/album/editalbum',compact('data'));
     }
