@@ -50,3 +50,8 @@ Route::post('send-user-request', [
 	'as'	=> 'send-user-request',
 	'uses' 	=> 'FrontController@SaveForm'
 ]);
+
+Route::get('get-album-photo', [
+	'as'	=> 'get-album-photo',
+	'uses' 	=> 'FrontController@loadPhoto'
+]);

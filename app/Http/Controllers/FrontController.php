@@ -83,6 +83,25 @@ class FrontController extends Controller
                 
         }
         return response()->json(['alert-type' => 'error','message' => 'পূণঃবার সকল তথ্য সঠিকভাবে পূরণ করুন।']);
-    }      
+    }
+
+    public function loadPhoto(Request $request)
+    {
+        // return $request->id;
+        
+        $data = Team::orderBy('id','desc')->where('status',1);
+
+        if ($request->album_id != '') {
+            
+            $data->where('album_id','=',$request->album_id);
+        }
+
+        return $data = $data->get();
+
+        // return \View::make('ajax.ajax_photo',[
+        //  'galleries' => $data
+        // ]);
+
+    }  
 
 }

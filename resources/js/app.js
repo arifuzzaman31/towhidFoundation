@@ -19,21 +19,21 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-// Vue.component('contact-us', require('./components/ContactUs.vue').default);
+// Vue.component('photo-gallery', require('./components/Gallery.vue').default);
 
 import ContactUs  from './components/ContactUs.vue';
+import Gallery  from './components/Gallery.vue';
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+
+import VueLazyload from 'vue-lazyload';
+
+Vue.use(VueLazyload);
 
 const app = new Vue({
     el: '#app',
     components : {
 
     	'contact-us' : ContactUs,
+    	'gallery' : Gallery,
     }
 });

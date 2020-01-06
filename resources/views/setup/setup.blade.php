@@ -23,7 +23,7 @@
         <!-- include('section.feature') -->
         <!-- Feature area end -->
         <!-- About area start -->
-        
+         @include('section.video')
         <!-- About area end -->
         <!-- Service area start -->
         @include('section.service')
@@ -35,7 +35,7 @@
         @include('section.team_area')
         <!-- Team area end -->
         <!-- Video area Start -->
-        @include('section.video')
+       
         <!-- Video area end -->
         <!-- Price area start -->
         <!-- include('section.price_area') -->
@@ -56,6 +56,6 @@
 
         @push('script')
 
-        <script src="{{ asset('js/app.js') }}" ></script>
+        <script src="{{ asset('/public/js/app.js') }}" ></script>
 
         @endpush
