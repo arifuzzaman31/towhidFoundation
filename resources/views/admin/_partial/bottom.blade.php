@@ -1,18 +1,4 @@
-<!-- Default Size -->
-<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title"></h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </div>
-            <div class="modal-body">
-               
-            </div>
-        </div>
-    </div>
-</div>
+
 <!-- Jquery Core Js -->
 <script src="{{asset('admin/plugins/jquery/jquery.min.js')}}"></script>
 
@@ -143,6 +129,33 @@
             });
         return false;
     }); */
+</script>
+
+<!-- Bootsrap Modal Size -->
+<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    $('#defaultModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* 
+          var modal = $(this)
+          modal.find('.modal-title').text('New message to ' + recipient)
+          modal.find('.modal-body input').val(recipient)
+    })
 </script>
 </body>
 

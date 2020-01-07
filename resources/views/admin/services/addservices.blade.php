@@ -40,7 +40,10 @@
                 <label><input type="checkbox" checked name="status" value="1"><span class="lever switch-col-green"></span></label>
             </div>
         </br>
-        <button type="submit" class="btn btn-primary m-t-15 waves-effect">Add</button>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </div>
     </form>
 </div>
 <script type="text/javascript">

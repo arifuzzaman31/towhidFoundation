@@ -1,5 +1,5 @@
 <div class="body">
-    <form action="{{route('feature.store')}}" method="post" enctype="multipart/form-data">
+    <form action="#" method="post" enctype="multipart/form-data">
        @csrf
         <label for="title">Title</label>
         <div class="form-group">

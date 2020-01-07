@@ -27,7 +27,10 @@
         <input type="checkbox" id="remember_me" name="status" value="1" class="filled-in">
         <label for="remember_me">Status</label>
         <br>
-        <button type="submit" class="btn btn-primary waves-effect">Add</button>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </div>
     </form>
 </div>
 <script type="text/javascript">

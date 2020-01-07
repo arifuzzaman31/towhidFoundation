@@ -20,10 +20,10 @@
         @include('section.hero_area')
         <!-- Hero area end -->
         <!-- Feature area start -->
-        <!-- include('section.feature') -->
+        @include('section.feature')
         <!-- Feature area end -->
         <!-- About area start -->
-         @include('section.video')
+         @include('section.about')
         <!-- About area end -->
         <!-- Service area start -->
         @include('section.service')
@@ -32,7 +32,7 @@
         <!-- include('section.portfolio') -->
         <!-- Portfolio area end -->
         <!-- Team area start -->
-        @include('section.team_area')
+        @include('section.gallery')
         <!-- Team area end -->
         <!-- Video area Start -->
        

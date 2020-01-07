@@ -794,9 +794,9 @@ div.no-padding {
 /* 9. Video area css */
 
 section.video-area {
-    background-image: -moz-linear-gradient( -18deg, rgb(10, 32, 144) 0%, rgb(37, 123, 208) 100%);
-    background-image: -webkit-linear-gradient( -18deg, rgb(10, 32, 144) 0%, rgb(37, 123, 208) 100%);
-    background-image: -ms-linear-gradient( -18deg, rgb(10, 32, 144) 0%, rgb(37, 123, 208) 100%);
+    background-image: -moz-linear-gradient( -18deg, rgb(175, 197, 54) 0%, rgb(37, 123, 208) 100%);
+    background-image: -webkit-linear-gradient( -18deg, rgb(175, 197, 54) 0%, rgb(37, 123, 208) 100%);
+    background-image: -ms-linear-gradient( -18deg, rgb(175, 197, 54) 0%, rgb(37, 123, 208) 100%);
     z-index: 1;
 }
 

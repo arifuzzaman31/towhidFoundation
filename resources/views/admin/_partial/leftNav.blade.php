@@ -29,10 +29,10 @@
                     <span>Home</span>
                 </a>
             </li>
-            <li @if(Route::is('feature')) class="active" @endif>
-                <a href="{{route('feature')}}">
-                    <i class="material-icons">widgets</i>
-                    <span>Feature</span>
+            <li @if(Route::is('userquery')) class="active" @endif>
+                <a href="{{route('userquery')}}">
+                    <i class="material-icons">email</i>
+                    <span>User Request</span>
                 </a>
             </li>
             <li @if(Route::is('service')) class="active" @endif>
@@ -48,7 +48,7 @@
                     <span>Blogs</span>
                 </a>
             </li>
-            <li @if(Route::is('team-member') || Route::is('get-album')) class="active" @endif>
+            <li @if(Route::is('photo-gallery') || Route::is('get-album')) class="active" @endif>
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">photo_library</i>
                     <span>Gallery</span>
@@ -58,7 +58,7 @@
                         <a href="{{route('get-album')}}">Album</a>
                     </li>
                     <li>
-                        <a href="{{route('team-member')}}">Photo</a>
+                        <a href="{{route('photo-gallery')}}">Photo</a>
                     </li>
                 </ul>
             </li>

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Portfolio;
 use App\Service;
 use App\Feature;
-use App\Team;
+use App\Gallery;
 use App\Blog;
 use App\Priceplan;
 use App\Userquery;
@@ -19,7 +19,7 @@ class FrontController extends Controller
     public function index()
     {
         $albums = Album::where('status',1)->get();
-    	$galleries =  Team::where('status',1)->get();
+    	$galleries =  Gallery::where('status',1)->get();
         // $album[$galleries->album_id] = json_encode(value);
     	$portfolios	  =  Portfolio::where('status',1)->get();
     	$features 	  =  Feature::where('status',1)->get();

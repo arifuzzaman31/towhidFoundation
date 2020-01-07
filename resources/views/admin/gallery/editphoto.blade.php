@@ -1,7 +1,7 @@
 <div class="card">
 	  <div class="card-body">
 	    <div class="body">
-		    <form action="{{route('member.update',$data->id)}}" method="post" enctype="multipart/form-data">
+		    <form action="{{route('photo.update',$data->id)}}" method="post" enctype="multipart/form-data">
 		       @csrf
 		        <label for="caption">Caption</label>
 		        <div class="form-group">
@@ -15,7 +15,7 @@
 		            	<img class="card-img-top" src="{{URL::to('images/team-member-image/'.$data->image)}}" alt="our gallery" height="60px" width="80px">@endif
 		                <input type="file" id="icon" name="image" class="form-control">
 		            </div>
-		        </div>
+		        </div><?php $selectValue = $data->album_id; ?>
 		        <label for="album">Album :</label>
 		        <div class="row clearfix">
 		            <div class="col-sm-12">

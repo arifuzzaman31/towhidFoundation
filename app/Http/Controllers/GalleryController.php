@@ -4,22 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use App\Team;
+use App\Gallery;
 use App\Album;
 use DB;
 
-class MemberController extends Controller
+class GalleryController extends Controller
 {
     public function index()
     {
-        $members = Team::all();
-        return view('admin.members.allmember', compact('members'));
+        $photos = Gallery::all();
+        return view('admin.gallery.allphotos', compact('photos'));
     }
 
 
     public function changestatus($id)
     {
-        $data = Team::find($id);
+        $data = Gallery::find($id);
             if ($data->status == 0) {
                 $data->status = 1;
             }
@@ -27,7 +27,7 @@ class MemberController extends Controller
                 $data->status = 0;
             }
         $data->update();
-        return back()->with(['alert-type' => 'info','message' => 'Member status changed!']);
+        return back()->with(['alert-type' => 'info','message' => 'Photo status changed!']);
     }
 
 
@@ -45,14 +45,14 @@ class MemberController extends Controller
                 $image = $request->file('image');
                 $imageName = time().'.'.$image->getClientOriginalExtension();
                 $image->move('images/team-member-image',$imageName);
-                Team::insert([
+                Gallery::insert([
                             'caption'=>  $request->caption,
                             'album_id'=>  $request->album_id,
                             'image' => $imageName,
                             'status' =>  $status
                         ]);
                 DB::commit();
-                return back()->with(['alert-type' => 'success','message' => 'Member Added successfull']);
+                return back()->with(['alert-type' => 'success','message' => 'Photo Added successfull']);
             }
                         
         } catch (Exception $e) {
@@ -65,16 +65,16 @@ class MemberController extends Controller
 
     public function show($id)
     {
-       $data = Team::find($id);
-        return view('admin.members.showmember',compact('data'));
+       $data = Gallery::find($id);
+        return view('admin.gallery.showphoto',compact('data'));
     }
 
   
     public function edit($id)
     {
         $albums = Album::where('status',1)->get();
-        $data = Team::find($id);
-        return view('admin.members.editmember',compact('data','albums'));
+        $data = Gallery::find($id);
+        return view('admin.gallery.editphoto',compact('data','albums'));
     }
 
 	public function update(Request $request, $id)
@@ -82,7 +82,7 @@ class MemberController extends Controller
 	    $status = $request->status ? 1 : 0;
     	   try {
     	        DB::beginTransaction();
-    	        $updated = Team::find($id);
+    	        $updated = Gallery::find($id);
     	                $updated->album_id =  $request->album_id;
                         $updated->caption  =  $request->caption;
     	                $updated->status   =  $status;
@@ -100,7 +100,7 @@ class MemberController extends Controller
             	            $imageName = time().'.'.$image->getClientOriginalExtension();
             	            $image->move('images/team-member-image',$imageName);
 
-            	            Team::where('id', $updated->id)
+            	            Gallery::where('id', $updated->id)
             	                    ->update([
             	                        'image' => $imageName
             	                    ]);
@@ -110,7 +110,7 @@ class MemberController extends Controller
                 
                 }
     	           DB::commit();
-                    return back()->with(['alert-type' => 'success','message' => 'Member Updated successfull']);             
+                    return back()->with(['alert-type' => 'success','message' => 'Photo Updated successfull']);             
     	    } catch (Exception $e) {
     	        DB::rollback();
     	        return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
@@ -121,7 +121,7 @@ class MemberController extends Controller
 
     public function destroy($id)
     {
-        $data = Team::find($id);
+        $data = Gallery::find($id);
             if(!empty($data->image) && file_exists('images/team-member-image/'.$data->image)){      
                 unlink('images/team-member-image/'.$data->image);
             }
@@ -129,10 +129,10 @@ class MemberController extends Controller
         return back()->with(['alert-type' => 'warning','message' => 'Data Deleted']);
     }
 
-    public function getMember()
+    public function getPhoto()
     {
         $albums = Album::where('status',1)->get();
-        return view('admin.members.addmember',['albums' => $albums]);
+        return view('admin.gallery.addphoto',['albums' => $albums]);
         // return "hiee";
     }
 }

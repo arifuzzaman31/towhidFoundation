@@ -10,7 +10,7 @@
             </div>
             <br>
     <div class="row" v-if="!isLoading">
-        <div v-for="photo in photos" :key="photo.id" class="col-lg-3 col-md-4 col-xs-6 thumb">
+        <div v-for="photo in photos" :key="photo.id" class="col-lg-4 col-md-4 col-xs-6 thumb">
         <a @click.prevent="photoClicked(photo)" class="thumbnail gallery-button" href="" >
          <img class="img-thumbnail"
          v-lazy="url+'images/team-member-image/'+photo.image"

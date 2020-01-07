@@ -20,45 +20,25 @@ Route::post('password', [
 	'uses'  => 'DashboardController@updatePassword'
 ]);
 
-
-	// Feature route
-Route::get('get-feature', [
-	'as' 	=> 'get-feature',
-	'uses'  => 'FeatureController@getFeature'
+// User Query 
+Route::get('query', [
+	'as' 	=> 'userquery',
+	'uses'  => 'UserqueryController@index'
 ]);
 
-Route::get('feature', [
-	'as' 	=> 'feature',
-	'uses'  => 'FeatureController@index'
-]);
-Route::post('feature.store', [
-	'as' 	=> 'feature.store',
-	'uses'  => 'FeatureController@store'
+Route::get('request-delete/{id}', [
+	'as' 	=> 'request-delete',
+	'uses'  => 'UserqueryController@destroy'
 ]);
 
-Route::post('feature-update/{id}', [
-	'as' 	=> 'feature.update',
-	'uses'  => 'FeatureController@update'
+Route::get('show-request/{id}', [
+	'as' 	=> 'show-request',
+	'uses'  => 'UserqueryController@show'
 ]);
 
-Route::get('feature-delete/{id}', [
-	'as' 	=> 'feature-delete',
-	'uses'  => 'FeatureController@destroy'
-]);
-
-Route::get('edit.feature/{id}', [
-	'as' 	=> 'edit.feature',
-	'uses'  => 'FeatureController@edit'
-]);
-
-Route::get('show-feature/{id}', [
-	'as' 	=> 'show-feature',
-	'uses'  => 'FeatureController@show'
-]);
-
-Route::get('change-feature-status/{id}', [
-	'as' 	=> 'change-feature-status',
-	'uses'  => 'FeatureController@changestatus'
+Route::get('change-request-confirm/{id}', [
+	'as' 	=> 'change-request-confirm',
+	'uses'  => 'UserqueryController@changestatus'
 ]);
 
 
@@ -146,45 +126,46 @@ Route::get('get-blog', [
 
 	//Team Member
 
-Route::get('team', [
-	'as' 	=> 'team-member',
-	'uses'  => 'MemberController@index'
+Route::get('gallery', [
+	'as' 	=> 'photo-gallery',
+	'uses'  => 'GalleryController@index'
 ]);
 
-Route::get('get-member', [
-	'as' 	=> 'get-member',
-	'uses'  => 'MemberController@getMember'
+Route::get('get-photo', [
+	'as' 	=> 'get-photo',
+	'uses'  => 'GalleryController@getPhoto'
 ]);
 
-Route::post('member.store', [
-	'as' 	=> 'member.store',
-	'uses'  => 'MemberController@store'
+Route::post('photo.store', [
+	'as' 	=> 'photo.store',
+	'uses'  => 'GalleryController@store'
 ]);
 
-Route::post('member-update/{id}', [
-	'as' 	=> 'member.update',
-	'uses'  => 'MemberController@update'
+Route::post('photo-update/{id}', [
+	'as' 	=> 'photo.update',
+	'uses'  => 'GalleryController@update'
 ]);
 
-Route::get('member-delete/{id}', [
-	'as' 	=> 'member-delete',
-	'uses'  => 'MemberController@destroy'
+Route::get('photo-delete/{id}', [
+	'as' 	=> 'photo-delete',
+	'uses'  => 'GalleryController@destroy'
 ]);
 
-Route::get('edit.member/{id}', [
-	'as' 	=> 'edit.member',
-	'uses'  => 'MemberController@edit'
+Route::get('edit.photo/{id}', [
+	'as' 	=> 'edit.photo',
+	'uses'  => 'GalleryController@edit'
 ]);
 
-Route::get('show-member/{id}', [
-	'as' 	=> 'show-member',
-	'uses'  => 'MemberController@show'
+Route::get('show-photo/{id}', [
+	'as' 	=> 'show-photo',
+	'uses'  => 'GalleryController@show'
 ]);
 
-Route::get('change-member-status/{id}', [
-	'as' 	=> 'change-member-status',
-	'uses'  => 'MemberController@changeStatus'
+Route::get('change-photo-status/{id}', [
+	'as' 	=> 'change-photo-status',
+	'uses'  => 'GalleryController@changeStatus'
 ]);
+
 	//Album
 Route::get('album', [
 	'as' 	=> 'get-album',
