@@ -89,7 +89,7 @@ class FrontController extends Controller
     {
         // return $request->id;
         
-        $data = Team::orderBy('id','desc')->where('status',1);
+        $data = Gallery::orderBy('id','desc')->where('status',1);
 
         if ($request->album_id != '') {
             

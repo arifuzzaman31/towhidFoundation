@@ -52,6 +52,7 @@
 <script src="{{asset('assets/js/jquery.nav.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}} "></script>
 <script src="{{asset('assets/js/custom.js')}} "></script>
+@include('toastr.toastrjs')
 <script>
     $.ajaxSetup({
         headers: {
@@ -89,6 +90,7 @@ $('#serviceModal').on('show.bs.modal', function (event) {
             success: function(data){
                 console.log(data.message);
                 $('#serviceModal').modal('hide');
+                toastr.success(data.message);
             },
             error: function(data){
                 console.log(data.message);

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 05, 2020 at 08:35 AM
+-- Generation Time: Jan 07, 2020 at 01:40 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -41,8 +41,8 @@ CREATE TABLE `albums` (
 --
 
 INSERT INTO `albums` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Event One', 1, '2020-01-02 06:28:59', '2020-01-02 06:28:59'),
-(2, 'Event Two two', 1, '2020-01-02 06:38:18', '2020-01-02 06:58:55'),
+(1, 'One', 1, '2020-01-02 06:28:59', '2020-01-06 05:29:00'),
+(2, 'Two', 1, '2020-01-02 06:38:18', '2020-01-06 05:29:19'),
 (3, 'three', 1, '2020-01-05 06:30:27', '2020-01-05 06:30:27');
 
 -- --------------------------------------------------------
@@ -128,6 +128,36 @@ CREATE TABLE `features` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `galleries`
+--
+
+CREATE TABLE `galleries` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `caption` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `album_id` int(191) DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `galleries`
+--
+
+INSERT INTO `galleries` (`id`, `caption`, `album_id`, `image`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Throw a caption', 2, '1578204766.jpg', 1, '2019-12-31 10:26:29', '2020-01-05 00:12:46'),
+(2, 'Throw a caption second', 2, '1577787708.jpg', 1, '2019-12-31 10:26:31', '2020-01-07 05:40:12'),
+(3, 'Throw a caption third', 1, '1577857001.jpg', 1, '2019-12-31 10:26:33', '2020-01-07 06:30:26'),
+(4, 'Throw a caption forth', 1, '1577857022.jpg', 1, '2019-12-31 10:26:34', '2020-01-05 05:44:59'),
+(5, 'Throw a caption fifth', 2, '1577857040.jpg', 1, '2019-12-31 10:26:36', '2020-01-05 05:45:02'),
+(6, 'Throw a caption4', 3, '1577857075.jpg', 1, '2020-01-01 05:37:55', '2020-01-05 00:30:57'),
+(7, 'Throw a caption 6', 2, '1577857141.jpg', 1, '2020-01-01 05:39:02', '2020-01-05 05:45:05'),
+(8, 'Throw a caption 7edit', 1, '1577857187.jpg', 1, '2020-01-01 05:39:47', '2020-01-05 00:15:21');
 
 -- --------------------------------------------------------
 
@@ -275,36 +305,6 @@ CREATE TABLE `sliders` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `teams`
---
-
-CREATE TABLE `teams` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `caption` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `album_id` int(191) DEFAULT NULL,
-  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `teams`
---
-
-INSERT INTO `teams` (`id`, `caption`, `album_id`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Throw a caption', 2, '1578204766.jpg', 1, '2019-12-31 10:26:29', '2020-01-05 00:12:46'),
-(2, 'Throw a caption second edit', 2, '1577787708.jpg', 1, '2019-12-31 10:26:31', '2020-01-05 00:14:59'),
-(3, 'Throw a caption third', 1, '1577857001.jpg', 1, '2019-12-31 10:26:33', '2020-01-05 05:44:58'),
-(4, 'Throw a caption forth', 1, '1577857022.jpg', 1, '2019-12-31 10:26:34', '2020-01-05 05:44:59'),
-(5, 'Throw a caption fifth', 2, '1577857040.jpg', 1, '2019-12-31 10:26:36', '2020-01-05 05:45:02'),
-(6, 'Throw a caption4', 3, '1577857075.jpg', 1, '2020-01-01 05:37:55', '2020-01-05 00:30:57'),
-(7, 'Throw a caption 6', 2, '1577857141.jpg', 1, '2020-01-01 05:39:02', '2020-01-05 05:45:05'),
-(8, 'Throw a caption 7edit', 1, '1577857187.jpg', 1, '2020-01-01 05:39:47', '2020-01-05 00:15:21');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `testimonials`
 --
 
@@ -366,11 +366,15 @@ CREATE TABLE `user_query` (
 --
 
 INSERT INTO `user_query` (`id`, `service_id`, `name`, `phone`, `address`, `message`, `seen`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Ashraf', '654894', 'dfghjdfgfhjdgh', 'fyryytngjy', 0, '2019-12-31 05:23:32', '2019-12-31 05:23:34'),
-(2, 3, 'Ashraful Islam', '875345465', 'reytdfggdnbcvb', 'xfgjfgfgfgjjgkjghgszf', 0, '2019-12-31 05:25:18', '2019-12-31 05:25:19'),
-(3, 2, 'Sadique', '65489456679', 'gghjdffdhgfh', 'ttyrghjytftstg', 0, '2019-12-31 05:38:13', '2019-12-31 05:38:13'),
+(1, 1, 'Ashraf', '01553300022', 'dfghjdfgfhjdgh', 'With skipper and Karnataka\'s mainstay bowler R Vinay Kumar moving on to Pondicherry at the start of the season, Mithun has come into his own in a leadership role', 0, '2019-12-31 05:23:32', '2020-01-07 08:45:50'),
+(2, 3, 'Ashraful Islam', '875345465', 'reytdfggdnbcvb', 'xfgjfgfgfgjjgkjghgszf', 1, '2019-12-31 05:25:18', '2020-01-07 04:03:08'),
+(3, 2, 'Sadique', '65489456679', 'gghjdffdhgfh', 'ttyrghjytftstg', 1, '2019-12-31 05:38:13', '2020-01-07 06:26:23'),
 (4, 3, 'Ashraful Hoque', '2346556754', 'sfjghgfhdffsdf', 'cfgbghjthfghfdgs', 0, '2019-12-31 05:40:29', '2019-12-31 05:40:29'),
-(5, 1, 'hello world', '6548945663', 'sdgfhjdfjhj', 'dfhlyyrytitfgdfx', 0, '2019-12-31 05:43:04', '2019-12-31 05:43:04');
+(5, 1, 'hello world', '6548945663', 'sdgfhjdfjhj', 'dfhlyyrytitfgdfx', 1, '2019-12-31 05:43:04', '2020-01-07 04:03:30'),
+(6, 7, 'hello world', '654894', 'estrthfghfgh', 'ffhgtyergfjghj', 1, '2020-01-05 10:01:24', '2020-01-07 04:04:35'),
+(7, 8, 'hello world', '654894', 'estrthfghfgh', 'ffhgtyergfjghj', 0, '2020-01-05 10:01:24', '2020-01-05 10:01:24'),
+(8, 7, 'Sadique', '654894657', 'ghjdersdhgdf', 'fghsrerutfggghjygtjtrtdr', 0, '2020-01-05 10:04:39', '2020-01-05 10:04:39'),
+(9, 5, 'Feri', '01335656776', 'Dhanmondi, Dhaka-1205', 'How to Use Font Awesome 5 on LaravelHow to Use Font Awesome 5 on LaravelHow to Use Font Awesome 5 on LaravelHow to Use Font Awesome 5 on Laravel', 0, '2020-01-07 12:36:40', '2020-01-07 12:36:40');
 
 --
 -- Indexes for dumped tables
@@ -407,6 +411,12 @@ ALTER TABLE `failed_jobs`
 ALTER TABLE `features`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `features_title_unique` (`title`);
+
+--
+-- Indexes for table `galleries`
+--
+ALTER TABLE `galleries`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -449,12 +459,6 @@ ALTER TABLE `services`
 -- Indexes for table `sliders`
 --
 ALTER TABLE `sliders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `teams`
---
-ALTER TABLE `teams`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -511,6 +515,12 @@ ALTER TABLE `features`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `galleries`
+--
+ALTER TABLE `galleries`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -547,12 +557,6 @@ ALTER TABLE `sliders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `teams`
---
-ALTER TABLE `teams`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
 -- AUTO_INCREMENT for table `testimonials`
 --
 ALTER TABLE `testimonials`
@@ -568,7 +572,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_query`
 --
 ALTER TABLE `user_query`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

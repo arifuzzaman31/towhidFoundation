@@ -23,12 +23,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('assets/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
-    <style type="text/css">
-        @font-face {
-            font-family: 'SolaimanLipi';
-            src: url('{{asset('fonts/SolaimanLipi.ttf')}}');
-        }
-    </style>
+    @include('toastr.toastrcss')
     @stack('style') 
 </head>
 

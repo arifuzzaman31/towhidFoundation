@@ -35,8 +35,7 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{asset('admin/css/themes/all-themes.css')}}" rel="stylesheet" />
 
-   <link rel="stylesheet" type="text/css" href="{{asset('admin/css/toastr/toastr.min.css')}}">
-   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+   @include('toastr.toastrcss')
    
 
 </head>
