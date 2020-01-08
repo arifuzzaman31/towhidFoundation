@@ -13,7 +13,7 @@
         <div v-for="photo in photos" :key="photo.id" class="col-lg-4 col-md-4 col-xs-6 thumb">
         <a @click.prevent="photoClicked(photo)" class="thumbnail gallery-button" href="" >
          <img class="img-thumbnail"
-         v-lazy="url+'images/team-member-image/'+photo.image"
+         v-lazy="url+'images/our-gallery/'+photo.image"
          alt="Another alt text">
      </a>
  </div>

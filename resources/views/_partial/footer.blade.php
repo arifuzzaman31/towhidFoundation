@@ -1,6 +1,6 @@
   <footer class="footer-area">
         <div class="position-relative">
-            <div class="header-top pt-125 pb-125">
+            <div class="header-top pt-125 pb-100">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-3 col-lg-3 col-sm-6">

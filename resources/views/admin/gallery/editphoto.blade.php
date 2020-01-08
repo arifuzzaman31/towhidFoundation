@@ -12,7 +12,7 @@
 		         <div class="form-group">
 		            <div class="form-line">
 		            	@if($data->image)
-		            	<img class="card-img-top" src="{{URL::to('images/team-member-image/'.$data->image)}}" alt="our gallery" height="60px" width="80px">@endif
+		            	<img class="card-img-top" src="{{URL::to('images/our-gallery/'.$data->image)}}" alt="our gallery" height="60px" width="80px">@endif
 		                <input type="file" id="icon" name="image" class="form-control">
 		            </div>
 		        </div><?php $selectValue = $data->album_id; ?>

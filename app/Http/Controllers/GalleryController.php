@@ -44,7 +44,7 @@ class GalleryController extends Controller
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $imageName = time().'.'.$image->getClientOriginalExtension();
-                $image->move('images/team-member-image',$imageName);
+                $image->move('images/our-gallery',$imageName);
                 Gallery::insert([
                             'caption'=>  $request->caption,
                             'album_id'=>  $request->album_id,
@@ -93,12 +93,12 @@ class GalleryController extends Controller
                         'image' => 'required|image|mimes:jpeg,bmp,jpg,png,gif,svg'
                     ]);
                     if (!$validation->fails()) {
-            	        if(!empty($updated->image) && file_exists('images/team-member-image/'.$updated->image)){      
-            	            unlink('images/team-member-image/'.$updated->image);
+            	        if(!empty($updated->image) && file_exists('images/our-gallery/'.$updated->image)){      
+            	            unlink('images/our-gallery/'.$updated->image);
             	        }
             	            $image = $request->file('image');
             	            $imageName = time().'.'.$image->getClientOriginalExtension();
-            	            $image->move('images/team-member-image',$imageName);
+            	            $image->move('images/our-gallery',$imageName);
 
             	            Gallery::where('id', $updated->id)
             	                    ->update([
@@ -122,8 +122,8 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         $data = Gallery::find($id);
-            if(!empty($data->image) && file_exists('images/team-member-image/'.$data->image)){      
-                unlink('images/team-member-image/'.$data->image);
+            if(!empty($data->image) && file_exists('images/our-gallery/'.$data->image)){      
+                unlink('images/our-gallery/'.$data->image);
             }
         $data->delete();
         return back()->with(['alert-type' => 'warning','message' => 'Data Deleted']);

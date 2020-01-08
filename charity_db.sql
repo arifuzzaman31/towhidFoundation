@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2020 at 01:40 PM
+-- Generation Time: Jan 08, 2020 at 02:59 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -136,28 +136,56 @@ CREATE TABLE `features` (
 --
 
 CREATE TABLE `galleries` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `caption` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `album_id` int(191) DEFAULT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
+  `album_id` int(11) NOT NULL,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `caption` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `galleries`
 --
 
-INSERT INTO `galleries` (`id`, `caption`, `album_id`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Throw a caption', 2, '1578204766.jpg', 1, '2019-12-31 10:26:29', '2020-01-05 00:12:46'),
-(2, 'Throw a caption second', 2, '1577787708.jpg', 1, '2019-12-31 10:26:31', '2020-01-07 05:40:12'),
-(3, 'Throw a caption third', 1, '1577857001.jpg', 1, '2019-12-31 10:26:33', '2020-01-07 06:30:26'),
-(4, 'Throw a caption forth', 1, '1577857022.jpg', 1, '2019-12-31 10:26:34', '2020-01-05 05:44:59'),
-(5, 'Throw a caption fifth', 2, '1577857040.jpg', 1, '2019-12-31 10:26:36', '2020-01-05 05:45:02'),
-(6, 'Throw a caption4', 3, '1577857075.jpg', 1, '2020-01-01 05:37:55', '2020-01-05 00:30:57'),
-(7, 'Throw a caption 6', 2, '1577857141.jpg', 1, '2020-01-01 05:39:02', '2020-01-05 05:45:05'),
-(8, 'Throw a caption 7edit', 1, '1577857187.jpg', 1, '2020-01-01 05:39:47', '2020-01-05 00:15:21');
+INSERT INTO `galleries` (`id`, `album_id`, `image`, `caption`, `status`, `created_at`, `updated_at`) VALUES
+(1, 2, '1578204766.jpg', 'Throw a caption', 1, '2019-12-31 04:26:29', '2020-01-04 18:12:46'),
+(2, 2, '1577787708.jpg', 'Throw a caption second', 1, '2019-12-31 04:26:31', '2020-01-06 23:40:12'),
+(3, 1, '1577857001.jpg', 'Throw a caption third', 1, '2019-12-31 04:26:33', '2020-01-07 00:30:26'),
+(4, 1, '1577857022.jpg', 'Throw a caption forth', 1, '2019-12-31 04:26:34', '2020-01-04 23:44:59'),
+(5, 2, '1577857040.jpg', 'Throw a caption fifth', 1, '2019-12-31 04:26:36', '2020-01-04 23:45:02'),
+(6, 3, '1577857075.jpg', 'Throw a caption4', 1, '2019-12-31 23:37:55', '2020-01-04 18:30:57'),
+(7, 2, '1577857141.jpg', 'Throw a caption 6', 1, '2019-12-31 23:39:02', '2020-01-04 23:45:05'),
+(8, 1, '1577857187.jpg', 'Throw a caption 7edit', 1, '2019-12-31 23:39:47', '2020-01-04 18:15:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `members`
+--
+
+CREATE TABLE `members` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `quote` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `fb_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tw_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `inst_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(4) DEFAULT 1,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`id`, `name`, `designation`, `quote`, `image`, `fb_link`, `tw_link`, `inst_link`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Hasan Ali', 'Admin & HR', '<p>Here&rsquo;s a quick exampleBy default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced withBy default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced with</p>', '1578477592.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, NULL, '2020-01-08 05:07:59'),
+(2, 'Shakil Khan', 'Genarel Cow', '<p>Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels.</p>', '1578478678.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, NULL, '2020-01-08 04:17:58');
 
 -- --------------------------------------------------------
 
@@ -181,7 +209,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_02_043356_create_features_table', 1),
 (5, '2019_12_02_043754_create_services_table', 1),
-(6, '2019_12_02_043918_create_teams_table', 1),
 (7, '2019_12_02_044033_create_priceplans_table', 1),
 (8, '2019_12_02_044140_create_plans_table', 1),
 (9, '2019_12_02_044326_create_blogs_table', 1),
@@ -190,7 +217,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2019_12_05_081805_create_portfolios_table', 1),
 (13, '2019_12_08_110103_create_sliders_table', 1),
 (14, '2019_12_30_060834_create_user_query_table', 2),
-(15, '2020_01_02_110030_create_albums_table', 3);
+(15, '2020_01_02_110030_create_albums_table', 3),
+(16, '2020_01_08_065616_create_members_table', 4),
+(17, '2020_01_08_073009_create_galleries_table', 5);
 
 -- --------------------------------------------------------
 
@@ -275,15 +304,15 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `title`, `slug`, `description`, `type`, `image`, `status`, `service_link`, `created_at`, `updated_at`) VALUES
-(1, 'অ্যাম্বুলেন্স সার্ভিস', 'অ্যাম্বুলেন্স-সার্ভিস', '<p>Modals have two optional sizes, available via modifier classes to be placed on ambu</p>', 'সল্পমূল্যে', '1577613055.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/ddfgfff', '2019-12-29 09:56:01', '2020-01-01 02:00:04'),
+(1, 'অ্যাম্বুলেন্স সার্ভিস', 'অ্যাম্বুলেন্স-সার্ভিস', '<p>Modals have two optional sizes, available via modifier classes to be placed on ambu</p>', 'সল্পমূল্যে', '1577613055.jpg', 1, 'fb.com', '2019-12-29 09:56:01', '2020-01-08 00:01:09'),
 (2, 'প্যাথলজিক্যাল পরীক্ষা নিরীক্ষা', 'প্যাথলজিক্যাল-পরীক্ষা-নিরীক্ষা', '<p>Embedding YouTube videos in modals requiresequiresequires</p>', 'সল্পমূল্যে', '1577613220.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/ddfgfff', '2019-12-29 09:56:07', '2020-01-01 01:50:14'),
-(3, 'ফিজিওথেরাপি', 'ফিজিওথেরাপি', '<p>Embedding YouTube videos in a modals requiresEmbedding YouTube videos in modals requires</p>', 'বিনামূল্যে', '1577613924.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/ddfgfff', '2019-12-29 10:07:00', '2020-01-01 01:51:19'),
-(4, 'প্যাথলজিক্যাল পরীক্ষা পরীক্ষা', 'প্যাথলজিক্যাল-পরীক্ষা-পরীক্ষা', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical</span></p>', 'সল্পমূল্যে', '1577856307.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdf', '2020-01-01 06:54:35', '2020-01-01 01:52:24'),
-(5, 'সেলাই প্রশিক্ষণ', 'সেলাই-প্রশিক্ষণ', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">but also the leap into electronic typesetting, remaining essentially unchanged.</span><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">entially unchanged</span></p>', 'বিনামূল্যে', '1577856538.jpg', 1, 'fb.com/dfgdfg-4566543dsfg', '2020-01-01 06:54:39', '2020-01-01 01:54:25'),
-(6, 'বেকার যুবসমাজকে কম্পিউটার প্রশিক্ষণ', 'বেকার-যুবসমাজকে-কম্পিউটার-প্রশিক্ষণ', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">The Slug class itself is pretty simple. createSlug calls getRelatedSlugs which performs a</span></p>', 'বিনামূল্যে', '1577856622.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/ddf', '2020-01-01 06:54:45', '2020-01-01 01:55:56'),
-(7, 'চক্ষু অপারেশন (ছানি), লেন্স প্রতিস্থাপন', 'চক্ষু-অপারেশন-(ছানি),-লেন্স-প্রতিস্থাপন', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more</span><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more</span></p>', 'বিনামূল্যে', '1577856947.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/d', '2020-01-01 06:54:46', '2020-01-01 01:58:48'),
+(3, 'ফিজিওথেরাপি', 'ফিজিওথেরাপি', '<p>Embedding YouTube videos in a modals requiresEmbedding YouTube videos in modals requires</p>', 'সল্পমূল্যে', '1578463850.jpg', 1, 'fb.com', '2019-12-29 10:07:00', '2020-01-08 00:11:07'),
+(4, 'লাশের কাপড়, কফিন ও অন্যান্য উপকরণ', 'লাশের-কাপড়,-কফিন-ও-অন্যান্য-উপকরণ', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical</span></p>', 'সল্পমূল্যে', '1578463562.jpg', 1, 'fb.com', '2020-01-01 06:54:35', '2020-01-08 00:06:02'),
+(5, 'সেলাই প্রশিক্ষণ', 'সেলাই-প্রশিক্ষণ', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">but also the leap into electronic typesetting, remaining essentially unchanged.</span><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">entially unchanged</span></p>', 'বিনামূল্যে', '1578464543.jpg', 1, 'fb.com', '2020-01-01 06:54:39', '2020-01-08 00:22:23'),
+(6, 'বেকার যুবসমাজকে কম্পিউটার প্রশিক্ষণ', 'বেকার-যুবসমাজকে-কম্পিউটার-প্রশিক্ষণ', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">The Slug class itself is pretty simple. createSlug calls getRelatedSlugs which performs a</span></p>', 'বিনামূল্যে', '1578465716.jpg', 1, 'fb.com', '2020-01-01 06:54:45', '2020-01-08 00:41:56'),
+(7, 'চক্ষু অপারেশন (ছানি), লেন্স প্রতিস্থাপন', 'চক্ষু-অপারেশন-(ছানি),-লেন্স-প্রতিস্থাপন', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more</span><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more</span></p>', 'বিনামূল্যে', '1578465091.jpg', 1, 'fb.com', '2020-01-01 06:54:46', '2020-01-08 00:31:31'),
 (8, 'লাশ গোসল', 'লাশ গোসল', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">The Slug class itself is pretty simple. createSlug calls getRelatedSlugs which performs</span></p>', 'বিনামূল্যে', '1577863259.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/d', '2020-01-01 07:20:59', '2020-01-01 07:20:59'),
-(9, 'নারী-পুরুষ ও শিশুদের প্রাথমিক চিকিৎসা', 'নারী-পুরুষ-ও-শিশুদের-প্রাথমিক-চিকিৎসা', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">single query selecting all the records that could possibly be a doouplicate</span></p>', 'সল্পমূল্যে', '1577863520.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/ddf', '2020-01-01 07:25:20', '2020-01-01 01:50:54');
+(9, 'নারী-পুরুষ ও শিশুদের প্রাথমিক চিকিৎসা', 'নারী-পুরুষ-ও-শিশুদের-প্রাথমিক-চিকিৎসা', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">single query selecting all the records that could possibly be a doouplicate</span></p>', 'সল্পমূল্যে', '1578464596.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/ddf', '2020-01-01 07:25:20', '2020-01-08 00:23:16');
 
 -- --------------------------------------------------------
 
@@ -369,7 +398,7 @@ INSERT INTO `user_query` (`id`, `service_id`, `name`, `phone`, `address`, `messa
 (1, 1, 'Ashraf', '01553300022', 'dfghjdfgfhjdgh', 'With skipper and Karnataka\'s mainstay bowler R Vinay Kumar moving on to Pondicherry at the start of the season, Mithun has come into his own in a leadership role', 0, '2019-12-31 05:23:32', '2020-01-07 08:45:50'),
 (2, 3, 'Ashraful Islam', '875345465', 'reytdfggdnbcvb', 'xfgjfgfgfgjjgkjghgszf', 1, '2019-12-31 05:25:18', '2020-01-07 04:03:08'),
 (3, 2, 'Sadique', '65489456679', 'gghjdffdhgfh', 'ttyrghjytftstg', 1, '2019-12-31 05:38:13', '2020-01-07 06:26:23'),
-(4, 3, 'Ashraful Hoque', '2346556754', 'sfjghgfhdffsdf', 'cfgbghjthfghfdgs', 0, '2019-12-31 05:40:29', '2019-12-31 05:40:29'),
+(4, 3, 'Ashraful Hoque', '2346556754', 'sfjghgfhdffsdf', 'cfgbghjthfghfdgs', 1, '2019-12-31 05:40:29', '2020-01-07 23:27:44'),
 (5, 1, 'hello world', '6548945663', 'sdgfhjdfjhj', 'dfhlyyrytitfgdfx', 1, '2019-12-31 05:43:04', '2020-01-07 04:03:30'),
 (6, 7, 'hello world', '654894', 'estrthfghfgh', 'ffhgtyergfjghj', 1, '2020-01-05 10:01:24', '2020-01-07 04:04:35'),
 (7, 8, 'hello world', '654894', 'estrthfghfgh', 'ffhgtyergfjghj', 0, '2020-01-05 10:01:24', '2020-01-05 10:01:24'),
@@ -416,6 +445,12 @@ ALTER TABLE `features`
 -- Indexes for table `galleries`
 --
 ALTER TABLE `galleries`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `members`
+--
+ALTER TABLE `members`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -518,13 +553,19 @@ ALTER TABLE `features`
 -- AUTO_INCREMENT for table `galleries`
 --
 ALTER TABLE `galleries`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `members`
+--
+ALTER TABLE `members`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `plans`

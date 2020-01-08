@@ -124,7 +124,7 @@ Route::get('get-blog', [
 	'uses'  => 'BlogController@getblog'
 ]);
 
-	//Team Member
+	//Gallery
 
 Route::get('gallery', [
 	'as' 	=> 'photo-gallery',
@@ -201,6 +201,7 @@ Route::post('album-update/{id}', [
 	'as' 	=> 'album.update',
 	'uses'  => 'AlbumController@update'
 ]);
+
 	//Portfolio
 
 Route::get('portfolio', [
@@ -308,4 +309,47 @@ Route::get('edit-priceplan/{id}', [
 Route::get('change-priceplan-status/{id}', [
 	'as' 	=> 'change-priceplan-status',
 	'uses'  => 'ProducrPriceController@changeStatus'
+]);
+
+
+//Team Member
+
+Route::get('team', [
+	'as' 	=> 'team-member',
+	'uses'  => 'MemberController@index'
+]);
+
+Route::get('get-member', [
+	'as' 	=> 'get-member',
+	'uses'  => 'MemberController@getMember'
+]);
+
+Route::post('member.store', [
+	'as' 	=> 'member.store',
+	'uses'  => 'MemberController@store'
+]);
+
+Route::post('update-member/{id}', [
+	'as' 	=> 'update-member',
+	'uses'  => 'MemberController@update'
+]);
+
+Route::get('member-delete/{id}', [
+	'as' 	=> 'member-delete',
+	'uses'  => 'MemberController@destroy'
+]);
+
+Route::get('edit.member/{id}', [
+	'as' 	=> 'edit.member',
+	'uses'  => 'MemberController@edit'
+]);
+
+Route::get('show-member/{id}', [
+	'as' 	=> 'show-member',
+	'uses'  => 'MemberController@show'
+]);
+
+Route::get('change-member-status/{id}', [
+	'as' 	=> 'change-member-status',
+	'uses'  => 'MemberController@changeStatus'
 ]);

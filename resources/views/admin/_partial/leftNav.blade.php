@@ -62,10 +62,10 @@
                     </li>
                 </ul>
             </li>
-             <li @if(Route::is('portfolio')) class="active" @endif>
-                 <a href="{{route('portfolio')}}">
-                    <i class="material-icons">apps</i>
-                    <span>Portfolio</span>
+             <li @if(Route::is('team-member')) class="active" @endif>
+                 <a href="{{route('team-member')}}">
+                    <i class="material-icons">people</i>
+                    <span>Members</span>
                 </a>
             </li>
             <li @if(Route::is('all-slider')) class="active" @endif>

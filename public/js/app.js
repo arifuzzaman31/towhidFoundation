@@ -7764,7 +7764,7 @@ var render = function() {
                 "div",
                 {
                   key: photo.id,
-                  staticClass: "col-lg-3 col-md-4 col-xs-6 thumb"
+                  staticClass: "col-lg-4 col-md-4 col-xs-6 thumb"
                 },
                 [
                   _c(
@@ -7786,11 +7786,8 @@ var render = function() {
                             name: "lazy",
                             rawName: "v-lazy",
                             value:
-                              _vm.url +
-                              "images/team-member-image/" +
-                              photo.image,
-                            expression:
-                              "url+'images/team-member-image/'+photo.image"
+                              _vm.url + "images/our-gallery/" + photo.image,
+                            expression: "url+'images/our-gallery/'+photo.image"
                           }
                         ],
                         staticClass: "img-thumbnail",

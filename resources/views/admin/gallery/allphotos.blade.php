@@ -29,7 +29,7 @@
 	                    <td style="width: 30%">{{$photo->caption}}</td>
                         <td>
                         @if($photo->image)
-                            <img src="{{URL::to('images/team-member-image/'.$photo->image)}}" height="40px" width="60px">
+                            <img src="{{URL::to('images/our-gallery/'.$photo->image)}}" height="40px" width="60px">
                         @endif
                         </td>
 	                    <td>
