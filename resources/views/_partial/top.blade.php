@@ -6,10 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="keyword" content="তৌহিদ ফাউন্ডেশন">
+    <meta name="author" content="Towhind-Foundation">
+    <meta name="keyword" content="তৌহিদ ফাউন্ডেশন,Towhind Foundation,Foundation in Dhaka,Free Ambulance Service in Dhaka,Free Primary Treatment Dhaka,Free Computer Course in Dhaka,Free Eye Operation Dhaka,Wasing Dead Body in Dhaka,Towhind,Foundation,lash gosol,প্যাথলজিক্যাল পরীক্ষা নিরীক্ষা,অ্যাম্বুলেন্স সার্ভিস,ফিজিওথেরাপি,লাশের কাপড়, কফিন ও অন্যান্য উপকরণ,সেলাই প্রশিক্ষণ">
     @yield('meta')
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/site-logo/fab.png') }}" />
-
      <!-- Title-->
     <title>@yield('title','তৌহিদ ফাউন্ডেশন')</title>
     <!-- Style CSS -->

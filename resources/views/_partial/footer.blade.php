@@ -32,8 +32,8 @@
                             <div class="widget footer-sidebar">
                                 <h3 class="mb-45">আমাদের সেবাসমূহ</h3>
                                 <ul>
-                                    <li><a href="#সল্পমূল্যে">সল্পমূল্যে সেবা</a></li>
-                                    <li><a href="#বিনামূল্যে">বিনামূল্যে সেবা</a></li>
+                                    <li><a href="#minimum-price">সল্পমূল্যে সেবা</a></li>
+                                    <li><a href="#free-service">বিনামূল্যে সেবা</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                                 <h3 class="mb-45">যোগাযোগ করুন</h3>
                                 <div class="footer-contact-info">
                                     <p><strong>ঠিকানাঃ</strong> ১৭/৪ টোলারবাগ, মিরপুর-১ , ঢাকা-১২১৬</p>
-                                    <p><strong>ইমেলঃ</strong> business@limmexbd.com</p>
+                                    <p><strong>ইমেলঃ</strong> towhid.foundation@gmail.com</p>
                                     <p><strong>ফোনঃ</strong> +৮৮ ০১৩০-৪০০৪০০০, +৮৮ ০১৩১-৭০০৮০০০</p>
                                 </div>
                             </div>
@@ -55,7 +55,7 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6">
                             <div class="copyright-content">
-                                <p>© 2019 Developed By Limmex Automation.</p>
+                                <p>© {{ date('Y') }} Developed By <a href="https://limmexbd.com" target="_blank" title="Limmex Automatoin">Limmex Automation.</a></p>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 text-right">

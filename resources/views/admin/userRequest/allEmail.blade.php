@@ -22,10 +22,10 @@
                        
                         <tbody>
                         	@if(count($userqueries) > 0)
-                        	<?php $i = 1; ?>
+                        	<?php //$i = 1; ?>
                         	@foreach($userqueries as $userquery)
             	                <tr>
-            	                    <td style="width: 5%">{{$i}}</td>
+            	                    <td style="width: 5%">{{$userquery->id}}</td>
             	                    <td style="width: 15%">{{$userquery->service_name->title}}</td>
                                     <td style="width: 10%">{{$userquery->name}}</td>
                                     <td style="width: 10%">{{$userquery->phone}}</td>
@@ -41,11 +41,14 @@
             	                    </td>
             	                    
             	                </tr>
-            	                <?php $i++; ?>
+            	                <?php //$i++; ?>
                             @endforeach
                           @endif
                         </tbody>
                     </table>
+                </div>
+                <div class="row">
+                    {{ $userqueries->links() }}
                 </div>
             </div>
         </div>

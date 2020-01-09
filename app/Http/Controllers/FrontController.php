@@ -12,6 +12,8 @@ use App\Blog;
 use App\Priceplan;
 use App\Userquery;
 use App\Album;
+use App\Member;
+use App\custom\Helper;
 use DB;
 
 class FrontController extends Controller
@@ -20,14 +22,10 @@ class FrontController extends Controller
     {
         $albums = Album::where('status',1)->get();
     	$galleries =  Gallery::where('status',1)->get();
-        // $album[$galleries->album_id] = json_encode(value);
-    	$portfolios	  =  Portfolio::where('status',1)->get();
-    	$features 	  =  Feature::where('status',1)->get();
     	$blogs 		  =  Blog::where('status',1)->take(2)->latest()->get();
         $paidServices   =  Service::where(['status'=>1,'type'=>'সল্পমূল্যে'])->get();
         $freeServices   =  Service::where(['status'=>1,'type'=>'বিনামূল্যে'])->get();
-        $priceplans   =  Priceplan::where('status',1)->get();
-    	return view('setup.setup',compact('galleries','albums','portfolios','features','blogs','paidServices','freeServices','priceplans'));
+    	return view('setup.setup',compact('galleries','albums','blogs','paidServices','freeServices'));
     }
 
     public function getSpecificService($slug)
@@ -46,9 +44,15 @@ class FrontController extends Controller
     	return view('pages.viewBlog', compact('allblogs','allservices','blog'));
     }
 
+    public function AllMember()
+    {
+        $members =  Member::where('status',1)->Paginate(5);
+        return view('pages.member', compact('members'));
+    }
+
     public function getAllBlog()
     {
-        $allblogs =  Blog::where('status',1)->Paginate(5);
+        $allblogs =  Blog::where('status',1)->latest()->Paginate(5);
         return view('pages.allblog', compact('allblogs'));
     }
 
@@ -60,7 +64,6 @@ class FrontController extends Controller
             'name'       => 'required',
             'phone'      => 'required',
             'address'    => 'required',
-            'message'    => 'required'
         ]);
         if (!$validation->fails()) {
             try {
@@ -74,15 +77,33 @@ class FrontController extends Controller
                 ]);
 
                 DB::commit();
-                return response()->json(['alert-type' => 'success','message' => 'আপনার মেসেজটি পাঠানো হয়েছে।']);
+
+                // For Mobile SMS
+                $service = Service::find($request->service_id);
+                $message = "$request->name asked for $service->title.Phone: $request->phone";
+
+                Helper::send_sms('01304004000',$message,'UNICODE');
+
+                // For Mail
+                /*$to = "arifuzzaman.rb@gmail.com";
+                $name = $request->name;
+                $email = $request->email;
+                $subject = $request->subject;
+                Mail::send('contact.us',[ 'name'=>$request->name, 'phone'=>$request->phone, 'email'=>$request->email, 'subject' => $request->subject, 'user_message' => $request->message  ], 
+                        function ($message) use ($to,$email,$name,$subject){
+                            $message->from($email,$name);
+                            $message->to($to)->subject($subject);
+                   });*/
+
+                return response()->json(['alertType' => 'success','message' => 'আপনার মেসেজটি পাঠানো হয়েছে।']);
                   
             }catch (Exception $e) {
                 DB::rollback();
-                 return response()->json(['alert-type' => 'error','message' => $e->errorInfo[2]]);
+                 return response()->json(['alertType' => 'error','message' => $e->errorInfo[2]]);
             }
                 
         }
-        return response()->json(['alert-type' => 'error','message' => 'পূণঃবার সকল তথ্য সঠিকভাবে পূরণ করুন।']);
+        return response()->json(['alertType' => 'error','message' => 'পূণঃবার সকল তথ্য সঠিকভাবে পূরণ করুন।']);
     }
 
     public function loadPhoto(Request $request)
@@ -96,6 +117,10 @@ class FrontController extends Controller
             $data->where('album_id','=',$request->album_id);
         }
 
+       if ($request->is_firstime == 'yes'){
+            
+            $data->take(4);
+        }
         return $data = $data->get();
 
         // return \View::make('ajax.ajax_photo',[

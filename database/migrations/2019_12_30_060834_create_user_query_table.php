@@ -18,8 +18,8 @@ class CreateUserQueryTable extends Migration
             $table->integer('service_id');
             $table->string('name');
             $table->string('phone')->nullable();
-            $table->string('address',255);
-            $table->longText('message');
+            $table->longText('address');
+            $table->longText('message')->nullable();
             $table->tinyInteger('seen')->default(0);
             $table->timestamps();
 

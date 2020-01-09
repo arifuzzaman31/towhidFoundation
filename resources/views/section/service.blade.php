@@ -1,6 +1,6 @@
 <section id="services" class="service position-relative pt-60">
     @if(count($paidServices) > 0)
-    <div class="container" id="সল্পমূল্যে">
+    <div class="container" id="minimum-price">
         <div class="row">
         <div class="col-xl-5">
             <div class="section-title mb-45">
@@ -13,8 +13,8 @@
             @foreach($paidServices as $service)
                 <div class="col-12 col-sm-6 col-md-4 image-grid-item text-center">
                     <div style="background-image: url({{URL:: to('images/service-image/'.$service->image)}} );" class="image-grid-cover">
-                        <a href="{{route('get-specific-service',$service->slug)}}" class="image-grid-clickbox"></a>
-                        <a href="{{route('get-specific-service',$service->slug)}}" class="cover-wrapper">{{$service->title}}</a>
+                        <a href="{{route('get-specific-service',$service->slug)}}" title="{{$service->title}}" class="image-grid-clickbox"></a>
+                        <a href="{{route('get-specific-service',$service->slug)}}"  class="cover-wrapper">{{$service->title}}</a>
                     </div>
                         <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$service->title}}" data-whatever="{{$service->id}}">সার্ভিসটি গ্রহণ করুন</button>
                 </div>
@@ -25,7 +25,7 @@
     @endif
 
      @if(count($freeServices) > 0)
-    <div class="container" id="বিনামূল্যে">
+    <div class="container" id="free-service">
         <div class="row">
         <div class="col-xl-5">
             <div class="section-title mb-45">

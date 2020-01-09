@@ -1,4 +1,4 @@
-<section class="team-membar position-relative pt-30 pb-80 theme-bg" id="team" style="background: #f2f9ff;">
+<section class="team-membar position-relative pt-30 pb-80 theme-bg" id="gallery" style="background: #f2f9ff;">
  <div class="container">
     <div class="row">
         <div class="col-xl-6 offset-xl-3 text-center">

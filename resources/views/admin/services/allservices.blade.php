@@ -26,7 +26,7 @@
             	@foreach($Services as $service)
 	                <tr>
 	                    <td style="width: 5%">{{$i}}</td>
-	                    <td style="width: 18%">{!! $service->title !!}</td>
+	                    <td style="width: 20%">{!! $service->title !!}</td>
 	                    <td style="width: 40%">{{ substr($service->description,0,80) }}....</td>
                         <td>
                         @if($service->image)

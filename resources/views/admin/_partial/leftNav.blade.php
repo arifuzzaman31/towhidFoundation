@@ -68,19 +68,6 @@
                     <span>Members</span>
                 </a>
             </li>
-            <li @if(Route::is('all-slider')) class="active" @endif>
-                 <a href="{{route('all-slider')}}">
-                    <i class="material-icons">games</i>
-                    <span>Slider</span>
-                </a>
-            </li>
-
-              <li @if(Route::is('all-priceplan')) class="active" @endif>
-                 <a href="{{route('all-priceplan')}}">
-                    <i class="material-icons">shopping_cart</i>
-                    <span>Product</span>
-                </a>
-            </li>
             <li @if(Route::is('change-password')) class="active" @endif>
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">polymer</i>

@@ -6,9 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>@yield('title','তৌহিদ ফাউন্ডেশন')</title>
-    <!-- Favicon-->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+    
     <!-- Google Fonts -->
     <link href="{{asset('admin/css/font-awesome/cyrillic-ext.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('admin/css/font-awesome/family-Material-Icons.css')}}" rel="stylesheet" type="text/css">

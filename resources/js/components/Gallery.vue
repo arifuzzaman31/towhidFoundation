@@ -2,9 +2,9 @@
 
  <div class="container">
             <div align="center">
-                <button class="btn btn-default filter-button" @click="getPhotos('')"  data-filter="all">All</button>
+                <button class="btn btn-default filter-button" @click="changePhoto('')"  data-filter="all">All</button>
                 
-            <button v-for="value in albums" :key="value.id" @click="getPhotos(value.id)" class="btn btn-default filter-button">{{value.name}}</button>
+            <button v-for="value in albums" :key="value.id" @click="changePhoto(value.id)" class="btn btn-default filter-button">{{value.name}}</button>
                  
                
             </div>
@@ -21,7 +21,7 @@
 
     <div class="row" v-else>
       <div class="col-md-12 text-center">
-        <h3>Loading....</h3>
+        <img style="height: 150px" :src="url+'images/loading.gif'">
       </div>
     </div>
      
@@ -55,6 +55,10 @@
 
     isLoading : false,
 
+    is_firstime : 'yes',
+
+
+
     }
 
    },
@@ -71,7 +75,8 @@
     getPhotos(album_id = ''){
      
      this.isLoading = true;
-     axios.get(base_url+'get-album-photo?album_id='+album_id)
+     axios.get(base_url+'get-album-photo?album_id='+album_id
+      +"&is_firstime="+this.is_firstime)
      .then(response => {
      
       this.photos = response.data;
@@ -81,6 +86,14 @@
      });
 
     },
+
+    changePhoto(album_id){
+    
+    this.is_firstime = 'no';
+    this.getPhotos(album_id);
+
+    },
+
 
     photoClicked(photo){
      

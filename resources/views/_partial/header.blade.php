@@ -26,13 +26,13 @@
                         <div class="heus-main-menu">
                             <nav id="mobile-menu">
                                 <ul id="menu">
-                                    <li><a href="{{ url('/') }}">হোম</a></li>
-                                    <li><a href="#about" title="তৌহিদ ফাউন্ডেশন">আমাদের সম্পর্কে</a></li>
-                                    <li><a href="#services" title="তৌহিদ ফাউন্ডেশন সেবাসমূহ">সেবা সমূহ</a></li>
-                                    <!-- <li><a href="#portfolio" title="Limmex Automation Portfolio">Portfolio</a></li> -->
-                                    <li><a href="#team" title="তৌহিদ ফাউন্ডেশন ফটোফাইল">ফটো ফাইল</a></li>
-                                    <li><a href="{{route('get-all-blog')}}" title="তৌহিদ ফাউন্ডেশন ব্লগ">ব্লগ</a>
-                                    <li><a href="#contact">যোগাযোগ</a></li>
+                                    <li><a href="{{ url('/') }}" title="তৌহিদ ফাউন্ডেশন">হোম</a></li>
+                                    <li><a href="{{ url('/'.'#about') }}" title="আমাদের সম্পর্কে">আমাদের সম্পর্কে</a></li>
+                                    <li><a href="{{ url('/'.'#services') }}" title="সেবাসমূহ">সেবা সমূহ</a></li>
+                                    <li><a href="{{route('show-all-member')}}" title="সদস্যবৃন্দ">সদস্যবৃন্দ</a></li>
+                                    <li><a href="{{ url('/'.'#gallery') }}" title="ফটোফাইল">ফটো ফাইল</a></li>
+                                    <li><a href="{{route('get-all-blog')}}" title="ব্লগ">ব্লগ</a>
+                                    <li><a href="{{ url('/'.'#contact') }}" title="যোগাযোগ">যোগাযোগ</a></li>
                                 </ul>
                             </nav>
                             <div class="support-btn btn">

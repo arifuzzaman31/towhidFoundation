@@ -17,6 +17,11 @@ Route::get('/', [
 	'uses' => 'FrontController@index'
 ]);
 
+Route::get('member', [
+	'as' => 'show-all-member',
+	'uses' => 'FrontController@AllMember'
+]);
+
 Route::get('blogs', [
 	'as' => 'get-all-blog',
 	'uses' => 'FrontController@getAllBlog'

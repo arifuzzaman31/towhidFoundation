@@ -18,7 +18,7 @@ class AlbumController extends Controller
     {
         // return 'Hello';
         $album = Album::all();
-        return view('admin.members.album.album',['albums' => $album]);
+        return view('admin.gallery.album.album',['albums' => $album]);
 
     }
 
@@ -30,7 +30,7 @@ class AlbumController extends Controller
     public function create()
     {
         // return 'hi';
-        return view('admin/members/album/addAlbum');
+        return view('admin/gallery/album/addAlbum');
     }
 
     /**
@@ -88,7 +88,7 @@ class AlbumController extends Controller
     {
         
         $data = Album::find($id);
-        return view('admin/members/album/editalbum',compact('data'));
+        return view('admin/gallery/album/editalbum',compact('data'));
     }
 
     /**

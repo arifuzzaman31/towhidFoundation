@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2020 at 02:59 PM
+-- Generation Time: Jan 09, 2020 at 12:21 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -115,23 +115,6 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `features`
---
-
-CREATE TABLE `features` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `feature_icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `galleries`
 --
 
@@ -175,8 +158,8 @@ CREATE TABLE `members` (
   `tw_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `inst_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -184,8 +167,8 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id`, `name`, `designation`, `quote`, `image`, `fb_link`, `tw_link`, `inst_link`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Hasan Ali', 'Admin & HR', '<p>Here&rsquo;s a quick exampleBy default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced withBy default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced with</p>', '1578477592.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, NULL, '2020-01-08 05:07:59'),
-(2, 'Shakil Khan', 'Genarel Cow', '<p>Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels.</p>', '1578478678.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, NULL, '2020-01-08 04:17:58');
+(1, 'Hasan Ali', 'Admin & HR', '<p>Here&rsquo;s a quick exampleBy default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced withBy default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced with</p>', '1578477592.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:48', '2020-01-08 05:07:59'),
+(2, 'Shakil Khan', 'Genarel', '<p>Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels.</p>', '1578478678.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:49', '2020-01-08 04:17:58');
 
 -- --------------------------------------------------------
 
@@ -207,15 +190,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_02_043356_create_features_table', 1),
 (5, '2019_12_02_043754_create_services_table', 1),
-(7, '2019_12_02_044033_create_priceplans_table', 1),
-(8, '2019_12_02_044140_create_plans_table', 1),
 (9, '2019_12_02_044326_create_blogs_table', 1),
 (10, '2019_12_02_044426_create_contacts_table', 1),
-(11, '2019_12_02_051847_create_testimonials_table', 1),
-(12, '2019_12_05_081805_create_portfolios_table', 1),
-(13, '2019_12_08_110103_create_sliders_table', 1),
 (14, '2019_12_30_060834_create_user_query_table', 2),
 (15, '2020_01_02_110030_create_albums_table', 3),
 (16, '2020_01_08_065616_create_members_table', 4),
@@ -231,53 +208,6 @@ CREATE TABLE `password_resets` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `plans`
---
-
-CREATE TABLE `plans` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `portfolios`
---
-
-CREATE TABLE `portfolios` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `priceplans`
---
-
-CREATE TABLE `priceplans` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` double(8,2) NOT NULL,
-  `product_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -317,40 +247,6 @@ INSERT INTO `services` (`id`, `title`, `slug`, `description`, `type`, `image`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sliders`
---
-
-CREATE TABLE `sliders` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 0,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `testimonials`
---
-
-CREATE TABLE `testimonials` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `comments` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `client_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `designation` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `client_image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -383,8 +279,8 @@ CREATE TABLE `user_query` (
   `service_id` int(11) NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `seen` tinyint(4) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -403,7 +299,16 @@ INSERT INTO `user_query` (`id`, `service_id`, `name`, `phone`, `address`, `messa
 (6, 7, 'hello world', '654894', 'estrthfghfgh', 'ffhgtyergfjghj', 1, '2020-01-05 10:01:24', '2020-01-07 04:04:35'),
 (7, 8, 'hello world', '654894', 'estrthfghfgh', 'ffhgtyergfjghj', 0, '2020-01-05 10:01:24', '2020-01-05 10:01:24'),
 (8, 7, 'Sadique', '654894657', 'ghjdersdhgdf', 'fghsrerutfggghjygtjtrtdr', 0, '2020-01-05 10:04:39', '2020-01-05 10:04:39'),
-(9, 5, 'Feri', '01335656776', 'Dhanmondi, Dhaka-1205', 'How to Use Font Awesome 5 on LaravelHow to Use Font Awesome 5 on LaravelHow to Use Font Awesome 5 on LaravelHow to Use Font Awesome 5 on Laravel', 0, '2020-01-07 12:36:40', '2020-01-07 12:36:40');
+(9, 5, 'Feri', '01335656776', 'Dhanmondi, Dhaka-1205', 'How to Use Font Awesome 5 on LaravelHow to Use Font Awesome 5 on LaravelHow to Use Font Awesome 5 on LaravelHow to Use Font Awesome 5 on Laravel', 0, '2020-01-07 12:36:40', '2020-01-07 12:36:40'),
+(10, 1, 'Shakil Khan', '909949435943', 'Lorem Ispumd', 'Dolor Ispul Dolor suit imor', 0, '2020-01-09 08:08:09', '2020-01-09 08:08:09'),
+(11, 2, 'arid', '01949281513', 'dhaka', 'ghjghjkkhjkfghdfgtyhjf', 0, '2020-01-09 09:06:06', '2020-01-09 09:06:06'),
+(12, 2, 'arid', '01949281513', 'dhaka', 'ghjghjkkhjkfghdfgtyhjf', 0, '2020-01-09 09:06:31', '2020-01-09 09:06:31'),
+(13, 1, 'arid', '01949281513', 'dhaka', 'ghjghjkkhjkfghdfgtyhjf', 0, '2020-01-09 09:11:08', '2020-01-09 09:11:08'),
+(14, 2, 'Abir', '01824220935', 'dhaka, BD', 'would suggest the above as it bind the clearinwould suggest the above as it bind the clearin', 0, '2020-01-09 09:47:11', '2020-01-09 09:47:11'),
+(15, 3, 'Abir', '01824220935', 'dhaka, BD', 'would suggest the above as it bind the clearinwould suggest the above as it bind the clearin', 0, '2020-01-09 09:47:12', '2020-01-09 09:47:12'),
+(16, 5, 'Lemon', '02333888775', 'Feni', 'Manually readjust the modal’s position if the height', 0, '2020-01-09 10:00:23', '2020-01-09 10:00:23'),
+(17, 5, 'deva', '56744537567', 'Diago', NULL, 0, '2020-01-09 10:14:32', '2020-01-09 10:14:32'),
+(18, 3, 'Mannan', '9866755366', 'dolapur', 'This event fires immediately when the This event fires immediately when the', 0, '2020-01-09 10:24:44', '2020-01-09 10:24:44');
 
 --
 -- Indexes for dumped tables
@@ -435,13 +340,6 @@ ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `features`
---
-ALTER TABLE `features`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `features_title_unique` (`title`);
-
---
 -- Indexes for table `galleries`
 --
 ALTER TABLE `galleries`
@@ -466,41 +364,11 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `plans`
---
-ALTER TABLE `plans`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `portfolios`
---
-ALTER TABLE `portfolios`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `priceplans`
---
-ALTER TABLE `priceplans`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `services_sort_description_unique` (`title`) USING HASH;
-
---
--- Indexes for table `sliders`
---
-ALTER TABLE `sliders`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `testimonials`
---
-ALTER TABLE `testimonials`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -544,12 +412,6 @@ ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `features`
---
-ALTER TABLE `features`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `galleries`
 --
 ALTER TABLE `galleries`
@@ -568,40 +430,10 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `plans`
---
-ALTER TABLE `plans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `portfolios`
---
-ALTER TABLE `portfolios`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `priceplans`
---
-ALTER TABLE `priceplans`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `sliders`
---
-ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `testimonials`
---
-ALTER TABLE `testimonials`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -613,7 +445,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `user_query`
 --
 ALTER TABLE `user_query`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

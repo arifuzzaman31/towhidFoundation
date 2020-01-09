@@ -9,7 +9,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <img id="image-gallery-image" class="img-responsive col-md-12" v-lazy="url+'images/team-member-image/'+photo.image">
+                        <img id="image-gallery-image" class="img-responsive col-md-12" v-lazy="url+'images/our-gallery/'+photo.image">
                     </div>
                     <div class="modal-footer">
                         <h4 class="modal-title text-center" id="image-gallery-title">{{ photo.caption  }}</h4>

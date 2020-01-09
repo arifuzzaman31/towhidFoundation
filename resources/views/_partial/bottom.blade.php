@@ -11,20 +11,20 @@
   <div class="modal-body">
     <form>
       <div class="form-group">
-        <label for="recipient-name" class="col-form-label">নাম :</label>
-        <input type="text" class="form-control" name="name" id="recipient-name" required>
+        <!-- <label for="recipient-name" class="col-form-label"> :</label> -->
+        <input type="text" class="form-control" name="name" id="recipient-name" placeholder="নাম" required="">
     </div>
     <div class="form-group">
-        <label for="reciept-phone" class="col-form-label">ফোন : </label>
-        <input type="text" class="form-control" name="phone" id="reciept-phone" required>
+        <!-- <label for="reciept-phone" class="col-form-label"> : </label> -->
+        <input type="text" class="form-control" name="phone" id="reciept-phone" placeholder="ফোন" required="">
     </div>
     <div class="form-group">
-        <label for="recipient-address" class="col-form-label">ঠিকানা :</label>
-        <input type="text" class="form-control" name="address" id="recipient-address" required>
+        <!-- <label for="recipient-address" class="col-form-label"> :</label> -->
+        <input type="text" class="form-control" name="address" id="recipient-address" placeholder="ঠিকানা" required="">
     </div>
     <div class="form-group">
-        <label for="recipient-message" class="col-form-label">আপনার মতামত :</label>
-        <textarea class="form-control" rows="6" name="message" id="recipient-message" required></textarea>
+        <label for="recipient-message" class="col-form-label">ডিটেইলস :</label>
+        <textarea class="form-control" rows="6" name="message" id="recipient-message"></textarea>
     </div>
 </form>
 </div>
@@ -75,7 +75,7 @@ $('#serviceModal').on('show.bs.modal', function (event) {
       var address = modal.find('#recipient-address').val();
       var message = modal.find('#recipient-message').val();
       
-      if (name != '' && phone != '' && address != '' && message != '') {}
+      if (name != '' && phone != '' && address != '') {
         $.ajax({
             url : 'send-user-request',
             type: 'POST',
@@ -88,16 +88,32 @@ $('#serviceModal').on('show.bs.modal', function (event) {
                     'address': address,'message': message
                   },
             success: function(data){
-                console.log(data.message);
-                $('#serviceModal').modal('hide');
-                toastr.success(data.message);
+                if (data.alertType == 'success') {
+                  $('#serviceModal').modal('hide');
+                  toastr.success(data.message);
+                }else{
+                  $('#serviceModal').modal('show');
+                  toastr.error(data.message);
+                }
+              $('#serviceModal').reset();
+              console.log(data.message);
             },
             error: function(data){
+          
                 console.log(data.message);
             }
         });
+      }else{
+        toastr.error("নাম, ফোন, ঠিকানা অত্যাবশ্যক।");
+        $('#serviceModal').modal('show');
+      }
   });
+  modal.find('form').trigger('reset');
   // event.preventDefault();
+})
+
+$('#serviceModal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset');
 })
 </script>
 
