@@ -10,6 +10,6 @@ return [
 	'photo_file' => 'Gallery',
 	'blog' => 'Blog',
 	'contact' => 'Contact',
-	'call_us' => 'Call Us'
+	'call_us' => 'Call Us',
 	'cell_no' => '01304004000'
 ]; 

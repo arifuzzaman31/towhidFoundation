@@ -6,7 +6,7 @@ Route::get('locale/{locale}', function ($locale){
 });
 
 Route::get('locale/en', function (){
-    Session::flush();
+    Session::flush('lang');
     return redirect()->back();
 });
 

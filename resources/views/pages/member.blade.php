@@ -19,10 +19,10 @@ content="{{ asset('images/logo_seo.png') }}" />
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7">
                 <div class="video-content-inner">
-                    <h1 class="mb-20">তৌহিদ ফাউন্ডেশন</h1>
+                    <h1 class="mb-20">@lang('member.tf')</h1>
                     <h5>
-                    ভাষা আন্দোলন ও একাত্তরের মুক্তিযুদ্ধ থেকে শুরু করে বাংলাদেশের সব গণতান্ত্রিক ও নাগরিক আন্দোলনে একজন সামনের সারির যোদ্ধা অধ্যাপক ড. অজয় রায়। তিনি শুধু পদার্থবিজ্ঞানী এবং প্রথিতযশা শিক্ষকই ছিলেন না, ছিলেন বিজ্ঞান শিক্ষার একজন নিবেদিতপ্রাণ গবেষক। আজীবন অসাম্প্রদায়িক চেতনার চর্চা তাকে এক অনন্য উচ্চতায় নিয়ে গেছে। এ কারণেই তিনি সকলের কাছে এক আদর্শ হয়ে থাকবেন।জ্ঞান ও মানুষের কল্যাণে জীবন উৎসর্গ করা মানুষটির প্রতি রইলো আমাদের বিনম্র শ্রদ্ধা।</h5> <br><br>
-           			<h5  style="font-size: 1.5em">চেয়ারম্যান, <br> তৌহিদ ফাউন্ডেশন</h5>
+                    @lang('member.chairman_text')</h5> <br><br>
+           			<h5  style="font-size: 1.5em">@lang('member.chairman'), <br> @lang('member.tf')</h5>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@ content="{{ asset('images/logo_seo.png') }}" />
         <div class="row">
         <div class="col-xl-5">
             <div class="section-title mb-45">
-                <h4 class="text-center our-service">আমাদের সদস্য</h4>
+                <h4 class="text-center our-service">@lang('member.our_members')</h4>
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@ content="{{ asset('images/logo_seo.png') }}" />
       .our-service {
         border-bottom: 3px solid #121d61;
         margin: 25px 330px;
-        padding-bottom: 28px;
+        padding-bottom: 20px;
       }
     }  
 </style>

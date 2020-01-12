@@ -31,7 +31,7 @@
                             <div class="post-meta ppst-meta-content mb-15">
                                 <ul>
                                     <li> <i class="fa fa-clock-o" aria-hidden="true"></i> {{$services->created_at->diffForHumans()}}</li>
-                                        <li class="float-right"><button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$services->title}}" data-whatever="{{$services->id}}">সার্ভিসটি গ্রহণ করুন</button></li>
+                                        <li class="float-right"><button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$services->title}}" data-whatever="{{$services->id}}">@lang('service.get_the_service')</button></li>
                                 </ul>
                             </div>
                             <div class="blog-post-inner-content">
