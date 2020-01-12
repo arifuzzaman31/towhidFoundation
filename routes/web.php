@@ -1,7 +1,19 @@
 <?php
+
+Route::get('locale/{locale}', function ($locale){
+    Session::put('lang', $locale);
+    return redirect()->back();
+});
+
+Route::get('locale/en', function (){
+    Session::flush();
+    return redirect()->back();
+});
+
 Route::get('us', function(){
 	return view('contact.us');
 });
+
 Route::get('login', [
 	'as' 	=> 'login',
 	'uses'  => 'DashboardController@login'

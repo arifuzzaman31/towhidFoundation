@@ -4,7 +4,7 @@
         <div class="col-xl-6 offset-xl-3 text-center">
             <div class="section-title mb-45">
                 <h4 class="text-uppercase mb-20"></h4>
-                <h1> আমাদের <br> গ্যালারি </h1>
+                <h1> @lang('gallery.our') <br> @lang('gallery.gallery') </h1>
             </div>
         </div>
     </div>

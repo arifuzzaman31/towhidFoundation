@@ -15,6 +15,7 @@ use App\Album;
 use App\Member;
 use App\custom\Helper;
 use DB;
+use Session;
 
 class FrontController extends Controller
 {
@@ -25,6 +26,7 @@ class FrontController extends Controller
     	$blogs 		  =  Blog::where('status',1)->take(2)->latest()->get();
         $paidServices   =  Service::where(['status'=>1,'type'=>'সল্পমূল্যে'])->get();
         $freeServices   =  Service::where(['status'=>1,'type'=>'বিনামূল্যে'])->get();
+        // Session::flush();
     	return view('setup.setup',compact('galleries','albums','blogs','paidServices','freeServices'));
     }
 
@@ -82,7 +84,7 @@ class FrontController extends Controller
                 $service = Service::find($request->service_id);
                 $message = "$request->name asked for $service->title.Phone: $request->phone";
 
-                Helper::send_sms('01304004000',$message,'UNICODE');
+                Helper::send_sms('01317008000',$message,'UNICODE');
 
                 // For Mail
                 /*$to = "arifuzzaman.rb@gmail.com";
@@ -99,7 +101,7 @@ class FrontController extends Controller
                   
             }catch (Exception $e) {
                 DB::rollback();
-                 return response()->json(['alertType' => 'error','message' => $e->errorInfo[2]]);
+                return response()->json(['alertType' => 'error','message' => $e->errorInfo[2]]);
             }
                 
         }

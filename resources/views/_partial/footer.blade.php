@@ -9,7 +9,7 @@
                                     <a href="index.html">
                                         <img src="{{asset('assets/img/site-logo/logo-bottom.png')}}" alt="">
                                     </a>
-                                    <p class="mt-30">একটি সম্পূর্ণ অ-রাজনৈতিক ও অ-লাভজনক সেচ্ছাসেবী প্রতিষ্ঠান।</p>
+                                    <p class="mt-30">@lang('hero_area.tf_sentence')</p>
                                 </div>
                                 <div class="social-list footer-social-list mt-20">
                                     <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
@@ -20,30 +20,30 @@
                         </div>
                         <div class="col-xl-3 col-lg-3 col-sm-6">
                             <div class="widget footer-sidebar">
-                                <h3 class="mb-45">আমাদের প্রতিষ্ঠান</h3>
+                                <h3 class="mb-45">@lang('footer.our_institute')</h3>
                                 <ul>
-                                    <li><a href="#about">আমাদের সম্পর্কে</a></li>
-                                    <li><a href="#services">সেবাসমূহ</a></li>
-                                    <li><a href="#contact">যোগাযোগ</a></li>
+                                    <li><a href="#about">@lang('footer.about_us')</a></li>
+                                    <li><a href="#services">@lang('footer.service')</a></li>
+                                    <li><a href="#contact">@lang('footer.contact')</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-sm-6">
                             <div class="widget footer-sidebar">
-                                <h3 class="mb-45">আমাদের সেবাসমূহ</h3>
+                                <h3 class="mb-45">@lang('footer.our_service')</h3>
                                 <ul>
-                                    <li><a href="#minimum-price">সল্পমূল্যে সেবা</a></li>
-                                    <li><a href="#free-service">বিনামূল্যে সেবা</a></li>
+                                    <li><a href="#minimum-price">@lang('footer.low_cost')</a></li>
+                                    <li><a href="#free-service">@lang('footer.free_service')</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-xl-3 col-lg-3 col-sm-6">
                             <div class="widget footer-sidebar">
-                                <h3 class="mb-45">যোগাযোগ করুন</h3>
+                                <h3 class="mb-45">@lang('footer.contact_us')</h3>
                                 <div class="footer-contact-info">
-                                    <p><strong>ঠিকানাঃ</strong> ১৭/৪ টোলারবাগ, মিরপুর-১ , ঢাকা-১২১৬</p>
-                                    <p><strong>ইমেলঃ</strong> towhid.foundation@gmail.com</p>
-                                    <p><strong>ফোনঃ</strong> +৮৮ ০১৩০-৪০০৪০০০, +৮৮ ০১৩১-৭০০৮০০০</p>
+                                    <p><strong>@lang('footer.address')</strong> @lang('footer.address_des')</p>
+                                    <p><strong>@lang('footer.email')</strong>towhid.foundation@gmail.com</p>
+                                    <p><strong>@lang('footer.phone')</strong> @lang('footer.phone_no')</p>
                                 </div>
                             </div>
                         </div>
@@ -61,9 +61,9 @@
                         <div class="col-xl-6 col-lg-6 text-right">
                             <div class="footer-menu">
                                 <ul>
-                                    <li><a href="#">Terms & Condition</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">@lang('footer.terms_condition')</a></li>
+                                    <li><a href="#">@lang('footer.privacy_policy')</a></li>
+                                    <li><a href="#">@lang('footer.help')</a></li>
                                 </ul>
                             </div>
                         </div>

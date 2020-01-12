@@ -4,8 +4,8 @@
         <div class="row">
         <div class="col-xl-5">
             <div class="section-title mb-45">
-                <h4 class="text-center our-service">আমাদের সেবা</h4>
-                <h1>সল্পমূল্যে সেবা সমূহ</h1>
+                <h4 class="text-center our-service">@lang('service.our_service')</h4>
+                <h1>@lang('service.low_cost_service')</h1>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
                         <a href="{{route('get-specific-service',$service->slug)}}" title="{{$service->title}}" class="image-grid-clickbox"></a>
                         <a href="{{route('get-specific-service',$service->slug)}}"  class="cover-wrapper">{{$service->title}}</a>
                     </div>
-                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$service->title}}" data-whatever="{{$service->id}}">সার্ভিসটি গ্রহণ করুন</button>
+                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$service->title}}" data-whatever="{{$service->id}}">@lang('service.get_the_service')</button>
                 </div>
             @endforeach
         </div>
@@ -29,7 +29,7 @@
         <div class="row">
         <div class="col-xl-5">
             <div class="section-title mb-45">
-                <h1>বিনামূল্যে সেবা সমূহ</h1>
+                <h1>@lang('service.free_service')</h1>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
                         <a href="{{route('get-specific-service',$service->slug)}}" class="image-grid-clickbox"></a>
                         <a href="{{route('get-specific-service',$service->slug)}}" class="cover-wrapper">{{$service->title}}</a>
                     </div>
-                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$service->title}}" data-whatever="{{$service->id}}">সার্ভিসটি গ্রহণ করুন</button>
+                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$service->title}}" data-whatever="{{$service->id}}">@lang('service.get_the_service')</button>
                 </div>
             @endforeach
         </div>

@@ -33,9 +33,9 @@ class Helper
 	    )
 	);
 
-     $context  = stream_context_create($opt);
+     $context = stream_context_create($opt);
 
-           $response =   file_get_contents('https://portal.adnsms.com/api/v1/secure/send-sms',false,$context);
+           $response = file_get_contents('https://portal.adnsms.com/api/v1/secure/send-sms',false,$context);
 
             // return $response;
 	}
