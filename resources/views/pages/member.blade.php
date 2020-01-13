@@ -1,5 +1,5 @@
 @extends('app')
-@section('title','তৌহিদ ফাউন্ডেশন | সদস্য')
+@section('title') @lang('meta.member') @endsection
 @section('meta')
 <meta property="og:url"          
 content="{{ route('get-all-blog') }}" />
@@ -7,8 +7,8 @@ content="{{ route('get-all-blog') }}" />
 <meta property="og:image"        
 content="{{ asset('images/logo_seo.png') }}" />
 
-<meta property="og:title" content="তৌহিদ ফাউন্ডেশন | সদস্যবৃন্দ" />
-<meta property="og:description" content="মানবতার সেবায়। একটি সম্পূর্ণ অ-রাজনৈতিক ও অ-লাভজনক সেচ্ছাসেবী প্রতিষ্ঠান" />
+<meta property="og:title" content="@lang('meta.member')" />
+<meta property="og:description" content="@lang('meta.title')" />
 @endsection
 @section('content')
 <section id="about" class="video-area position-relative pt-125 pb-125">

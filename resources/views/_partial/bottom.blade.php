@@ -3,7 +3,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="serviceModalLabel">Service Name</h5>
+        <h5 class="modal-title" id="serviceModalLabel"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
       </button>
@@ -12,25 +12,25 @@
     <form>
       <div class="form-group">
         <!-- <label for="recipient-name" class="col-form-label"> :</label> -->
-        <input type="text" class="form-control" name="name" id="recipient-name" placeholder="নাম" required="">
+        <input type="text" class="form-control" name="name" id="recipient-name" placeholder="@lang('service.name')" required="">
     </div>
     <div class="form-group">
         <!-- <label for="reciept-phone" class="col-form-label"> : </label> -->
-        <input type="text" class="form-control" name="phone" id="reciept-phone" placeholder="ফোন" required="">
+        <input type="text" class="form-control" name="phone" id="reciept-phone" placeholder="@lang('service.phone')" required="">
     </div>
     <div class="form-group">
         <!-- <label for="recipient-address" class="col-form-label"> :</label> -->
-        <input type="text" class="form-control" name="address" id="recipient-address" placeholder="ঠিকানা" required="">
+        <input type="text" class="form-control" name="address" id="recipient-address" placeholder="@lang('service.address')" required="">
     </div>
     <div class="form-group">
-        <label for="recipient-message" class="col-form-label">ডিটেইলস :</label>
+        <label for="recipient-message" class="col-form-label">@lang('service.details') :</label>
         <textarea class="form-control" rows="6" name="message" id="recipient-message"></textarea>
     </div>
 </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">বাতিল</button>
-    <button type="button" class="btn btn-primary submit-btn">পাঠান</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('service.close')</button>
+    <button type="button" class="btn btn-primary submit-btn">@lang('service.send')</button>
 </div>
 </div>
 </div>
@@ -67,7 +67,7 @@ $('#serviceModal').on('show.bs.modal', function (event) {
   var id = button.data('whatever')
   var title = button.data('title')
   var modal = $(this)
-  modal.find('.modal-title').text('আপনি “' + title + ' ” সেবাটি গ্রহণ করতে আগ্রহী').css('font-style','italic')
+  modal.find('.modal-title').text("@lang('service.you') “"+title+"” @lang('service.title_part')").css('font-style','italic')
   
   $('.submit-btn').on('click',function(){
       var name    = modal.find('#recipient-name').val();

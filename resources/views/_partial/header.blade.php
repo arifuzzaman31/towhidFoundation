@@ -34,14 +34,14 @@
                                     <li><a href="{{route('get-all-blog')}}" title="@lang('header.blog')">@lang('header.blog')</a>
                                     <li><a href="{{ url('/'.'#contact') }}" title="@lang('header.contact')">@lang('header.contact')</a></li>
                                     @if (app()->isLocale('en'))
-                                        <li><a href="{{ url('locale/bn') }}" ><i class="fa fa-language"></i> bn</a></li>
+                                        <li><a href="{{ url('locale/bn') }}" ><i class="fa fa-language"></i> বাংলা</a></li>
                                     @else
-                                        <li><a href="{{ url('locale/en') }}" ><i class="fa fa-language"></i> en</a></li>
+                                        <li><a href="{{ url('locale/en') }}" ><i class="fa fa-language"></i> english</a></li>
                                     @endif
                                 </ul>
                             </nav>
                             <div class="support-btn btn">
-                                <a href="tel:01304004000">@lang('header.call_us')<span>@lang('header.cell_no')</span></a>
+                                <a href="tel:01317008000">@lang('header.call_us')<span>@lang('header.cell_no')</span></a>
                             </div>
                         </div>
                     </div>

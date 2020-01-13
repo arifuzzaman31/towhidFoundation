@@ -1,5 +1,5 @@
 @extends('app')
-@section('title','তৌহিদ ফাউন্ডেশন | ব্লগ')
+@section('title') @lang('meta.blog') @endsection
 @section('meta')
     <meta property="og:url"          
         content="{{ route('get-all-blog') }}" />
@@ -7,8 +7,8 @@
             <meta property="og:image"        
          content="{{ asset('images/logo_seo.png') }}" />
 
-    <meta property="og:title" content="তৌহিদ ফাউন্ডেশন | ব্লগ" />
-    <meta property="og:description" content="মানবতার সেবায়। একটি সম্পূর্ণ অ-রাজনৈতিক ও অ-লাভজনক সেচ্ছাসেবী প্রতিষ্ঠান" />
+    <meta property="og:title" content="@lang('meta.blog')" />
+    <meta property="og:description" content="@lang('meta.title')" />
 @endsection
 @section('content')
 <!-- Blog post area Start -->

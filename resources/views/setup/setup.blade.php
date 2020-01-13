@@ -1,4 +1,9 @@
 @extends('app')
+
+      @section('title')
+        @lang('header.tf')
+      @endsection
+
         @section('meta')
         <meta property="og:url"          
          content="{{ url('/') }}" />
@@ -6,9 +11,9 @@
          content="website" />
 
         <meta property="og:title"        
-         content="তৌহিদ ফাউন্ডেশন | মানবতার সেবায়" />
+         content="@lang('meta.title')" />
         <meta property="og:description"   
-        content="একটি সম্পূর্ণ অ-রাজনৈতিক ও অ-লাভজনক সেচ্ছাসেবী প্রতিষ্ঠান" />
+        content="@lang('meta.tf_sentence')" />
         <meta property="og:image"        
          content="{{ asset('images/logo_seo.png') }}" />
         @endsection
