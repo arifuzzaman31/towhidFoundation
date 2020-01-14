@@ -92,7 +92,7 @@ $('#serviceModal').on('show.bs.modal', function (event) {
                   $('#serviceModal').modal('hide');
                   toastr.success(data.message);
                 }else{
-                  $('#serviceModal').modal('show');
+                  // $('#serviceModal').modal('show');
                   toastr.error(data.message);
                 }
               $('#serviceModal').reset();
@@ -118,8 +118,6 @@ $('#serviceModal').on('hidden.bs.modal', function () {
 </script>
 
 @stack('script')
-
-
 
 </body>
 

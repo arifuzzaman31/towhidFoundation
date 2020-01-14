@@ -13,6 +13,7 @@
                 <tr>
                     <th>SL</th>
                     <th>Title</th>
+                    <th>Title</th>
                     <th>Description</th>
                     <th>Image</th>
                     <th>Type</th>
@@ -26,14 +27,15 @@
             	@foreach($Services as $service)
 	                <tr>
 	                    <td style="width: 5%">{{$i}}</td>
-	                    <td style="width: 20%">{!! $service->title !!}</td>
-	                    <td style="width: 40%">{{ substr($service->description,0,80) }}....</td>
+	                    <td style="width: 20%">{!! $service->title_en !!}</td>
+                        <td style="width: 20%">{!! $service->title_bn !!}</td>
+	                    <td style="width: 24%">{{ substr($service->description,0,40) }}...</td>
                         <td>
                         @if($service->image)
                             <img src="{{URL::to('images/service-image/'.$service->image)}}" height="40px" width="50px">
                         @endif
                         </td>
-                        <td style="width: 12%">{{$service->type}}</td>
+                        <td style="width: 8%">{{$service->type}}</td>
 	                    <td style="width: 15%">
 	                    	<a onclick="getModal('edit.service/{{$service->id}}','Edit Service')" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
                             

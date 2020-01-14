@@ -19,10 +19,10 @@
     <link href="{{ asset('admin/node-waves/waves.css')}}" rel="stylesheet" />
 
     <!-- Animation Css -->
-    <link href="{{asset('admin/animate-css/animate.css')}}" rel="stylesheet" />
+    <!-- <link href="{{asset('admin/animate-css/animate.css')}}" rel="stylesheet" /> -->
 
     <!-- Morris Chart Css-->
-    <link href="{{asset('admin/morrisjs/morris.css')}}" rel="stylesheet" />
+    <!-- <link href="{{asset('admin/morrisjs/morris.css')}}" rel="stylesheet" /> -->
 
     <!-- Custom Css -->
     <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">

@@ -105,7 +105,8 @@ class FrontController extends Controller
             }
                 
         }
-        return response()->json(['alertType' => 'error','message' => 'পূণঃবার সকল তথ্য সঠিকভাবে পূরণ করুন।']);
+        return response()->json(['error',$validation->errors()->all()]);
+        // return response()->json(['alertType' => 'error','message' => 'পূণঃবার সকল তথ্য সঠিকভাবে পূরণ করুন।']);
     }
 
     public function loadPhoto(Request $request)

@@ -1,10 +1,15 @@
 <div class="row clearfix">
     <div class="col-md-12">
         <p class="align-left font-24">
-            <b>{{$data->sort_description}}</b>
+            <b>{!! $data->title_en !!}</b>
+        </p>
+        <p class="align-left font-24">
+            <b>{!! $data->title_bn !!}</b>
         </p>
         <div class="align-left">
-            {{$data->description}}
+        	@if($data->description)
+            	{!! $data->description !!}
+            @endif
         </div>
     </div>
 </div>

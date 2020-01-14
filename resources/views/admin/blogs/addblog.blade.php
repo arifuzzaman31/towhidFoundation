@@ -1,5 +1,4 @@
 <div class="body">
-    @include('admin._partial.message')
     <form action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">
        @csrf
         <label for="title">Title</label>
@@ -26,7 +25,7 @@
         <br>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="submit" class="btn btn-primary">Add</button>
         </div>
     </form>
 </div>

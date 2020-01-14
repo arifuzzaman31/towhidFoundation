@@ -73,7 +73,7 @@ class DashboardController extends Controller
       }
     }
     else {
-       return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
+       return back()->withErrors(['error',$validation->errors()->all()]);
     }
   }
 }

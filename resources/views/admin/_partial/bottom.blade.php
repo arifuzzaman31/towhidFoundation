@@ -6,10 +6,10 @@
 <script src="{{asset('admin/plugins/bootstrap/js/bootstrap.js')}}"></script>
 
 <!-- Select Plugin Js -->
-<script src="{{asset('admin/plugins/bootstrap-select/js/bootstrap-select.js')}}"></script>
+<!-- <script src="{{asset('admin/plugins/bootstrap-select/js/bootstrap-select.js')}}"></script> -->
 
 <!-- Slimscroll Plugin Js -->
-<script src="{{asset('admin/plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
+<!-- <script src="{{asset('admin/plugins/jquery-slimscroll/jquery.slimscroll.js')}}"></script> -->
 
 <!-- Waves Effect Plugin Js -->
 <script src="{{ asset('admin/plugins/node-waves/waves.js')}}"></script>
@@ -18,20 +18,20 @@
 <script src="{{ asset('admin/plugins/jquery-countto/jquery.countTo.js')}}"></script>
 
 <!-- Morris Plugin Js -->
-<script src="{{asset('admin/plugins/raphael/raphael.min.js')}}"></script>
-<script src="{{asset('admin/plugins/morrisjs/morris.js')}}"></script>
+<!-- <script src="{{asset('admin/plugins/raphael/raphael.min.js')}}"></script> -->
+<!-- <script src="{{asset('admin/plugins/morrisjs/morris.js')}}"></script> -->
 
     
 
 <!-- ChartJs -->
-<script src="{{asset('admin/plugins/chartjs/Chart.bundle.js')}}"></script>
+<!-- <script src="{{asset('admin/plugins/chartjs/Chart.bundle.js')}}"></script> -->
 
 <!-- Flot Charts Plugin Js -->
-<script src="{{asset('admin/plugins/flot-charts/jquery.flot.js')}}"></script>
-<script src="{{asset('admin/plugins/flot-charts/jquery.flot.resize.js')}}"></script>
-<script src="{{asset('admin/plugins/flot-charts/jquery.flot.pie.js')}}"></script>
-<script src="{{asset('admin/plugins/flot-charts/jquery.flot.categories.js')}}"></script>
-<script src="{{asset('admin/plugins/flot-charts/jquery.flot.time.js')}}"></script>
+<!-- <script src="{{asset('admin/plugins/flot-charts/jquery.flot.js')}}"></script> -->
+<!-- <script src="{{asset('admin/plugins/flot-charts/jquery.flot.resize.js')}}"></script> -->
+<!-- <script src="{{asset('admin/plugins/flot-charts/jquery.flot.pie.js')}}"></script> -->
+<!-- <script src="{{asset('admin/plugins/flot-charts/jquery.flot.categories.js')}}"></script> -->
+<!-- <script src="{{asset('admin/plugins/flot-charts/jquery.flot.time.js')}}"></script> -->
 
 <!-- Sparkline Chart Plugin Js -->
 <script src="{{asset('admin/plugins/jquery-sparkline/jquery.sparkline.js')}}"></script>
@@ -109,7 +109,7 @@
 </script>
 
 <!-- Bootsrap Modal Size -->
-<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="AdminModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -126,13 +126,17 @@
 </div>
 
 <script type="text/javascript">
-    $('#defaultModal').on('show.bs.modal', function (event) {
+    $('#AdminModal').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* 
           var modal = $(this)
           modal.find('.modal-title').text('New message to ' + recipient)
           modal.find('.modal-body input').val(recipient)
     })
+
+$('#AdminModal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset');
+})
 </script>
 </body>
 

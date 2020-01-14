@@ -36,7 +36,8 @@ class ServiceController extends Controller
     {
         $status = $request->status ? 1 : 0;
          $validation = Validator::make($request->all(),[
-            'title'            => 'required',
+            'title_en'            => 'required',
+            'title_bn'            => 'required',
             'description'      => 'required',
             'type'             => 'required',
             'image'            => 'required|image|mimes:jpeg,bmp,jpg,png,gif,svg'
@@ -49,13 +50,14 @@ class ServiceController extends Controller
                     $imageName = time().'.'.$image->getClientOriginalExtension();
                     $image->move('images/service-image',$imageName);
                     Service::insert([
-                        'title'         => $request->title,
-                        'slug'          => Helper::make_slug($request->title),
-                        'description'   => $request->description,
-                        'type'          => $request->type,
-                        'image'         => $imageName,
-                        'service_link'  => $request->service_link,
-                        'status'        => $status
+                        'title_en'    => $request->title_en,
+                        'title_bn'    => $request->title_bn,
+                        'slug'        => Helper::make_slug($request->title_en),
+                        'description' => $request->description,
+                        'type'        => $request->type,
+                        'image'       => $imageName,
+                        'service_link' => $request->service_link,
+                        'status'      => $status
                     ]);
                     DB::commit();
                     return back()->with(['alert-type' => 'success','message' => 'Service Added successfull']);
@@ -65,7 +67,7 @@ class ServiceController extends Controller
                 return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
             }
         }
-        return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
+        return back()->withErrors(['error',$validation->errors()->all()]);
     }
 
     public function show($id)
@@ -92,12 +94,13 @@ public function update(Request $request, $id)
        try {
             DB::beginTransaction();
             $updated = Service::where('id',$id)->first();
-            $updated->title            = $request->title;
-            $updated->slug             = Helper::make_slug($request->title);
-            $updated->description      = $request->description;
-            $updated->type             = $request->type;
-            $updated->service_link     = $request->service_link;
-            $updated->status           = $status;
+            $updated->title_en      = $request->title_en;
+            $updated->title_bn      = $request->title_bn;
+            $updated->slug          = Helper::make_slug($request->title_en);
+            $updated->description   = $request->description;
+            $updated->type          = $request->type;
+            $updated->service_link  = $request->service_link;
+            $updated->status        = $status;
             $updated->update();
 
                 if ($request->hasFile('image')) {
@@ -123,7 +126,7 @@ public function update(Request $request, $id)
         }
     }
     else {
-        return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
+        return back()->withErrors(['error',$validation->errors()->all()]);
     }
 }
 

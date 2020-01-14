@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 09, 2020 at 12:21 PM
+-- Generation Time: Jan 14, 2020 at 12:46 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -168,7 +168,7 @@ CREATE TABLE `members` (
 
 INSERT INTO `members` (`id`, `name`, `designation`, `quote`, `image`, `fb_link`, `tw_link`, `inst_link`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Hasan Ali', 'Admin & HR', '<p>Here&rsquo;s a quick exampleBy default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced withBy default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced with</p>', '1578477592.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:48', '2020-01-08 05:07:59'),
-(2, 'Shakil Khan', 'Genarel', '<p>Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels.</p>', '1578478678.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:49', '2020-01-08 04:17:58');
+(2, 'Shakil Khan', 'Genarel Manager', '<p>Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels.</p>', '1578478678.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:49', '2020-01-14 04:35:06');
 
 -- --------------------------------------------------------
 
@@ -218,7 +218,8 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `services` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_en` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_bn` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `type` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -233,16 +234,16 @@ CREATE TABLE `services` (
 -- Dumping data for table `services`
 --
 
-INSERT INTO `services` (`id`, `title`, `slug`, `description`, `type`, `image`, `status`, `service_link`, `created_at`, `updated_at`) VALUES
-(1, 'অ্যাম্বুলেন্স সার্ভিস', 'অ্যাম্বুলেন্স-সার্ভিস', '<p>Modals have two optional sizes, available via modifier classes to be placed on ambu</p>', 'সল্পমূল্যে', '1577613055.jpg', 1, 'fb.com', '2019-12-29 09:56:01', '2020-01-08 00:01:09'),
-(2, 'প্যাথলজিক্যাল পরীক্ষা নিরীক্ষা', 'প্যাথলজিক্যাল-পরীক্ষা-নিরীক্ষা', '<p>Embedding YouTube videos in modals requiresequiresequires</p>', 'সল্পমূল্যে', '1577613220.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/ddfgfff', '2019-12-29 09:56:07', '2020-01-01 01:50:14'),
-(3, 'ফিজিওথেরাপি', 'ফিজিওথেরাপি', '<p>Embedding YouTube videos in a modals requiresEmbedding YouTube videos in modals requires</p>', 'সল্পমূল্যে', '1578463850.jpg', 1, 'fb.com', '2019-12-29 10:07:00', '2020-01-08 00:11:07'),
-(4, 'লাশের কাপড়, কফিন ও অন্যান্য উপকরণ', 'লাশের-কাপড়,-কফিন-ও-অন্যান্য-উপকরণ', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical</span></p>', 'সল্পমূল্যে', '1578463562.jpg', 1, 'fb.com', '2020-01-01 06:54:35', '2020-01-08 00:06:02'),
-(5, 'সেলাই প্রশিক্ষণ', 'সেলাই-প্রশিক্ষণ', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">but also the leap into electronic typesetting, remaining essentially unchanged.</span><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">entially unchanged</span></p>', 'বিনামূল্যে', '1578464543.jpg', 1, 'fb.com', '2020-01-01 06:54:39', '2020-01-08 00:22:23'),
-(6, 'বেকার যুবসমাজকে কম্পিউটার প্রশিক্ষণ', 'বেকার-যুবসমাজকে-কম্পিউটার-প্রশিক্ষণ', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">The Slug class itself is pretty simple. createSlug calls getRelatedSlugs which performs a</span></p>', 'বিনামূল্যে', '1578465716.jpg', 1, 'fb.com', '2020-01-01 06:54:45', '2020-01-08 00:41:56'),
-(7, 'চক্ষু অপারেশন (ছানি), লেন্স প্রতিস্থাপন', 'চক্ষু-অপারেশন-(ছানি),-লেন্স-প্রতিস্থাপন', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more</span><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more</span></p>', 'বিনামূল্যে', '1578465091.jpg', 1, 'fb.com', '2020-01-01 06:54:46', '2020-01-08 00:31:31'),
-(8, 'লাশ গোসল', 'লাশ গোসল', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">The Slug class itself is pretty simple. createSlug calls getRelatedSlugs which performs</span></p>', 'বিনামূল্যে', '1577863259.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/d', '2020-01-01 07:20:59', '2020-01-01 07:20:59'),
-(9, 'নারী-পুরুষ ও শিশুদের প্রাথমিক চিকিৎসা', 'নারী-পুরুষ-ও-শিশুদের-প্রাথমিক-চিকিৎসা', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">single query selecting all the records that could possibly be a doouplicate</span></p>', 'সল্পমূল্যে', '1578464596.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/ddf', '2020-01-01 07:25:20', '2020-01-08 00:23:16');
+INSERT INTO `services` (`id`, `title_en`, `title_bn`, `slug`, `description`, `type`, `image`, `status`, `service_link`, `created_at`, `updated_at`) VALUES
+(1, 'Ambulance', 'অ্যাম্বুলেন্স সার্ভিস', 'অ্যাম্বুলেন্স-সার্ভিস', '<p>Modals have two optional sizes, available via modifier classes to be placed on ambu</p>', 'সল্পমূল্যে', '1577613055.jpg', 1, 'fb.com', '2019-12-29 09:56:01', '2020-01-14 11:25:24'),
+(2, 'Pathological Testing', 'প্যাথলজিক্যাল পরীক্ষা নিরীক্ষা', 'প্যাথলজিক্যাল-পরীক্ষা-নিরীক্ষা', '<p>Embedding YouTube videos in modals requiresequiresequires</p>', 'সল্পমূল্যে', '1577613220.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/ddfgfff', '2019-12-29 09:56:07', '2020-01-14 11:28:50'),
+(3, 'Physiotherapy', 'ফিজিওথেরাপি', 'ফিজিওথেরাপি', '<p>Embedding YouTube videos in a modals requiresEmbedding YouTube videos in modals requires</p>', 'সল্পমূল্যে', '1578463850.jpg', 1, 'fb.com', '2019-12-29 10:07:00', '2020-01-14 11:30:48'),
+(4, 'Body cloths, coffins and other materials', 'লাশের কাপড়, কফিন ও অন্যান্য উপকরণ', 'লাশের-কাপড়,-কফিন-ও-অন্যান্য-উপকরণ', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical</span></p>', 'সল্পমূল্যে', '1578463562.jpg', 1, 'fb.com', '2020-01-01 06:54:35', '2020-01-14 11:31:23'),
+(5, 'Sewing Training', 'সেলাই প্রশিক্ষণ', 'সেলাই-প্রশিক্ষণ', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">but also the leap into electronic typesetting, remaining essentially unchanged.</span><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">entially unchanged</span></p>', 'বিনামূল্যে', '1578464543.jpg', 1, 'fb.com', '2020-01-01 06:54:39', '2020-01-14 11:32:07'),
+(6, 'Computer training for unemployed youth', 'বেকার যুবসমাজকে কম্পিউটার প্রশিক্ষণ', 'বেকার-যুবসমাজকে-কম্পিউটার-প্রশিক্ষণ', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">The Slug class itself is pretty simple. createSlug calls getRelatedSlugs which performs a</span></p>', 'বিনামূল্যে', '1578465716.jpg', 1, 'fb.com', '2020-01-01 06:54:45', '2020-01-14 11:32:32'),
+(7, 'Eye operation (cataract), lens replacement', 'চক্ষু অপারেশন (ছানি), লেন্স প্রতিস্থাপন', 'চক্ষু-অপারেশন-(ছানি),-লেন্স-প্রতিস্থাপন', '<p><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more</span><span style=\"font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; text-align: justify;\">It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more</span></p>', 'বিনামূল্যে', '1578465091.jpg', 1, 'fb.com', '2020-01-01 06:54:46', '2020-01-14 11:33:25'),
+(8, 'The body is bathed', 'লাশ গোসল', 'লাশ গোসল', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">The Slug class itself is pretty simple. createSlug calls getRelatedSlugs which performs</span></p>', 'বিনামূল্যে', '1577863259.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/d', '2020-01-01 07:20:59', '2020-01-14 11:33:54'),
+(9, 'First aid for men and women', 'নারী-পুরুষ ও শিশুদের প্রাথমিক চিকিৎসা', 'নারী-পুরুষ-ও-শিশুদের-প্রাথমিক-চিকিৎসা', '<p><span style=\"color: #4a5568; font-family: \'Whitney SSm A\', \'Whitney SSm B\', -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, \'Noto Sans\', sans-serif, \'Apple Color Emoji\', \'Segoe UI Emoji\', \'Segoe UI Symbol\', \'Noto Color Emoji\'; font-size: 18px;\">single query selecting all the records that could possibly be a doouplicate</span></p>', 'সল্পমূল্যে', '1578464596.jpg', 1, 'fb.com/dfgdfg-4566543dsfggdff/ddf', '2020-01-01 07:25:20', '2020-01-14 11:34:22');
 
 -- --------------------------------------------------------
 
@@ -368,7 +369,7 @@ ALTER TABLE `password_resets`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `services_sort_description_unique` (`title`) USING HASH;
+  ADD UNIQUE KEY `services_sort_description_unique` (`title_en`) USING HASH;
 
 --
 -- Indexes for table `users`

@@ -19,7 +19,7 @@ content="{{ asset('images/logo_seo.png') }}" />
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7">
                 <div class="video-content-inner">
-                    <h1 class="mb-20">@lang('member.tf')</h1>
+                    <h1 class="mb-20">@lang('member.chairman_speech')</h1>
                     <h5>
                     @lang('member.chairman_text')</h5> <br><br>
            			<h5  style="font-size: 1.5em">@lang('member.chairman'), <br> @lang('member.tf')</h5>
@@ -48,23 +48,22 @@ content="{{ asset('images/logo_seo.png') }}" />
 						</div>
 						<h5 class="font-weight-bold">
 							<strong>{{ $member->name }}</strong>
-						</h5>
-						<p class="grey-text">{{ $member->designation }}</p>
-
-						<ul class="list-unstyled">
-							<!-- Facebook -->
+						</h5><br>
+						<p class="grey-text"><h6>{{ $member->designation }}</h6></p>
+						<!-- <ul class="list-unstyled">
+							//Facebook
 							<a href="{{ $member->fb_link }}" target="_blank" class="icons-sm fb-ic">
 								<i class="fa fa-facebook blue-text"> </i>
 							</a>
-							<!-- Twitter -->
+							//Twitter
 							<a href="{{ $member->tw_link }}" target="_blank" class="icons-sm tw-ic">
 								<i class="fa fa-twitter blue-text"> </i>
 							</a>
-							<!-- Instagram -->
+							//Instagram 
 							<a href="{{ $member->inst_link }}" target="_blank" class="icons-sm ins-ic">
 								<i class="fa fa-instagram blue-text"> </i>
 							</a>
-						</ul>
+						</ul> -->
 					</div>	
 		          </div>
     		@endforeach
@@ -83,7 +82,7 @@ content="{{ asset('images/logo_seo.png') }}" />
 
     }
 
-    .icons-sm {
+    /*.icons-sm {
     	margin : 5px 9px !important;
     }
 
@@ -97,7 +96,7 @@ content="{{ asset('images/logo_seo.png') }}" />
      
      color: #3f729b;
 
-    }
+    }*/
     @media screen and (min-width: 769px) {
       .our-service {
         border-bottom: 3px solid #121d61;

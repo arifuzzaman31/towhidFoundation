@@ -10,7 +10,7 @@
          content="{{asset('images/blog-image/'.$blog->blog_image)}}" />
 
     <meta property="og:title" content="{{ $blog->title }}" />
-    <meta property="og:description" content="{!! $blog->description !!}" />
+    <meta property="og:description" content="{{ $blog->description }}" />
 @endsection
 @section('content')
 <!-- Blog post area Start -->

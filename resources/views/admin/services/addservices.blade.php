@@ -1,10 +1,16 @@
 <div class="body">
     <form action="{{route('service.store')}}" method="post" enctype="multipart/form-data">
        @csrf
-        <label for="title">Title</label>
+        <label for="title_en">Title in English</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="title" name="title" class="form-control">
+                <input type="text" id="title_en" name="title_en" class="form-control">
+            </div>
+        </div>
+        <label for="title_bn">Title in Bangla</label>
+        <div class="form-group">
+            <div class="form-line">
+                <input type="text" id="title_bn" name="title_bn" class="form-control">
             </div>
         </div>
         <label for="description">Description</label>
@@ -42,7 +48,7 @@
         </br>
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="submit" class="btn btn-primary">Add</button>
         </div>
     </form>
 </div>

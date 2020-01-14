@@ -56,7 +56,7 @@ class AlbumController extends Controller
                 return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
             }
         }
-        return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
+       return back()->withErrors(['error',$validation->errors()->all()]);
     }
 
     /**
@@ -119,7 +119,7 @@ class AlbumController extends Controller
                     return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
                 }
             }
-            return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
+        return back()->withErrors(['error',$validation->errors()->all()]);
     }
 
     /**

@@ -3,10 +3,16 @@
 	    <div class="body">
 		    <form action="{{route('service.update',$data->id)}}" method="post" enctype="multipart/form-data">
 		       @csrf
-		        <label for="title">Title</label>
+		        <label for="title_en">Title in Bangla</label>
 		        <div class="form-group">
 		            <div class="form-line">
-		                <input type="text" id="title" name="title" value="{{$data->title}}" class="form-control">
+		                <input type="text" id="title_en" name="title_en" value="{{$data->title_en}}" class="form-control">
+		            </div>
+		        </div>
+		        <label for="title_bn">Title in Bangla</label>
+		        <div class="form-group">
+		            <div class="form-line">
+		                <input type="text" id="title_bn" name="title_bn" value="{{$data->title_bn}}" class="form-control">
 		            </div>
 		        </div>
 		        <label for="description">Description</label>
@@ -45,7 +51,10 @@
 		                <label><input type="checkbox" name="status" value="1" @if($data->status == 1) checked @endif><span class="lever switch-col-green"></span></label>
 		            </div>
 		        <br>
-		        <button type="submit" class="btn btn-primary m-t-15 waves-effect">Update</button>
+		        <div class="modal-footer">
+		            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		            <button type="submit" class="btn btn-primary">Update</button>
+		        </div>
 		    </form>
 		</div>
 	   

@@ -65,7 +65,7 @@ class BlogController extends Controller
                return back()->with(['alert-type' => 'error','message' => 'Database error occured!']);
             }
         }
-        return back()->with(['alert-type' => 'error','message' => 'Have validation Error']);
+        return back()->withErrors(['error',$validation->errors()->all()]);
     }
 
     public function show($id)
@@ -120,7 +120,7 @@ class BlogController extends Controller
                 return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
             }
         }
-        return back()->with(['alert-type' => 'error','message' => 'Have validation Error']);
+        return back()->withErrors(['error',$validation->errors()->all()]);
     }
 
     /**

@@ -58,9 +58,9 @@ class GalleryController extends Controller
         } catch (Exception $e) {
             DB::rollback();
             return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
+            }
         }
-    }
-    return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
+        return back()->with(['error',$validation->errors()->all()]);
     }
 
     public function show($id)
@@ -105,7 +105,7 @@ class GalleryController extends Controller
             	                        'image' => $imageName
             	                    ]);
         	        } else {
-                        return back()->with(['alert-type' => 'error','message' => 'Validaton error Occured!']);
+                        return back()->with(['error',$validation->errors()->all()]);
                     }
                 
                 }
