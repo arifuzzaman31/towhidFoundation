@@ -4,13 +4,13 @@
         <label for="title">Name</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="name" name="name" class="form-control">
+                <input type="text" id="name" name="name" class="form-control" required="">
             </div>
         </div>
         <label for="designation">Designation</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="designation" name="designation" class="form-control">
+                <input type="text" id="designation" name="designation" class="form-control" required="">
             </div>
         </div>
         <label for="tinymce">Quote</label>

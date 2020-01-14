@@ -4,26 +4,26 @@
         <label for="title_en">Title in English</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="title_en" name="title_en" class="form-control">
+                <input type="text" id="title_en" name="title_en" class="form-control" required="">
             </div>
         </div>
         <label for="title_bn">Title in Bangla</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="title_bn" name="title_bn" class="form-control">
+                <input type="text" id="title_bn" name="title_bn" class="form-control" required="">
             </div>
         </div>
         <label for="description">Description</label>
         <div class="form-group">
             <div class="form-line">
-                <textarea id="tinymce" name="description"></textarea>
+                <textarea id="tinymce" name="description" ></textarea>
             </div>
         </div>
         <label for="type">Type :</label>
         <div class="row clearfix">
             <div class="col-sm-12">
-                <select class="form-control show-tick" name="type" id="type">
-                    <option value="">-- Please select --</option>
+                <select class="form-control show-tick" name="type" id="type" required="">
+                    <option>-- Please select --</option>
                     <option value="সল্পমূল্যে">সল্পমূল্যে</option>
                     <option value="বিনামূল্যে">বিনামূল্যে</option>
                 </select>
@@ -32,7 +32,7 @@
         <label for="icon">Service Icon :</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="file" id="icon" name="image" class="form-control">
+                <input type="file" id="icon" name="image" class="form-control" required="">
             </div>
         </div>
         <label for="service_link">Service FB link (Optional)</label>

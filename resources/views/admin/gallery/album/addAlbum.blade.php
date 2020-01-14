@@ -4,7 +4,7 @@
         <label for="album">Album Name</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="album" name="name" class="form-control">
+                <input type="text" id="album" name="name" class="form-control" required="">
             </div>
         </div>
         <div class="demo-switch-title">Status</div>

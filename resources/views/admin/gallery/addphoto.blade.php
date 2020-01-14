@@ -4,7 +4,7 @@
         <label for="caption">Caption</label>
         <div class="form-group">
             <div class="form-line">
-                <input type="text" id="caption" name="caption" class="form-control">
+                <input type="text" id="caption" name="caption" class="form-control" >
             </div>
         </div>
          <div class="form-group">
@@ -16,7 +16,7 @@
         <div class="row clearfix">
             <div class="col-sm-12">
                 <select class="form-control show-tick" name="album_id" id="album">
-                    <option value="">-- Please select --</option>
+                    <option>-- Please select --</option>
                     @foreach($albums as $album)
                         <option value="{{$album->id}}">{{$album->name}}</option>
                     @endforeach

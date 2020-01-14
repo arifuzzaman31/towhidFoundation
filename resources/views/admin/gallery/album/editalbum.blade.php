@@ -6,7 +6,7 @@
 		        <label for="updatealbum">Album Name</label>
 		        <div class="form-group">
 		            <div class="form-line">
-		                <input type="text" id="updatealbum" name="name" class="form-control" value="{{$data->name}}">
+		                <input type="text" id="updatealbum" name="name" class="form-control" value="{{$data->name}}" required="">
 		            </div>
 		        </div>
 		        

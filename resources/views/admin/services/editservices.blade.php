@@ -6,13 +6,13 @@
 		        <label for="title_en">Title in Bangla</label>
 		        <div class="form-group">
 		            <div class="form-line">
-		                <input type="text" id="title_en" name="title_en" value="{{$data->title_en}}" class="form-control">
+		                <input type="text" id="title_en" name="title_en" value="{{$data->title_en}}" class="form-control" required="">
 		            </div>
 		        </div>
 		        <label for="title_bn">Title in Bangla</label>
 		        <div class="form-group">
 		            <div class="form-line">
-		                <input type="text" id="title_bn" name="title_bn" value="{{$data->title_bn}}" class="form-control">
+		                <input type="text" id="title_bn" name="title_bn" value="{{$data->title_bn}}" class="form-control" required="">
 		            </div>
 		        </div>
 		        <label for="description">Description</label>
@@ -24,10 +24,10 @@
 		        <label for="type">Type :</label>
 		        <div class="row clearfix">
 		            <div class="col-sm-12">
-		                <select class="form-control show-tick" id="type" name="type">
-		                	<option value="">-- Please select --</option>
-		                	<option @if($data->type === 'বিনামূল্যে') selected @endif value="সল্পমূল্যে">সল্পমূল্যে</option>
-                    		<option @if($data->type === 'বিনামূল্যে') selected @endif value="বিনামূল্যে">বিনামূল্যে</option>
+		                <select class="form-control show-tick" id="type" name="type" required="">
+		                	<option>-- Please select --</option>
+		                	<option @if($data->type == 'বিনামূল্যে') selected @endif value="সল্পমূল্যে">সল্পমূল্যে</option>
+                    		<option @if($data->type == 'বিনামূল্যে') selected @endif value="বিনামূল্যে">বিনামূল্যে</option>
              
 		                </select>
 		            </div>

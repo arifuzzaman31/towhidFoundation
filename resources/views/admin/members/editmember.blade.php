@@ -6,13 +6,13 @@
 		        <label for="title">Name</label>
 		        <div class="form-group">
 		            <div class="form-line">
-		                <input type="text" id="name" name="name" class="form-control" value="{{$data->name}}">
+		                <input type="text" id="name" name="name" class="form-control" value="{{$data->name}}" required="">
 		            </div>
 		        </div>
 		        <label for="description">Designation</label>
 		        <div class="form-group">
 		            <div class="form-line">
-		                <input type="text" id="designation" name="designation" class="form-control" value="{{$data->designation}}">
+		                <input type="text" id="designation" name="designation" class="form-control" value="{{$data->designation}}" required="">
 		            </div>
 		        </div>
 		        <label for="tinymce">Quote</label>
