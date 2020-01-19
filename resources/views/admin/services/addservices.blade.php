@@ -16,7 +16,7 @@
         <label for="description">Description</label>
         <div class="form-group">
             <div class="form-line">
-                <textarea id="tinymce" name="description" ></textarea>
+                <textarea id="tinymce" name="description" required=""></textarea>
             </div>
         </div>
         <label for="type">Type :</label>

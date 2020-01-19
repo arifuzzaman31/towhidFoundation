@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 14, 2020 at 12:46 PM
+-- Generation Time: Jan 19, 2020 at 06:34 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -369,7 +369,7 @@ ALTER TABLE `password_resets`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `services_sort_description_unique` (`title_en`) USING HASH;
+  ADD UNIQUE KEY `title_en` (`title_en`) USING HASH;
 
 --
 -- Indexes for table `users`

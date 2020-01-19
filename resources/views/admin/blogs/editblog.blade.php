@@ -6,13 +6,13 @@
 		        <label for="title">Title</label>
 		        <div class="form-group">
 		            <div class="form-line">
-		                <input type="text" id="title" name="title" value="{{$data->title}}" class="form-control">
+		                <input type="text" id="title" name="title" value="{{$data->title}}" class="form-control" required="">
 		            </div>
 		        </div>
 		        <label for="description">Description</label>
 		        <div class="form-group">
 		            <div class="form-line">
-		                <textarea id="tinymce" name="description">{{$data->description}}</textarea>
+		                <textarea id="tinymce" name="description" required="">{{$data->description}}</textarea>
 		            </div>
 		        </div>
 		         <div class="form-group">
