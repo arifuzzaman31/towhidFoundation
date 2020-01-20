@@ -16,7 +16,7 @@
                         <a href="{{route('get-specific-service',$service->slug)}}" title="{{$service->title}}" class="image-grid-clickbox"></a>
                         <a href="{{route('get-specific-service',$service->slug)}}"  class="cover-wrapper text-uppercase">@if(app()->isLocale('en')) {!! $service->title_en !!} @else {!! $service->title_bn !!} @endif</a>
                     </div>
-                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$service->title}}" data-whatever="{{$service->id}}">@lang('service.get_the_service')</button>
+                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="@if(app()->isLocale('en')) {!! $service->title_en !!} @else {!! $service->title_bn !!} @endif" data-whatever="{{$service->id}}">@lang('service.get_the_service')</button>
                 </div>
             @endforeach
         </div>
@@ -38,9 +38,9 @@
                 <div class="col-12 col-sm-6 col-md-4 image-grid-item text-center">
                     <div style="background-image: url({{URL:: to('images/service-image/'.$service->image)}});" class="image-grid-cover">
                         <a href="{{route('get-specific-service',$service->slug)}}" class="image-grid-clickbox"></a>
-                        <a href="{{route('get-specific-service',$service->slug)}}" class="cover-wrapper">{{$service->title}}</a>
+                        <a href="{{route('get-specific-service',$service->slug)}}" class="cover-wrapper">@if(app()->isLocale('en')) {!! $service->title_en !!} @else {!! $service->title_bn !!} @endif</a>
                     </div>
-                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$service->title}}" data-whatever="{{$service->id}}">@lang('service.get_the_service')</button>
+                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="@if(app()->isLocale('en')) {!! $service->title_en !!} @else {!! $service->title_bn !!} @endif" data-whatever="{{$service->id}}">@lang('service.get_the_service')</button>
                 </div>
             @endforeach
         </div>

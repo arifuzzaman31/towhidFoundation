@@ -9,7 +9,7 @@
     <meta property="og:image"        
          content="{{asset('assets/service-image/'.$services->image)}}" />
 
-    <meta property="og:title" content="{{ $services->title }}" />
+    <meta property="og:title" content="@if(app()->isLocale('en')) {!! $services->title_en !!} @else {!! $services->title_bn !!} @endif" />
     <meta property="og:description" content="{{ $services->description }}" />
 @endsection
 @section('content')
@@ -31,11 +31,11 @@
                             <div class="post-meta ppst-meta-content mb-15">
                                 <ul>
                                     <li> <i class="fa fa-clock-o" aria-hidden="true"></i> {{$services->created_at->diffForHumans()}}</li>
-                                        <li class="float-right"><button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="{{$services->title}}" data-whatever="{{$services->id}}">@lang('service.get_the_service')</button></li>
+                                        <li class="float-right"><button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="@if(app()->isLocale('en')) {!! $services->title_en !!} @else {!! $services->title_bn !!} @endif" data-whatever="{{$services->id}}">@lang('service.get_the_service')</button></li>
                                 </ul>
                             </div>
                             <div class="blog-post-inner-content">
-                                <h2 class="post-title">{!! $services->title !!}</h2>
+                                <h2 class="post-title">@if(app()->isLocale('en')) {!! $services->title_en !!} @else {!! $services->title_bn !!} @endif</h2>
                                 <p class="mt-15">{!! $services->description !!}</p>
                             </div>
                         </div>
