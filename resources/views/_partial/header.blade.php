@@ -22,7 +22,7 @@
                         </div>
                         <div class="responsive-menu d-xl-none d-lg-none"></div>
                     </div>
-                    <div class="col-xl-10 text-right d-none d-xl-block d-lg-block">
+                    <div class="col-xl-10 text-right d-xl-block d-lg-block">
                         <div class="heus-main-menu">
                             <nav id="mobile-menu">
                                 <ul id="menu">

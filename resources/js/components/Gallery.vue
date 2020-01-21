@@ -57,8 +57,6 @@
 
     is_firstime : 'yes',
 
-
-
     }
 
    },

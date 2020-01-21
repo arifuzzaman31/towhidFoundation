@@ -250,7 +250,7 @@ h3.comment-form-title {
 
 header.header-area {
     position: absolute;
-    top: 22px;
+    top: 5px;
     left: 0;
     width: 100%;
     height: auto;
@@ -375,6 +375,18 @@ header.header-area.sticky {
     color: #1085e4;
     text-transform: capitalize;
 }
+
+/*@media screen and (max-width: 786px) {
+  .support-btn.btn a,
+    .btn.btn-filled {
+        background: #fff;
+        padding: 6px 15px;
+        display: inline-block;
+        border-radius: 50px;
+        color: #1085e4;
+        text-transform: capitalize;
+    }
+}*/
 
 .heuse-hero-btn a.btn.btn-filled {
     background: #afc536;
