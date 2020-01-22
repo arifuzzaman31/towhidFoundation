@@ -1,7 +1,7 @@
 <?php 
 
 return [
-	'our_institute' => 'Our Institution',
+	'our_institute' => 'Our Organization',
 	'about_us' => 'About Us',
 	'service' => 'Services',
 	'contact' => 'Contact',

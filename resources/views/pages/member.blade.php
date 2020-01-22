@@ -15,7 +15,7 @@ content="{{ asset('images/logo_seo.png') }}" />
     <div class="container">
         <div class="row text-justify" >
             <div class=" col-md-5" align="center">
-                <img class="img-fluid" src="{{ url('images/chairman.jpg') }}">
+                <img class="img-fluid" src="{{ url('images/chairman.png') }}">
             </div>
             <div class="col-xl-7 col-lg-7 col-md-7">
                 <div class="video-content-inner">
@@ -49,7 +49,7 @@ content="{{ asset('images/logo_seo.png') }}" />
 						<h5 class="font-weight-bold">
 							<strong>{{ $member->name }}</strong>
 						</h5><br>
-						<p class="grey-text"><h6>{{ $member->designation }}</h6></p>
+						<h6 style="color: gray;">{{ $member->designation }}</h6>
 						<!-- <ul class="list-unstyled">
 							//Facebook
 							<a href="{{ $member->fb_link }}" target="_blank" class="icons-sm fb-ic">

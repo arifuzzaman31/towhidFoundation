@@ -1,7 +1,7 @@
 <?php 
 
 return [
-	'our_institute' => 'আমাদের প্রতিষ্ঠান',
+	'our_institute' => 'আমাদের সংগঠন',
 	'about_us' => 'আমাদের সম্পর্কে',
 	'service' => 'সেবাসমূহ',
 	'contact' => 'যোগাযোগ',

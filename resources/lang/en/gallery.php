@@ -1,6 +1,5 @@
 <?php
 
 return [
-	'our' 		=> 'Our',
-	'gallery' 	=> 'Gallery'
+	'our_gallery' 		=> 'Photo Gallery'
 ]; 

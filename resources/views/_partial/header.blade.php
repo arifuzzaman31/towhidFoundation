@@ -17,12 +17,13 @@
                     <div class="col-xl-2">
                         <div class="site-logo site-top-logo">
                             <a href="{{ url('/') }}" title="@lang('header.tf')">
-                                <img src="{{asset('assets/img/site-logo/logo-top.png')}}" alt="@lang('header.tf_logo')">
+                                <img src="@if (app()->isLocale('en')){{asset('assets/img/site-logo/en_top.png')}}@else {{asset('assets/img/site-logo/logo-top.png')}} @endif" alt="@lang('header.tf_logo')">
                             </a>
                         </div>
                         <div class="responsive-menu d-xl-none d-lg-none"></div>
                     </div>
-                    <div class="col-xl-10 text-right d-xl-block d-lg-block">
+                    <a href="tel:01834394216" class="phone-top"><i class="fa fa-phone-plus"></i></a>
+                    <div class="col-xl-10 text-right d-none d-xl-block d-lg-block">
                         <div class="heus-main-menu">
                             <nav id="mobile-menu">
                                 <ul id="menu">

@@ -5,7 +5,7 @@
         <div class="col-xl-5">
             <div class="section-title mb-45">
                 <h4 class="text-center our-service">@lang('service.our_service')</h4>
-                <h1>@lang('service.low_cost_service')</h1>
+                <h1 style="padding-top: 23px;">@lang('service.low_cost_service')</h1>
             </div>
         </div>
     </div>
@@ -16,7 +16,7 @@
                         <a href="{{route('get-specific-service',$service->slug)}}" title="{{$service->title}}" class="image-grid-clickbox"></a>
                         <a href="{{route('get-specific-service',$service->slug)}}"  class="cover-wrapper text-uppercase">@if(app()->isLocale('en')) {!! $service->title_en !!} @else {!! $service->title_bn !!} @endif</a>
                     </div>
-                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="@if(app()->isLocale('en')) {!! $service->title_en !!} @else {!! $service->title_bn !!} @endif" data-whatever="{{$service->id}}">@lang('service.get_the_service')</button>
+                        <button class="mb-35 btn btn-lg btn-info" data-toggle="modal" data-target="#serviceModal" data-title="@if(app()->isLocale('en')) {!! $service->title_en !!} @else {!! $service->title_bn !!} @endif" data-whatever="{{$service->id}}">@lang('service.get_the_service')</button>
                 </div>
             @endforeach
         </div>
@@ -29,7 +29,7 @@
         <div class="row">
         <div class="col-xl-5">
             <div class="section-title mb-45">
-                <h1>@lang('service.free_service')</h1>
+                <h1 style="padding-top: 16px;">@lang('service.free_service')</h1>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
                         <a href="{{route('get-specific-service',$service->slug)}}" class="image-grid-clickbox"></a>
                         <a href="{{route('get-specific-service',$service->slug)}}" class="cover-wrapper">@if(app()->isLocale('en')) {!! $service->title_en !!} @else {!! $service->title_bn !!} @endif</a>
                     </div>
-                        <button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="@if(app()->isLocale('en')) {!! $service->title_en !!} @else {!! $service->title_bn !!} @endif" data-whatever="{{$service->id}}">@lang('service.get_the_service')</button>
+                        <button class="mb-35 btn btn-lg btn-info" data-toggle="modal" data-target="#serviceModal" data-title="@if(app()->isLocale('en')) {!! $service->title_en !!} @else {!! $service->title_bn !!} @endif" data-whatever="{{$service->id}}">@lang('service.get_the_service')</button>
                 </div>
             @endforeach
         </div>

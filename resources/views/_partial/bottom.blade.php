@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
         <label for="recipient-message" class="col-form-label">@lang('service.details') :</label>
-        <textarea class="form-control" rows="6" name="message" id="recipient-message"></textarea>
+        <textarea class="form-control" rows="6" name="message" id="recipient-message" placeholder="@lang('service.details')"></textarea>
     </div>
 </form>
 </div>

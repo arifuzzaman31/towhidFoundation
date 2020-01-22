@@ -1,4 +1,4 @@
-<section id="blog" class="plan-area position-relative theme-bg  pt-125 pb-125">
+<section id="blog" class="plan-area position-relative theme-bg  pt-100 pb-100">
     <div class="container">
         <div class="row">
             @if(count($blogs) > 0)

@@ -44,7 +44,7 @@
         <!-- include('section.price_area') -->
         <!-- Price area end -->
         <!-- Plan area Start -->
-        @include('section.blog')
+        <!-- include('section.blog') -->
         <!-- Plan area end -->
         <!-- Testinonial area Start -->
  

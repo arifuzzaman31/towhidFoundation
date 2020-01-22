@@ -1,4 +1,4 @@
-<section id="contact" class="contact-area position-relative pt-125 pb-125" data-background="assets/img/contact/contact.jpg">
+<section id="contact" class="contact-area position-relative pt-100 pb-100" data-background="assets/img/contact/contact.jpg">
  <contact-us 
   contact_us="@lang('contact.contact_us')"
   enter_your_name="@lang('contact.enter_your_name')"

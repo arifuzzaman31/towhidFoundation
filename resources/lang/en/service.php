@@ -7,7 +7,7 @@ return [
 	'name' => 'Name',
 	'address' => 'Address',
 	'phone' => 'Phone',
-	'details' => 'Details',
+	'details' => 'Write Details',
 	'close' => 'Close',
 	'send' => 'Send',
 	'you' => 'You are Interested to Have the',

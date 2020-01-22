@@ -20,17 +20,9 @@
             <div class="col-xl-12">
                 <div class="single-blog-content">
                     <div class="single-blo-feature-image mb-45" data-background="{{asset('images/blog-image/'.$blog->blog_image)}}">
-                        <div class="blog-meta-date">
-                            <div class="blog-post-date-content">
-                                <span class="posted-on"><a href="#" >{{$blog->created_at->toFormattedDateString()}}</a></span>
-                            </div>
-                        </div>
+                        
                     </div>
-                    <div class="post-meta ppst-meta-content mb-15">
-                        <ul>
-                            <li> <i class="fa fa-clock-o" aria-hidden="true"></i> {{$blog->created_at->diffForHumans()}}</li>
-                        </ul>
-                    </div>
+                    
                     <div class="blog-post-inner-content">
                         <h2 class="post-title">{{ $blog->title }}</h2>
                         <p class="mt-15">{!! $blog->description !!}</p>

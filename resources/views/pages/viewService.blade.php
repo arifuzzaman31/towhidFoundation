@@ -22,16 +22,11 @@
                     <div class="col-xl-12">
                         <div class="single-blog-content">
                             <div class="single-blo-feature-image mb-45" data-background="{{asset('images/service-image/'.$services->image)}}">
-                                <div class="blog-meta-date">
-                                    <div class="blog-post-date-content">
-                                        <span class="posted-on"><a href="#" >{{$services->created_at->toFormattedDateString()}}</a></span>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="post-meta ppst-meta-content mb-15">
                                 <ul>
-                                    <li> <i class="fa fa-clock-o" aria-hidden="true"></i> {{$services->created_at->diffForHumans()}}</li>
-                                        <li class="float-right"><button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="@if(app()->isLocale('en')) {!! $services->title_en !!} @else {!! $services->title_bn !!} @endif" data-whatever="{{$services->id}}">@lang('service.get_the_service')</button></li>
+                                    <li class="float-right"><button class="mb-35 btn btn-info" data-toggle="modal" data-target="#serviceModal" data-title="@if(app()->isLocale('en')) {!! $services->title_en !!} @else {!! $services->title_bn !!} @endif" data-whatever="{{$services->id}}">@lang('service.get_the_service')</button></li>
                                 </ul>
                             </div>
                             <div class="blog-post-inner-content">

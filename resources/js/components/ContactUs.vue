@@ -32,16 +32,16 @@
 							</div>
 							<div class="col-xl-6">
 								<div class="form-element">
-									<i class="fa fa-envelope"></i>
-									<input type="email" v-model="form.email" id="email" class="email" :placeholder="enter_your_email">
+									<i class="fa fa-phone"></i>
+									<input type="tel" v-model="form.phone" id="phone" class="phone" :placeholder="your_phone_number">
 								</div>
 							</div>
 						</div>
 						<div class="row  mt-30">
 							<div class="col-xl-6">
 								<div class="form-element">
-									<i class="fa fa-phone"></i>
-									<input type="tel" v-model="form.phone" id="phone" class="phone" :placeholder="your_phone_number">
+									<i class="fa fa-envelope"></i>
+									<input type="email" v-model="form.email" id="email" class="email" :placeholder="enter_your_email">
 								</div>
 							</div>
 							<div class="col-xl-6">
@@ -133,8 +133,6 @@
 
 								if(response.data.status === 'success'){
 
-
-
 									this.resetForm();
 								}
 
@@ -151,20 +149,14 @@
 
 								if(error.response.status === 422){
 
-									Swal.fire("Oops", "please fill the form by correct data!", "error");
+									Swal.fire("Oops", "please fill the form with proper data!", "error");
 									this.errors = error.response.data.errors;   
 
 								}
 
-
-
-
-
 							})
 
 							this.message = 'Send Message';
-
-
 						},
 
 
@@ -177,18 +169,12 @@
 								phone : '',
 								subject : '',
 								message : ''
-
 							};
 
-
 							this.errors = null;
-
-
-
 						}
 
 					}
-
 
 				}
 

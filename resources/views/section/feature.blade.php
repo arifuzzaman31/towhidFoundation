@@ -1,4 +1,4 @@
-<section class="about-area position-relative pt-110">
+<section class="about-area position-relative pt-100">
     <!-- <div class="container">
         <div class="feature-row">
             <div class="row ">
