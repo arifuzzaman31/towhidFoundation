@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2020 at 06:34 AM
+-- Generation Time: Jan 23, 2020 at 09:51 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -43,7 +43,13 @@ CREATE TABLE `albums` (
 INSERT INTO `albums` (`id`, `name`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'One', 1, '2020-01-02 06:28:59', '2020-01-06 05:29:00'),
 (2, 'Two', 1, '2020-01-02 06:38:18', '2020-01-06 05:29:19'),
-(3, 'three', 1, '2020-01-05 06:30:27', '2020-01-05 06:30:27');
+(3, 'three', 1, '2020-01-05 06:30:27', '2020-01-05 06:30:27'),
+(4, 'four', 1, '2020-01-23 05:24:13', '2020-01-23 05:24:13'),
+(5, 'five', 1, '2020-01-23 05:24:25', '2020-01-23 05:24:25'),
+(6, 'six', 1, '2020-01-23 05:24:40', '2020-01-23 05:24:40'),
+(7, 'seven', 1, '2020-01-23 05:24:49', '2020-01-23 05:24:49'),
+(8, 'Eight', 1, '2020-01-23 05:25:07', '2020-01-23 05:25:07'),
+(9, 'Nine', 1, '2020-01-23 05:25:21', '2020-01-23 05:25:21');
 
 -- --------------------------------------------------------
 
@@ -95,7 +101,8 @@ CREATE TABLE `contacts` (
 INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `subject`, `message`, `created_at`, `updated_at`) VALUES
 (1, 'Ashraf', 'admin@exp.com', '654894', 'guide assumes intermediate', 'guide assumes intermediateguide assumes intermediateguide assumes intermediateguide assumes intermediateguide assumes intermediate', '2020-01-02 02:41:06', '2020-01-02 02:41:06'),
 (2, 'Ashraful Islam', 'admin@exp.com', '654894', 'official guide assumes intermediate level knowledge', 'official guide assumes intermediate level knowledgeofficial guide assumes intermediate level knowledgeofficial guide assumes intermediate level knowledge', '2020-01-02 02:48:32', '2020-01-02 02:48:32'),
-(3, 'Ashraf', 'admin@email.com', '6548944657', 'At the core of Vue.js is', 'official guide assumes intermediate level knowledgeofficial guide assumes intermediate level knowledgeofficial guide assumes intermediate level knowledge', '2020-01-02 03:25:02', '2020-01-02 03:25:02');
+(3, 'Ashraf', 'admin@email.com', '6548944657', 'At the core of Vue.js is', 'official guide assumes intermediate level knowledgeofficial guide assumes intermediate level knowledgeofficial guide assumes intermediate level knowledge', '2020-01-02 03:25:02', '2020-01-02 03:25:02'),
+(4, 'ryydfg', 'admin@gmail.com', '78564453765', 'Nothing', 'asdffjhgfsnghfgjghjfh', '2020-01-21 23:48:43', '2020-01-21 23:48:43');
 
 -- --------------------------------------------------------
 
@@ -152,7 +159,6 @@ CREATE TABLE `members` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `designation` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `quote` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fb_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tw_link` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -166,9 +172,9 @@ CREATE TABLE `members` (
 -- Dumping data for table `members`
 --
 
-INSERT INTO `members` (`id`, `name`, `designation`, `quote`, `image`, `fb_link`, `tw_link`, `inst_link`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Hasan Ali', 'Admin & HR', '<p>Here&rsquo;s a quick exampleBy default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced withBy default, any number of checkboxes and radios that are immediate sibling will be vertically stacked and appropriately spaced with</p>', '1578477592.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:48', '2020-01-08 05:07:59'),
-(2, 'Shakil Khan', 'Genarel Manager', '<p>Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels. Checkboxes and radios use are built to support HTML-based form validation and provide concise, accessible labels.</p>', '1578478678.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:49', '2020-01-14 04:35:06');
+INSERT INTO `members` (`id`, `name`, `designation`, `image`, `fb_link`, `tw_link`, `inst_link`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Hasan Ali', 'Admin & HR', '1578477592.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:48', '2020-01-08 05:07:59'),
+(2, 'Shakil Khan', 'Genarel Manager', '1578478678.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:49', '2020-01-14 04:35:06');
 
 -- --------------------------------------------------------
 
@@ -392,7 +398,7 @@ ALTER TABLE `user_query`
 -- AUTO_INCREMENT for table `albums`
 --
 ALTER TABLE `albums`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `blogs`
@@ -404,7 +410,7 @@ ALTER TABLE `blogs`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
