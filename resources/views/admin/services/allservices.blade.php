@@ -29,7 +29,7 @@
 	                    <td style="width: 5%">{{$i}}</td>
 	                    <td style="width: 20%">{!! $service->title_en !!}</td>
                         <td style="width: 20%">{!! $service->title_bn !!}</td>
-	                    <td style="width: 24%">{{ substr($service->description,0,40) }}...</td>
+	                    <td style="width: 24%">{{ Str::limit(strip_tags($service->description),30) }}...</td>
                         <td>
                         @if($service->image)
                             <img src="{{URL::to('images/service-image/'.$service->image)}}" height="40px" width="50px">
@@ -55,6 +55,9 @@
               @endif
             </tbody>
         </table>
+    </div>
+    <div class="row">
+        {{ $Services->links() }}
     </div>
 </div>
 

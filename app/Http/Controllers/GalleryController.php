@@ -12,7 +12,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $photos = Gallery::all();
+        $photos = Gallery::paginate(10);
         return view('admin.gallery.allphotos', compact('photos'));
     }
 

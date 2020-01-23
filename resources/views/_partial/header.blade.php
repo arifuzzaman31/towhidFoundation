@@ -22,7 +22,7 @@
                         </div>
                         <div class="responsive-menu d-xl-none d-lg-none"></div>
                     </div>
-                    <a href="tel:01834394216" class="phone-top"><i class="fa fa-phone-plus"></i></a>
+                    <a href="tel:01834394216" class="phone-top"><i class="fa fa-phone"></i></a>
                     <div class="col-xl-10 text-right d-none d-xl-block d-lg-block">
                         <div class="heus-main-menu">
                             <nav id="mobile-menu">

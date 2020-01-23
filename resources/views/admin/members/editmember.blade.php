@@ -15,12 +15,12 @@
 		                <input type="text" id="designation" name="designation" class="form-control" value="{{$data->designation}}" required="">
 		            </div>
 		        </div>
-		        <label for="tinymce">Quote</label>
+		        <!-- <label for="tinymce">Quote</label>
 		        <div class="form-group">
 		            <div class="form-line">
 		                <textarea id="tinymce" name="quote">{{$data->quote}}</textarea>
 		            </div>
-		        </div>
+		        </div> -->
 		        <label for="title">Facebook Link</label>
 		        <div class="form-group">
 		            <div class="form-line">

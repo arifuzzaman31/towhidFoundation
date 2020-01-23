@@ -14,7 +14,7 @@
                     <th>SL</th>
                     <th>Name</th>
                     <th>Designation</th>
-                    <th>Quote</th>
+                    <!-- <th>Quote</th> -->
                     <th>Picture</th>
                     <th>Action</th>
                 </tr>
@@ -27,7 +27,7 @@
 	                    <td style="width: 5%">{{$i}}</td>
 	                    <td style="width: 15%">{{$member->name}}</td>
 	                    <td>{{$member->designation}}</td>
-                        <td>{!! substr($member->quote,0,60) !!}...</td>
+                        <!-- <td>{!! substr($member->quote,0,60) !!}...</td> -->
                         <td>
                         @if($member->image)
                             <img src="{{URL::to('images/team-member-image/'.$member->image)}}" height="40px" width="50px">
@@ -53,6 +53,9 @@
             </tbody>
         </table>
     </div>
+        <div class="row">
+            {{ $members->links() }}
+        </div>
 </div>
 </div>
 </div>

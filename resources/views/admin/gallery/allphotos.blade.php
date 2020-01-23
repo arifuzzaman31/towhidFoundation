@@ -52,6 +52,9 @@
             </tbody>
         </table>
     </div>
+    <div class="row">
+        {{ $photos->links() }}
+    </div>
 </div>
 
 @endsection

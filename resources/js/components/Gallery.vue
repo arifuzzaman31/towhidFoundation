@@ -5,8 +5,7 @@
                 <button class="btn btn-default filter-button" @click="changePhoto('')"  data-filter="all">All</button>
                 
             <button v-for="value in albums" :key="value.id" @click="changePhoto(value.id)" class="btn btn-default filter-button">{{value.name}}</button>
-                 
-               
+        
             </div>
             <br>
     <div class="row" v-if="!isLoading">

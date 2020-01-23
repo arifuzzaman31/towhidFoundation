@@ -17,7 +17,7 @@ class CreateMembersTable extends Migration
             $table->Increments('id');
             $table->string('name');
             $table->string('designation');
-            $table->longText('quote')->nullable();
+            // $table->longText('quote')->nullable();
             $table->string('image')->nullable();
             $table->string('fb_link')->nullable();
             $table->string('tw_link')->nullable();

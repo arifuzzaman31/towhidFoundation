@@ -26,10 +26,10 @@
                         	@foreach($userqueries as $userquery)
             	                <tr>
             	                    <td style="width: 5%">{{$userquery->id}}</td>
-            	                    <td style="width: 15%">{{$userquery->service_name->title}}</td>
+            	                    <td style="width: 15%">{{$userquery->service_name->title_bn}}</td>
                                     <td style="width: 10%">{{$userquery->name}}</td>
                                     <td style="width: 10%">{{$userquery->phone}}</td>
-            	                    <td style="width: 45%">{!! substr($userquery->message,0,70) !!}...</td>
+            	                    <td style="width: 45%">{{ Str::limit(strip_tags($userquery->message),70) }}...</td>
                                     <td style="width: 10%">
             	                    
                                         <a onclick="getModal('show-request/{{$userquery->id}}','Show Message')" title="Show" type="button" class="btn btn-warning btn-xs"><i class="fa fa-book"></i></a>

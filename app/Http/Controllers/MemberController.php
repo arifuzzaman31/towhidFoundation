@@ -11,7 +11,7 @@ class MemberController extends Controller
 {
     public function index()
     {
-        $members = Member::all();
+        $members = Member::paginate(10);
         return view('admin.members.allmember', compact('members'));
     }
 
@@ -44,7 +44,7 @@ class MemberController extends Controller
             $insertid = Member::insertGetId([
                 'name'        =>  $request->name,
                 'designation' =>  $request->designation,
-                'quote'       =>  $request->quote,
+                // 'quote'       =>  $request->quote,
                 'fb_link'     =>  $request->fb_link,
                 'tw_link'     =>  $request->tw_link,
                 'inst_link'   =>  $request->inst_link,
@@ -99,7 +99,7 @@ class MemberController extends Controller
                 $updated = Member::find($id);
                         $updated->name        =  $request->name;
                         $updated->designation =  $request->designation;
-                        $updated->quote       =  $request->quote;
+                        // $updated->quote       =  $request->quote;
                         $updated->fb_link     =  $request->fb_link;
                         $updated->tw_link     =  $request->tw_link;
                         $updated->inst_link   =  $request->inst_link;

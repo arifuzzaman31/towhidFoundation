@@ -17,7 +17,7 @@ class AlbumController extends Controller
     public function index()
     {
         // return 'Hello';
-        $album = Album::all();
+        $album = Album::paginate(10);
         return view('admin.gallery.album.album',['albums' => $album]);
 
     }
