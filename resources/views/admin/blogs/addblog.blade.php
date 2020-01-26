@@ -1,5 +1,5 @@
 <div class="body">
-    <form action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">
+    <form action="{{route('blog-store')}}" method="post" enctype="multipart/form-data">
        @csrf
         <label for="title">Title</label>
         <div class="form-group">
@@ -10,7 +10,7 @@
         <label for="description">Description</label>
         <div class="form-group">
             <div class="form-line">
-                <textarea id="tinymce" name="description" required=""></textarea>
+                <textarea id="tinymce" name="description"></textarea>
             </div>
         </div>
          <div class="form-group">

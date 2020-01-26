@@ -72,3 +72,8 @@ Route::get('get-album-photo', [
 	'as'	=> 'get-album-photo',
 	'uses' 	=> 'FrontController@loadPhoto'
 ]);
+
+Route::get('get-more-album', [
+	'as'	=> 'get-more-album',
+	'uses' 	=> 'FrontController@loadAlbum'
+]);

@@ -12,7 +12,7 @@
 		        <label for="description">Description</label>
 		        <div class="form-group">
 		            <div class="form-line">
-		                <textarea id="tinymce" name="description" required="">{{$data->description}}</textarea>
+		                <textarea id="tinymce" name="description" required="">{!! $data->description !!}</textarea>
 		            </div>
 		        </div>
 		         <div class="form-group">

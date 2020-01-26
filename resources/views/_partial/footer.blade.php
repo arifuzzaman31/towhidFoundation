@@ -6,7 +6,7 @@
                     <div class="col-xl-3 col-lg-3 col-sm-6">
                         <div class="widget footer-sidebar">
                             <div class="site-logo footer-site-info">
-                                <a href="index.html">
+                                <a href="{{url('/')}}">
                                     <img src="@if (app()->isLocale('en')){{asset('assets/img/site-logo/en_bottom.png')}}@else {{asset('assets/img/site-logo/logo-bottom.png')}} @endif" alt="">
                                 </a>
                                 <p class="mt-30">@lang('hero_area.tf_sentence')</p>

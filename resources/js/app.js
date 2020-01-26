@@ -23,6 +23,7 @@ window.Vue = require('vue');
 
 import ContactUs  from './components/ContactUs.vue';
 import Gallery  from './components/Gallery.vue';
+import fullgallery  from './components/AlbumAll.vue';
 
 
 import VueLazyload from 'vue-lazyload';
@@ -35,5 +36,6 @@ const app = new Vue({
 
     	'contact-us' : ContactUs,
     	'gallery' : Gallery,
+    	'fullgallery' : fullgallery,
     }
 });

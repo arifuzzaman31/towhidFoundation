@@ -31,7 +31,9 @@ class BlogController extends Controller
     }
 
     public function store(Request $request)
-    {
+    { 
+        // return "hi";
+        // return $request->all();
         $status = $request->status ? 1 : 0;
         $validation = Validator::make($request->all(),[
             'title'       => 'required',
@@ -62,7 +64,7 @@ class BlogController extends Controller
                             
             } catch (Exception $e) {
                 DB::rollback();
-               return back()->with(['alert-type' => 'error','message' => 'Database error occured!']);
+               return back()->with(['alert-type' => 'error','message' => $e->errorInof[2]]);
             }
         }
         return back()->withErrors(['error',$validation->errors()->all()]);

@@ -89,8 +89,8 @@ Route::get('blog', [
 	'uses'  => 'BlogController@index'
 ]);
 
-Route::post('blog.store', [
-	'as' 	=> 'blog.store',
+Route::post('blog-store', [
+	'as' 	=> 'blog-store',
 	'uses'  => 'BlogController@store'
 ]);
 

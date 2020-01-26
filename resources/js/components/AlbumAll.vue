@@ -4,18 +4,16 @@
             <div align="center">
                 <button class="btn btn-default filter-button" @click="changePhoto('')"  data-filter="all">All</button>
                 
-              <button v-for="value in albums" :key="value.id" @click="changePhoto(value.id)" class="btn btn-default filter-button">{{value.name}}</button>
-              <a class="btn btn-default filter-button" :href="url+'get-more-album'">More</a>
+              <button v-for="value in albums" :key="value.id" @click="changePhoto(value.id)" class="btn btn-default filter-button">{{ value.name }}</button>
+              
             </div>
             <br>
     <div class="row" v-if="!isLoading">
         <div v-for="photo in photos" :key="photo.id" class="col-lg-4 col-md-4 col-xs-6 thumb">
-        <a @click.prevent="photoClicked(photo)" class="thumbnail gallery-button" href="" >
-         <img class="img-thumbnail"
-         v-lazy="url+'images/our-gallery/'+photo.image"
-         alt="Another alt text">
-     </a>
- </div>
+        	<a @click.prevent="photoClicked(photo)" class="thumbnail gallery-button" href="" >
+         	<img class="img-thumbnail" v-lazy="url+'images/our-gallery/'+photo.image" alt="Another alt text">
+     		</a>
+ 		</div>
     </div>
 
     <div class="row" v-else>
@@ -60,14 +58,14 @@
    mounted(){
     
     this.getPhotos();
-    
-
+    // console.log(albums);
+   
    },
 
    methods : {
     getPhotos(album_id = ''){
        this.isLoading = true;
-       axios.get(base_url+'get-album-photo?album_id='+album_id
+       axios.get(this.url+'get-album-photo?album_id='+album_id
         +"&is_firstime="+this.is_firstime)
        .then(response => {
        
@@ -89,11 +87,7 @@
     
    }
  }
- 
-
 </script>
 
 <style scoped>
-  
-
 </style>

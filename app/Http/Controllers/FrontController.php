@@ -21,7 +21,7 @@ class FrontController extends Controller
 {
     public function index()
     {
-        $albums = Album::where('status',1)->get();
+        $albums = Album::where('status',1)->latest()->take(4)->get();
     	$galleries =  Gallery::where('status',1)->get();
     	$blogs 		  =  Blog::where('status',1)->take(2)->latest()->get();
         $paidServices   =  Service::where(['status'=>1,'type'=>'সল্পমূল্যে'])->get();
@@ -130,6 +130,12 @@ class FrontController extends Controller
         //  'galleries' => $data
         // ]);
 
-    }  
+    }
+
+    public function loadAlbum()
+    {
+        $albums = Album::where('status',1)->get();
+        return view('pages.allAlbum',compact('albums'));
+    }
 
 }
