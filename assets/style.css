@@ -1850,7 +1850,7 @@ footer.footer-area {
 @media screen and (max-width: 992px) {
   .phone-top {
         /*background: none; border:none;*/
-        top: 5%;right: 23%; position: fixed; z-index: 50;
+        top: 4.6%;right: 23%; position: fixed; z-index: 50;
         margin-bottom: 30px;
     }
 }

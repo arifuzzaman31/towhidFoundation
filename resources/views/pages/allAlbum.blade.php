@@ -9,7 +9,7 @@
     <!-- <meta property="og:description" content="@lang('meta.title')" /> -->
 @endsection
 @section('content')
-<section class="team-membar position-relative pt-30 pb-80 theme-bg" style="background: #f2f9ff;">
+<section class="team-membar position-relative pt-110 pb-50 theme-bg" style="background: #f2f9ff;">
  <div class="container">
     <div class="row">
         <div class="col-xl-6 offset-xl-3 text-center">

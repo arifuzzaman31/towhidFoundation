@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2020 at 09:51 AM
+-- Generation Time: Feb 10, 2020 at 01:21 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -73,9 +73,11 @@ CREATE TABLE `blogs` (
 --
 
 INSERT INTO `blogs` (`id`, `title`, `slug`, `description`, `blog_image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Lorem ipsum dolor', 'lorem-ipsum-dolor', '<p><span style=\"color: rgba(9, 9, 16, 0.7); font-family: scandia-web, sans-serif; font-size: 16px;\">So, what if the incoming request parameters do not pass the given validation rules? As mentioned previously, Laravel will automatically redirect the user back to their previous</span></p>', '1577772832.jpg', 1, '2019-12-31 06:14:20', '2019-12-31 00:13:52'),
+(1, 'Lorem ipsum dolor', 'Lorem-ipsum-dolor', '<p><span style=\"color: rgba(9, 9, 16, 0.7); font-family: scandia-web, sans-serif; font-size: 16px;\">So, what if the incoming request parameters do not pass the given validation rules? As mentioned previously, Laravel will automatically redirect the user back to their previous. </span><br /><span style=\"color: rgba(9, 9, 16, 0.7); font-family: scandia-web, sans-serif; font-size: 16px;\"><span style=\"color: rgba(9, 9, 16, 0.7); font-family: scandia-web, sans-serif; font-size: 16px;\">So, what if the incoming request parameters do not pass the given validation rules? As mentioned previously, Laravel will automatically redirect the user back to their previous</span></span></p>', '1577772832.jpg', 1, '2019-12-31 06:14:20', '2020-01-25 22:48:23'),
 (2, 'Where does it come from?', 'where-does-it-come-from', '<p><span style=\"color: rgba(9, 9, 16, 0.7); font-family: scandia-web, sans-serif; font-size: 16px;\">Again, notice that we did not have to explicitly bind the error messages to the view in our&nbsp;</span><code class=\" language-php\" style=\"box-sizing: border-box; font-family: source-code-pro, monospace; font-size: 0.8rem; line-height: 1.9; color: #ca473f; background: #fbfbfd; padding: 0px 0.25em; white-space: pre; word-break: normal; overflow-wrap: normal; tab-size: 4; hyphens: none; box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px;\"><span class=\"token constant\" style=\"box-sizing: border-box; color: #981d15;\">GET</span></code><span style=\"color: rgba(9, 9, 16, 0.7); font-family: scandia-web, sans-serif; font-size: 16px;\">&nbsp;route. This is because Laravel will check for errors</span></p>', '1577772927.jpg', 1, '2019-12-31 06:15:27', '2019-12-31 00:15:27'),
-(3, 'মানুষ হবে মানুষ শুধু', 'মানুষ-হবে-মানুষ-শুধু', '<p><span style=\"color: #4f4f4f; font-family: \'PT Sans\', Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;\">আমি অধম তাই বলিয়া তুমি উত্তম হইবে না কেনো?\" ভারতের নাগরিক গণনা বা এনআরসি অনেকের মুখোশ খুলে দিয়েছে। যে দল ধর্মনিরপেক্ষতাকে কবর দিয়ে একটি বিশেষ ধর্মকে সংযোজন করেছিলো, সেই দলের মহাসচিব বিবৃতি দিয়েছেন।</span></p>', '1577877206.jpg', 1, '2020-01-01 11:13:26', '2020-01-01 05:13:26');
+(3, 'আমি অধম তাই বলিয়া তুমি উত্তম', 'আমি-অধম-তাই-বলিয়া-তুমি-উত্তম', '<p><span style=\"color: #4f4f4f; font-family: \'PT Sans\', Arial, Helvetica, sans-serif; font-size: 16px; text-align: justify;\">আমি অধম তাই বলিয়া তুমি উত্তম হইবে না কেনো?\" ভারতের নাগরিক গণনা বা এনআরসি অনেকের মুখোশ খুলে দিয়েছে। যে দল ধর্মনিরপেক্ষতাকে কবর দিয়ে একটি বিশেষ ধর্মকে সংযোজন করেছিলো, সেই দলের মহাসচিব বিবৃতি দিয়েছেন।</span></p>', '1577877206.jpg', 1, '2020-01-01 11:13:26', '2020-01-25 22:48:59'),
+(4, 'since the 1500s is reproduced below', 'since-the-1500s-is-reproduced-below', '<p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham</p>', '1580016350.jpg', 1, '2020-01-26 05:25:50', '2020-01-25 23:25:50'),
+(5, 'mbined with a handful of model', 'mbined-with-a-handful-of-model', '<p>combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>', '1580016496.jpg', 1, '2020-01-26 05:28:16', '2020-01-25 23:28:16');
 
 -- --------------------------------------------------------
 
@@ -174,7 +176,8 @@ CREATE TABLE `members` (
 
 INSERT INTO `members` (`id`, `name`, `designation`, `image`, `fb_link`, `tw_link`, `inst_link`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'Hasan Ali', 'Admin & HR', '1578477592.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:48', '2020-01-08 05:07:59'),
-(2, 'Shakil Khan', 'Genarel Manager', '1578478678.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:49', '2020-01-14 04:35:06');
+(2, 'Shakil Khan', 'Genarel Manager', '1578478678.jpg', 'fb.com', 'twitter.com', 'instagram.com', 1, '2020-01-09 10:55:49', '2020-01-14 04:35:06'),
+(3, 'Tarek Anam', 'Coordinator', '1580015679.jpg', 'https//:fb.com', 'https//:twitter.com', 'https//:instagram.com', 1, '2020-01-26 05:14:39', '2020-01-25 23:14:39');
 
 -- --------------------------------------------------------
 
@@ -404,7 +407,7 @@ ALTER TABLE `albums`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `contacts`
@@ -428,7 +431,7 @@ ALTER TABLE `galleries`
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `migrations`
