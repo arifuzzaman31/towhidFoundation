@@ -1,7 +1,7 @@
 <section class="hero-area" data-background="assets/img/Background/header-bg.png">
-    <div class="hero-area-shape-1">
+<!--     <div class="hero-area-shape-1">
         <img src="assets/img/shape/hero-shape-1.png" alt="@lang('hero_area.tf')">
-    </div>
+    </div> -->
     <div class="container">
         <div class="row justify-content-xl-center ">
             <div class="col-xl-7 col-lg-6">

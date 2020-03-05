@@ -58,7 +58,7 @@ class FrontController extends Controller
         return view('pages.allblog', compact('allblogs'));
     }
 
-    public function SaveForm(Request $request)
+     public function SaveForm(Request $request)
     {
         // return $request->all();
         $validation = Validator::make($request->all(),[
@@ -80,9 +80,9 @@ class FrontController extends Controller
 
                 DB::commit();
 
-                // For Mobile SMS
+                // For Mobile SMS 01317008000
                 $service = Service::find($request->service_id);
-                $message = "$request->name asked for $service->title.Phone: $request->phone";
+                $message = "$request->name asked for $service->title Phone: $request->phone";
 
                 Helper::send_sms('01317008000',$message,'UNICODE');
 

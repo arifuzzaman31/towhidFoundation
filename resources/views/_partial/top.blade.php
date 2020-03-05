@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/slicknav.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/default.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/material-design-iconic-font.min.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('assets/css/owl.carousel.min.css')}}"> -->
+    <!-- <link rel="stylesheet" href="{{asset('assets/css/material-design-iconic-font.min.css')}}"> -->
     <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{asset('assets/style.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">

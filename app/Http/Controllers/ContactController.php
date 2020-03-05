@@ -32,17 +32,19 @@ class ContactController extends Controller
 
       $contact->save();
 
+         // $to = \Config::get('mail.username');
          $to = "arifuzzaman.rb@gmail.com";
 
          $name = $request->name;
          $email = $request->email;
          $subject = $request->subject;
 
-        Mail::send('contact.us',[ 'name'=>$request->name, 'phone'=>$request->phone, 'email'=>$request->email, 'subject' => $request->subject, 'user_message' => $request->message  ], 
+        Mail::send('contact.us',['name'=>$request->name, 'phone'=>$request->phone, 'email'=>$request->email, 'subject' => $request->subject, 'user_message' => $request->message  ], 
                 function ($message) use ($to,$email,$name,$subject){
-                    $message->from($email,$name);
-                    $message->to($to)->subject($subject);
+                  $message->from($email,$name);
+                  $message->to($to)->subject($subject);
            });
+       
    	 return response()->json(['status'=>'success','message'=>'Your Contact Done!']);
 
      }

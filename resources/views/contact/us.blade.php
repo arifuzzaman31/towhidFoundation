@@ -100,7 +100,7 @@
     <div class="container register">
         <div class="row">
             <div class="col-md-3 col-3 register-left">
-                <img src="{{ url('images/logo.png') }}" alt=""/>
+                <img src="{{ url('images/logo_seo.png') }}" alt=""/>
                 <h3>স্বাগতম</h3>
                 <p>তৌহিদ ফাউন্ডেশন। মানবতার সেবায়। <br>
                      মেসেজটি পেতে স্ক্রল করুন।
