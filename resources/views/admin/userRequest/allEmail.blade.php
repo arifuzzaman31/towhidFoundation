@@ -4,7 +4,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <button class="btn btn-primary">User Request</button>
+                <h5 class="m-auto text-center">User Request</h5>
             </div>
                 <div class="body">
                             <div class="table-responsive">
