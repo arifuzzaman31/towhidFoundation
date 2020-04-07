@@ -13,7 +13,7 @@ class UserqueryController extends Controller
     
     public function index()
     {
-        $userqueries = Userquery::Paginate(10);
+        $userqueries = Userquery::orderBy('id','desc')->Paginate(10);
         return view('admin.userRequest.allEmail', compact('userqueries'));
     }
 
