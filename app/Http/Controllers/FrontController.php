@@ -23,12 +23,10 @@ class FrontController extends Controller
             ->orderBy('id', 'desc')
             ->take(6)
             ->get();
-        $galleries    = Gallery::where('status', 1)->get();
-        $blogs        = Blog::where('status', 1)->take(2)->latest()->get();
-        $paidServices = Service::where(['status' => 1, 'type' => 'সল্পমূল্যে'])->get();
-        $freeServices = Service::where(['status' => 1, 'type' => 'বিনামূল্যে'])->get();
+        $galleries = Gallery::where('status', 1)->get();
+
         // Session::flush();
-        return view('theme.pages.index', compact('galleries', 'albums', 'blogs', 'paidServices', 'freeServices'));
+        return view('theme.pages.index', compact('galleries', 'albums'));
     }
 
     public function getSpecificService($slug)
@@ -49,14 +47,15 @@ class FrontController extends Controller
 
     public function AllMember()
     {
-        $members = Member::where('status', 1)->Paginate(5);
-        return view('pages.member', compact('members'));
+        $executive_members = Member::where('status', 1)->where('member_type', 1)->get();
+        $advisor           = Member::where('status', 1)->where('member_type', 0)->get();
+        return view('theme.pages.member', compact('executive_members', 'advisor'));
     }
 
     public function getAllBlog()
     {
-        $allblogs = Blog::where('status', 1)->latest()->Paginate(5);
-        return view('pages.allblog', compact('allblogs'));
+        $blog = Blog::where('status', 1)->latest()->Paginate(8);
+        return view('theme.pages.blog', compact('blog'));
     }
 
     public function SaveForm(Request $request)
@@ -130,6 +129,16 @@ class FrontController extends Controller
         //  'galleries' => $data
         // ]);
 
+    }
+
+    public function about()
+    {
+        return view('theme.pages.about-us');
+    }
+
+    public function services()
+    {
+        return view('theme.pages.service');
     }
 
 }

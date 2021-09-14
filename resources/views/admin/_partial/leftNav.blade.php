@@ -48,7 +48,7 @@
                     <span>Blogs</span>
                 </a>
             </li>
-            <li @if(Route::is('photo-gallery') || Route::is('get-album')) class="active" @endif>
+            <li @if(Route::is('photo-gallery') || Route::is('get-album') || Route::is('slider.index') || Route::is('slider.create') ) class="active" @endif>
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">photo_library</i>
                     <span>Gallery</span>
@@ -59,6 +59,9 @@
                     </li>
                     <li>
                         <a href="{{route('photo-gallery')}}">Photo</a>
+                    </li>
+                    <li>
+                        <a href="{{route('slider.index')}}">Slider</a>
                     </li>
                 </ul>
             </li>

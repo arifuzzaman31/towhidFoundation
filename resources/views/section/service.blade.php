@@ -56,6 +56,6 @@
         margin: 25px 330px;
         padding-bottom: 28px;
       }
-    }  
+    }
 </style>
 @endpush

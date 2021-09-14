@@ -14,28 +14,30 @@
                     <th>SL</th>
                     <th>Name</th>
                     <th>Designation</th>
-                    <th>Quote</th>
                     <th>Picture</th>
+                    <th>Type</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
             	@if(count($members) > 0)
-            	<?php $i = 1; ?>
+            	<?php $i = 1;?>
             	@foreach($members as $member)
 	                <tr>
 	                    <td style="width: 5%">{{$i}}</td>
 	                    <td style="width: 15%">{{$member->name}}</td>
 	                    <td>{{$member->designation}}</td>
-                        <td>{!! substr($member->quote,0,60) !!}...</td>
                         <td>
                         @if($member->image)
                             <img src="{{URL::to('images/team-member-image/'.$member->image)}}" height="40px" width="50px">
                         @endif
                         </td>
+                        <td>
+                            {{ $member->member_type == 1 ? 'Executive Member' : 'Advisor' }}
+                        </td>
 	                    <td>
 	                    	<a onclick="getModal('edit.member/{{$member->id}}','Edit member')" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
-                            
+
                             <a onclick="getModal('show-member/{{$member->id}}','Show Member')" title="View" type="button" class="btn btn-primary btn-xs">
                             <i class="fa fa-book"></i>
                           </a>
@@ -45,9 +47,9 @@
 		                  <a type="button" title="Delete" href="{{route('member-delete',$member->id)}}" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
 
 	                    </td>
-	                    
+
 	                </tr>
-	                <?php $i++; ?>
+	                <?php $i++;?>
                 @endforeach
               @endif
             </tbody>

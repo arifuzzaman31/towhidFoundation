@@ -16,24 +16,24 @@
 		            </div>
 		        </div>
 		        <label for="tinymce">Quote</label>
-		        <div class="form-group">
+		        <!-- <div class="form-group">
 		            <div class="form-line">
 		                <textarea id="tinymce" name="quote">{{$data->quote}}</textarea>
 		            </div>
-		        </div>
-		        <label for="title">Facebook Link</label>
+		        </div> -->
+		        <label for="title">Facebook Link (optional)</label>
 		        <div class="form-group">
 		            <div class="form-line">
 		                <input type="text" id="fb_link" name="fb_link" class="form-control" value="{{$data->fb_link}}">
 		            </div>
 		        </div>
-		        <label for="description">Twiter Link</label>
+		        <label for="description">Twiter Link (optional)</label>
 		        <div class="form-group">
 		            <div class="form-line">
 		                <input type="text" id="tw_link" name="tw_link" class="form-control" value="{{$data->tw_link}}">
 		            </div>
 		        </div>
-		        <label for="inst_link">Instagram Link</label>
+		        <label for="inst_link">Instagram Link (optional)</label>
 		        <div class="form-group">
 		            <div class="form-line">
 		                <input type="text" id="inst_link" name="inst_link" class="form-control" value="{{$data->inst_link}}">
@@ -47,6 +47,16 @@
 		                <input type="file" id="icon" name="image" class="form-control">
 		            </div>
 		        </div>
+
+				<label for="inst_link">Member Type</label>
+         <div class="form-group">
+            <div class="form-line">
+               <select name="member_type" id="">
+                   <option @if($data->member_type==1) selected @endif value="1">Executive Member</option>
+                   <option @if($data->member_type==0) selected @endif value="0">Advisor</option>
+               </select>
+            </div>
+        </div>
 		       <div class="demo-switch-title">Status</div>
 		            <div class="switch">
 		                <label><input type="checkbox" @if($data->status === 1)checked @endif name="status" value="1"><span class="lever switch-col-green"></span></label>
@@ -58,7 +68,7 @@
 		        </div>
 		    </form>
 		</div>
-	   
+
 	</div>
 </div>
 <script type="text/javascript">

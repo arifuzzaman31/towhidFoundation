@@ -92,8 +92,8 @@
                     <div class="container">
                         <div class="logo-header">
                             <div class="logo-header-inner logo-header-one">
-                                <a href="index.php">
-                                    <img src="assets/images/towhidfoundation-logo.png" alt="" />
+                                <a href="{{ url('/') }}">
+                                    <img src="{{ url('assets/images/towhidfoundation-logo.png') }}" alt="" />
                                 </a>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                                     <a href="#">About</a>
                                        <ul class="sub-menu">
                                             <li>
-                                                <a href="about-us.php"> About US</a>
+                                                <a href="{{ route('about.us') }}" title="About Towhid Foundation"> About US</a>
                                             </li>
                                             <li>
                                                 <a href="Objectives.php"> Towhidfoundation Objectives</a>
@@ -134,22 +134,22 @@
                                 </li>
 
                                 <li>
-                                    <a href="services.php">Services</a>
+                                    <a href="{{ route('our.service') }}" title="Services">Services</a>
                                 </li>
                                 <li>
-                                    <a href="members.php">Members</a>
+                                    <a href="{{ route('our.member') }}" title="Members">Members</a>
                                 </li>
                                 <li>
-                                    <a href="media-news.php">Media & News</a>
+                                    <a href="{{ route('our.blog') }}" title="Media & News">Media & News</a>
                                 </li>
                                 <li>
-                                    <a href="photo-albam.php">Photo Gallery</a>
+                                    <a href="photo-albam.php" title="Photo Album">Photo Gallery</a>
                                 </li>
                                 <li>
-                                    <a href="notice.php">Notice</a>
+                                    <a href="notice.php" title="Notice">Notice</a>
                                 </li>
                                 <li>
-                                    <a href="contact-us.php">Contact Us</a>
+                                    <a href="contact-us.php" title="Contact Us">Contact Us</a>
                                 </li>
                             </ul>
                         </div>
@@ -220,11 +220,11 @@
                             <div class="widget widget_about">
                                 <!--<h4 class="widget-title">About Company</h4>-->
                                 <div class="logo-footer clearfix p-b15">
-                                    <a href="index.html"><img src="assets/images/towhidfoundation-logo-white.png" alt=""></a>
+                                    <a href="index.html"><img src="{{ url('assets/images/towhidfoundation-logo-white.png') }}" alt=""></a>
                                 </div>
 								<p class="max-w400">A Completely non-political and non-profit Voluntary Organization</p>
                                 <ul class="social-icons  mt-social-links">
-                                    <li><a href="https://www.facebook.com/TowhidFoundation/" class="fa fa-facebook"></a></li>
+                                    <li><a target="_blank" href="https://www.facebook.com/TowhidFoundation/" class="fa fa-facebook"></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -234,7 +234,7 @@
                             <div class="widget widget_services inline-links">
                                 <h4 class="widget-title">Our Organization</h4>
                                 <ul>
-                                   <li><a href="#">About Us</a></li>
+                                   <li><a href="{{ route('about.us') }}">About Us</a></li>
                                     <li><a href="#">Services</a></li>
                                     <li><a href="#">Contact US</a></li>
                                 </ul>
@@ -274,8 +274,8 @@
                 <div class="container">
                     <div class="row">
                       <div class="mt-footer-bot-center">
-                            <span class="copyrights-text">© 2021 Developed By <a style="color: #0066B3;" href="https://automation.limmexbd.com/">
-                            <img src="assets/images/limmex-automation.png" alt=""></a></span>
+                            <span class="copyrights-text">© {{ date('Y') }} Developed By <a style="color: #0066B3;" title="Limmex Automation" href="https://automation.limmexbd.com/">
+                            <img src="{{ url('assets/images/limmex-automation.png') }}" alt="Limmex Automation"></a></span>
                         </div>
                     </div>
                 </div>

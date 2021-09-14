@@ -12,22 +12,24 @@
             <thead>
                 <tr>
                     <th>SL</th>
-                    <th>Title</th>
-                    <th>Description</th>
+                    <th>Title EN</th>
+                    <th>Title BN</th>
+                    <!-- <th>Description</th> -->
                     <th>Image</th>
                     <th>Type</th>
                     <th>Action</th>
                 </tr>
             </thead>
-        
+
             <tbody>
             	@if(count($Services) > 0)
-            	<?php $i = 1; ?>
+            	<?php $i = 1;?>
             	@foreach($Services as $service)
 	                <tr>
 	                    <td style="width: 5%">{{$i}}</td>
-	                    <td style="width: 20%">{!! $service->title !!}</td>
-	                    <td style="width: 40%">{{ substr($service->description,0,80) }}....</td>
+	                    <td style="width: 20%">{!! $service->title_en !!}</td>
+	                    <td style="width: 20%">{!! $service->title_bn !!}</td>
+	                    <!-- <td style="width: 40%">{{ substr($service->description,0,80) }}....</td> -->
                         <td>
                         @if($service->image)
                             <img src="{{URL::to('images/service-image/'.$service->image)}}" height="40px" width="50px">
@@ -36,7 +38,7 @@
                         <td style="width: 12%">{{$service->type}}</td>
 	                    <td style="width: 15%">
 	                    	<a onclick="getModal('edit.service/{{$service->id}}','Edit Service')" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
-                            
+
                             <a onclick="getModal('show-service/{{$service->id}}','Show Service')" title="View" type="button" class="btn btn-primary btn-xs">
                             <i class="fa fa-book"></i>
                           </a>
@@ -46,9 +48,9 @@
 		                  <a type="button" title="Delete" href="{{route('service-delete',$service->id)}}" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
 
 	                    </td>
-	                    
+
 	                </tr>
-	                <?php $i++; ?>
+	                <?php $i++;?>
                 @endforeach
               @endif
             </tbody>

@@ -12,47 +12,34 @@
       <div id="welcome_wrapper" class="rev_slider_wrapper fullscreen-container" data-alias="goodnews-header">
           <div id="rev_slider_one" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.3.1">
               <ul>
+
+                 @php
+                  $slider = getSlider();
+                 @endphp
                   <!-- SLIDE 1 -->
-                  <li data-index="rs-901" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="assets/images/main-slider/slide1.jpg" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off" data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+                  @foreach($slider as $value)
+                  <li data-index="rs-90{{ $value->id }}" data-transition="fade" data-slotamount="default" data-hideafterloop="0"
+                      data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default"
+                       data-thumb="{{ url('images/slider/'.$value->image) }}"
+                       data-rotate="0" data-fstransition="fade" data-fsmasterspeed="300"
+                        data-fsslotamount="7" data-saveperformance="off">
                       <!-- MAIN IMAGE -->
-                      <img src="assets/images/main-slider/slide1.jpg" alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" />
+                      <img src="{{ url('images/slider/'.$value->image) }}" alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10"
+                       data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" />
                       <!-- LAYERS -->
                       <!-- LAYER NR. 1 [ for overlay ] -->
-                      <div class="tp-caption tp-shape tp-shapewrapper " id="slide-901-layer-0" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape" data-basealign="slide" data-responsive_offset="off" data-responsive="off" data-frames='[
+                      <div class="tp-caption tp-shape tp-shapewrapper " id="slide-90{{ $value->id }}-layer-0"
+                           data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
+                            data-voffset="['0','0','0','0']" data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape"
+                            data-basealign="slide" data-responsive_offset="off" data-responsive="off" data-frames='[
                             {"from":"opacity:0;","speed":1000,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},
                             {"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power4.easeOut"}
-                            ]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 1;background-color:rgba(0, 0, 0, 0.0);border-color:rgba(0, 0, 0, 0);border-width:0px;">
+                            ]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]"
+                            data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]"
+                            data-paddingleft="[0,0,0,0]" style="z-index: 1;background-color:rgba(0, 0, 0, 0.0);border-color:rgba(0, 0, 0, 0);border-width:0px;">
                       </div>
                   </li>
-
-
-                  <!-- SLIDE 2 -->
-                  <li data-index="rs-902" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="assets/images/main-slider/slide2.jpg" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off" data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                      <!-- MAIN IMAGE -->
-                      <img src="assets/images/main-slider/slide2.jpg" alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="">
-                      <!-- LAYERS -->
-                      <!-- LAYER NR. 1 [ for overlay ] -->
-                      <div class="tp-caption tp-shape tp-shapewrapper " id="slide-902-layer-0" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape" data-basealign="slide" data-responsive_offset="off" data-responsive="off" data-frames='[
-                            {"from":"opacity:0;","speed":1000,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},
-                            {"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power4.easeOut"}
-                            ]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 1;background-color:rgba(0, 0, 0, 0.0);border-color:rgba(0, 0, 0, 0);border-width:0px;">
-                      </div>
-
-                  </li>
-
-
-                  <!-- SLIDE 3-->
-                  <li data-index="rs-903" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="assets/images/main-slider/slide2.jpg" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="300" data-fsslotamount="7" data-saveperformance="off" data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
-                      <!-- MAIN IMAGE -->
-                      <img src="assets/images/main-slider/slide3.jpg" alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10" data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="">
-                      <!-- LAYERS -->
-                      <!-- LAYER NR. 1 [ for overlay ] -->
-                      <div class="tp-caption tp-shape tp-shapewrapper " id="slide-903-layer-0" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" data-width="full" data-height="full" data-whitespace="nowrap" data-type="shape" data-basealign="slide" data-responsive_offset="off" data-responsive="off" data-frames='[
-                            {"from":"opacity:0;","speed":1000,"to":"o:1;","delay":0,"ease":"Power4.easeOut"},
-                            {"delay":"wait","speed":1000,"to":"opacity:0;","ease":"Power4.easeOut"}
-                            ]' data-textAlign="['left','left','left','left']" data-paddingtop="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]" style="z-index: 1;background-color:rgba(0, 0, 0, 0.0);border-color:rgba(0, 0, 0, 0);border-width:0px;">
-                      </div>
-                  </li>
+                  @endforeach
               </ul>
               <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
           </div>
@@ -149,78 +136,7 @@
       <!-- NEWS -->
 
 
-      <!--     COMPANY FOUNDER MESSAGE START-->
-      <div class="section-full  p-b30 " style="background-image:url(assets/images/background/bg-5.png);">
-          <div class="section-full p-tb50  inner-page-padding">
-              <div class="container">
-                  <div class="section-content ">
-                      <div class="row">
-                          <div class="col-md-5 col-sm-6">
-                              <div class="m-about members-about ">
-                                  <div class=" ">
-                                      <!-- COLUMNS 1 -->
-                                      <div class="item">
-                                          <div class="ow-img">
-                                              <a title="Towhid Foundation Chairman" href="javascript:void(0);"><img src="{{ asset('assets/images/team/chairman.png') }}" alt="Towhid Foundation Chairman"></a>
-                                          </div>
-                                      </div>
-
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-7 col-sm-6">
-                              <div class="m-about-containt text-black p-t80">
-                                  <h3 class="font-weight-600">চেয়ারম্যান এর বাণী</h3>
-                                  <p>মানবতা আজকাল প্রায় বিপন্ন। সমাজে এমন অনেক লোক রয়েছে যাদের প্রাথমিক প্রয়োজন মেটাতে অন্যের সহায়তা প্রয়োজন। আমরা, তৌহিদ ফাউন্ডেশনে, লোকদের প্রতি আমাদের সাহায্যের হাত বাড়িয়ে দিচ্ছি এবং একটি ভারসাম্যপূর্ণ সমাজ গঠনের চেষ্টা করছি।
-                                      আমরা বিশ্বাস করি যে প্রাথমিক চিকিৎসা, অ্যাম্বুলেন্স সেবা, প্যাথলজিক্যাল চিকিৎসা, আত্মউন্নয়ন প্রশিক্ষণ, জানাজার সুবিধা, চোখের অপারেশন এবং লেন্স প্রতিস্থাপন ইত্যাদির মতো সেবা পাওয়ার অধিকার প্রত্যেকেরই রয়েছে। আমাদের দৃষ্টিভঙ্গি হলো আমাদের সেবাসমূহের মাধ্যমে দেশের সেবা করা, এইভাবে মানবতার সেবাই আমাদের মূললক্ষ্য। আমি জনাব কামাল আহমেদ মজুমদার, মাননীয় প্রতিমন্ত্রী, জনাব .... এর সমর্থন এবং দিকনির্দেশনাকে স্বীকার করি। আমরা কয়েক দশক পরেও আমাদের সেবাসমূহ অব্যাহত রাখতে আশাবাদী যাতে আমরা একটি শান্তিপূর্ণ জাতি গঠনে অবদান রাখতে পারি।</p>
-                                  <div class="author-info p-t20">
-
-                                      <div class="author-name">
-                                          <h4 class="m-b5">তৌহিদ ফাউন্ডেশন</h4>
-                                          <p>চেয়ারম্যান</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="section-full p-tb50  inner-page-padding">
-              <div class="container">
-                  <div class="section-content ">
-                      <div class="row">
-                          <div class="col-md-7 col-sm-6">
-                              <div class="m-about-containt text-black p-t80">
-                                  <h3 class="font-weight-600">চেয়ারম্যান এর বাণী</h3>
-                                  <p>মানবতা আজকাল প্রায় বিপন্ন। সমাজে এমন অনেক লোক রয়েছে যাদের প্রাথমিক প্রয়োজন মেটাতে অন্যের সহায়তা প্রয়োজন। আমরা, তৌহিদ ফাউন্ডেশনে, লোকদের প্রতি আমাদের সাহায্যের হাত বাড়িয়ে দিচ্ছি এবং একটি ভারসাম্যপূর্ণ সমাজ গঠনের চেষ্টা করছি।
-                                      আমরা বিশ্বাস করি যে প্রাথমিক চিকিৎসা, অ্যাম্বুলেন্স সেবা, প্যাথলজিক্যাল চিকিৎসা, আত্মউন্নয়ন প্রশিক্ষণ, জানাজার সুবিধা, চোখের অপারেশন এবং লেন্স প্রতিস্থাপন ইত্যাদির মতো সেবা পাওয়ার অধিকার প্রত্যেকেরই রয়েছে। আমাদের দৃষ্টিভঙ্গি হলো আমাদের সেবাসমূহের মাধ্যমে দেশের সেবা করা, এইভাবে মানবতার সেবাই আমাদের মূললক্ষ্য। আমি জনাব কামাল আহমেদ মজুমদার, মাননীয় প্রতিমন্ত্রী, জনাব .... এর সমর্থন এবং দিকনির্দেশনাকে স্বীকার করি। আমরা কয়েক দশক পরেও আমাদের সেবাসমূহ অব্যাহত রাখতে আশাবাদী যাতে আমরা একটি শান্তিপূর্ণ জাতি গঠনে অবদান রাখতে পারি।</p>
-                                  <div class="author-info p-t20">
-                                      <div class="author-name">
-                                          <h4 class="m-b5">তৌহিদ ফাউন্ডেশন</h4>
-                                          <p>চেয়ারম্যান</p>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col-md-5 col-sm-6">
-                              <div class="m-about members-about ">
-                                  <div class=" ">
-                                      <!-- COLUMNS 1 -->
-                                      <div class="item">
-                                          <div class="ow-img">
-                                              <a href="javascript:void(0);"><img src="{{ asset('assets/images/team/chairman.png') }}" alt=""></a>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <!--     COMPANY FOUNDER MESSAGE END-->
+    @include('theme.include.qoute')
 
 
 
@@ -240,6 +156,9 @@
                   </div>
                   <!-- TITLE END -->
                   <div class="row">
+                  @php
+                $freeServices = getFreeService()
+                  @endphp
                   @foreach($freeServices as $service)
                       <div class="col-md-4 col-sm-6 m-b30">
                           <div class="image-effect-one1 hover-shadow">
@@ -276,6 +195,9 @@
                   </div>
                   <!-- TITLE END -->
                   <div class="row">
+                  @php
+                 $paidServices = getPaidService()
+                  @endphp
                   @foreach($paidServices as $service)
                       <div class="col-md-4 col-sm-6 m-b30">
                           <div class="image-effect-one1 hover-shadow">
