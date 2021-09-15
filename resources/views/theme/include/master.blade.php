@@ -8,27 +8,17 @@
     <meta name="csrf-token" content="XZL3m0O0AH9CWAMEbkAKtUIFMW633GRo6bQ67ej1">
     <meta name="author" content="Towhind-Foundation">
     <meta name="keyword" content="তৌহিদ ফাউন্ডেশন,Towhind Foundation,Foundation in Dhaka,Free Ambulance Service in Dhaka,Free Primary Treatment Dhaka,Free Computer Course in Dhaka,Free Eye Operation Dhaka,Wasing Dead Body in Dhaka,Towhind,Foundation,lash gosol,প্যাথলজিক্যাল পরীক্ষা নিরীক্ষা,অ্যাম্বুলেন্স সার্ভিস,ফিজিওথেরাপি,লাশের কাপড়, কফিন ও অন্যান্য উপকরণ,সেলাই প্রশিক্ষণ">
-    <meta property="og:url" content="{{ url('/') }}" />
+    <meta property="og:url" content="{{  Request::url() }}" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="{{ url('assets/images/logo_seo.png') }}" />
-    @yield('meta')
-
     <meta property="og:title" content="Towhid Foundation | Members" />
     <meta property="og:description" content="Towhid Foundation | Made for Humanity" />
-
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}" />
+
+     @yield('meta')
 
     <!-- Title-->
     <title>@yield('title','Towhid Foundation')</title>
-
-    <!-- MOBILE SPECIFIC -->
-
-
-    <!-- [if lt IE 9]>
-        <script src="js/html5shiv.min.js"></script>
-        <script src="js/respond.min.js"></script>
-	<![endif] -->
-
     <!-- BOOTSTRAP STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
 
@@ -82,7 +72,7 @@
                             </ul>
                         </div>
                         <div class="mt-topbar-right clearfix">
-                            <div class="appint-btn"><a href="coming-soon.php" class="site-button"> কম্পিউটার প্রশিক্ষণ রেজিঃ </a></div>
+                            <div class="appint-btn"><a href="{{ route('training.registration') }}" class="site-button"> কম্পিউটার প্রশিক্ষণ রেজিঃ </a></div>
                         </div>
                     </div>
                 </div>
@@ -143,13 +133,13 @@
                                     <a href="{{ route('our.blog') }}" title="Media & News">Media & News</a>
                                 </li>
                                 <li>
-                                    <a href="photo-albam.php" title="Photo Album">Photo Gallery</a>
+                                    <a href="{{ route('album.all') }}" title="Photo Album">Photo Gallery</a>
                                 </li>
                                 <li>
                                     <a href="notice.php" title="Notice">Notice</a>
                                 </li>
                                 <li>
-                                    <a href="contact-us.php" title="Contact Us">Contact Us</a>
+                                    <a href="{{ route('contact.us') }}" title="Contact Us">Contact Us</a>
                                 </li>
                             </ul>
                         </div>

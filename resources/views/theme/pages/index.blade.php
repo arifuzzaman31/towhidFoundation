@@ -120,7 +120,7 @@
 
                                   </div>
                                   <div class="col-md-4">
-                                      <div class="p-a30 bg-primary bg-bottom-right" style="background-image:url(assets/images/background/bg-site.png);">
+                                      <div class="p-a30 bg-primary bg-bottom-right" style="background-image: url({{URL:: to('assets/images/background/bg-site.png')}})">
                                           <div class="text-white text-center">
                                               <h4 class="mt-tilte m-t0">এছাড়া বিশেষ উপলক্ষ্যে এবং দুর্যোগময় মুহূর্তে প্রয়োজনীয় সেবা কার্যক্রম পরিচালনা</h4>
                                           </div>
@@ -180,7 +180,7 @@
       <!-- OUR SPECIALLIZATION END -->
 
       <!-- OUR SPECIALLIZATION START -->
-      <div class="section-full p-t80 p-b30 bg-dark" style="background-image:url(assets/images/background/bg-6.png);">
+      <div class="section-full p-t80 p-b30 bg-dark" style="background-image: url({{URL:: to('assets/images/background/bg-6.png')}});">
           <div class="container">
               <!-- IMAGE CAROUSEL START -->
               <div class="section-content">
@@ -251,7 +251,7 @@
                   <div class="section-head ">
                       <div class="mt-separator-outer  text-center">
                           <div class="mt-separator">
-                              <h2 class="text-uppercase sep-line-one "><span class="font-weight-300 text-primary"> অল ফটো  </span>albam</h2>
+                              <h2 class="text-uppercase sep-line-one "><span class="font-weight-300 text-primary"> ফটো  </span>এ্যালবাম</h2>
                           </div>
                       </div>
                   </div>
@@ -274,7 +274,7 @@
                                                           <h4>{{ $value->name }}</h4>
                                                           <!-- <p>Engineering your dreams with us.</p> -->
                                                           <div class="appint-btn">
-                                                              <a href="single-photo-gallery.php" class="site-button m-t10 "> অল ফটো  </a>
+                                                              <a href="{{ route('album.details',['id'=>$value->id,'slug'=>str_replace([' ', '/'],'-',$value->name)]) }}" class="site-button m-t10 "> সকল ছবি  </a>
                                                           </div>
                                                       </div>
                                                   </div>
@@ -284,7 +284,8 @@
                                           </div>
                                           <!-- GALLERY CONTENT END -->
                                           <div class="m-t50 m-b50 text-center">
-                                              <a href="photo-albam.php" class="m-b15 site-button-secondry btn-effect text-uppercase ">অল অ্যালবাম </a>
+                                              <a href="{{ route('album.all') }}" title="Towhid Foundation Photo Album"
+                                               class="m-b15 site-button-secondry btn-effect text-uppercase">সকল  অ্যালবাম দেখুন</a>
                                           </div>
                                       </div>
                                       <!-- GALLERY CONTENT END -->

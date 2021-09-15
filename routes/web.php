@@ -10,9 +10,13 @@ Route::get('locale/en', function () {
     return redirect()->back();
 });
 
-Route::get('us', function () {
-    return view('contact.us');
-});
+Route::get('contact-us', function () {
+    return view('theme.pages.contact');
+})->name('contact.us');
+
+Route::get('trainning-registration', function () {
+    return view('theme.pages.registration');
+})->name('training.registration');
 
 Route::get('login', [
     'as'   => 'login',
@@ -48,8 +52,8 @@ Route::get('blogs', [
     'uses' => 'FrontController@getAllBlog',
 ]);
 
-Route::get('blog/{slug}', [
-    'as'   => 'get-specific-blog',
+Route::get('blog/{id}/{slug}', [
+    'as'   => 'blog.details',
     'uses' => 'FrontController@getSpecificBlog',
 ]);
 
@@ -78,4 +82,14 @@ Route::post('send-user-request', [
 Route::get('get-album-photo', [
     'as'   => 'get-album-photo',
     'uses' => 'FrontController@loadPhoto',
+]);
+
+Route::get('album/{id}/{slug}', [
+    'as'   => 'album.details',
+    'uses' => 'FrontController@albumDetails',
+]);
+
+Route::get('albums', [
+    'as'   => 'album.all',
+    'uses' => 'FrontController@albums',
 ]);
