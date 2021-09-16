@@ -38,14 +38,31 @@
 <!-- Ckeditor -->
 <!-- <script src="{{asset('admin/plugins/ckeditor/ckeditor.js')}}"></script> -->
   <!-- TinyMCE -->
-    <script src="{{asset('admin/plugins/tinymce/tinymce.js')}}"></script>
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> 
+    <script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea.tinymce-editor',
+            height: 200,
+            menubar: false,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar: 'undo redo | formatselect | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+            content_css: '//www.tiny.cloud/css/codepen.min.css'
+        });
+    </script>
 <!-- Custom Js -->
 <script src="{{asset('admin/js/admin.js')}}"></script>
 <script src="{{asset('admin/js/pages/index.js')}}"></script>
 
 <!-- Demo Js -->
 <script src="{{asset('admin/js/demo.js')}}"></script>
-<script src="{{asset('admin/js/custom.js')}}"></script>
+<!-- <script src="{{asset('admin/js/custom.js')}}"></script> -->
 
 <script src="{{asset('admin/plugins/jquery-datatable/jquery.dataTables.js')}}"></script>
 <script src="{{asset('admin/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')}}"></script>
@@ -106,33 +123,6 @@
             });
         return false;
     }); */
-</script>
-
-<!-- Bootsrap Modal Size -->
-<div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        
-      </div>
-    </div>
-  </div>
-</div>
-
-<script type="text/javascript">
-    $('#defaultModal').on('show.bs.modal', function (event) {
-          var button = $(event.relatedTarget) // Button that triggered the modal
-          var recipient = button.data('whatever') // Extract info from data-* 
-          var modal = $(this)
-          modal.find('.modal-title').text('New message to ' + recipient)
-          modal.find('.modal-body input').val(recipient)
-    })
 </script>
 </body>
 

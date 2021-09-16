@@ -1,6 +1,9 @@
-<div class="card">
-	  <div class="card-body">
-	    <div class="body">
+@extends('admin.main')
+@section('adminContent')
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+        <div class="header">
+			<div class="card-body">
 		    <form action="{{route('blog.update',$data->id)}}" method="post" enctype="multipart/form-data">
 		       @csrf
 		        <label for="title">Title</label>
@@ -12,7 +15,7 @@
 		        <label for="description">Description</label>
 		        <div class="form-group">
 		            <div class="form-line">
-		                <textarea id="tinymce" name="description">{{$data->description}}</textarea>
+		                <textarea rows="8" class="form-control tinymce-editor" name="description">{{$data->description}}</textarea>
 		            </div>
 		        </div>
 		         <div class="form-group">
@@ -33,9 +36,5 @@
 	   
 	</div>
 </div>
-<script type="text/javascript">
-        tinymce.init({
-            selector: "#tinymce"
-
-        });
-</script>
+</div>
+@endsection

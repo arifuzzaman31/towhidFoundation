@@ -71,6 +71,13 @@
                     <span>Members</span>
                 </a>
             </li>
+
+            <li @if(Route::is('notice.index')) class="active" @endif>
+                 <a href="{{route('notice.index')}}">
+                    <i class="material-icons">book</i>
+                    <span>Notice</span>
+                </a>
+            </li>
             <li @if(Route::is('change-password')) class="active" @endif>
                 <a href="javascript:void(0);" class="menu-toggle">
                     <i class="material-icons">polymer</i>

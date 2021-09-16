@@ -69,13 +69,13 @@ Route::get('service-delete/{id}', [
     'uses' => 'ServiceController@destroy',
 ]);
 
-Route::get('edit.service/{id}', [
-    'as'   => 'edit.Service',
+Route::get('edit-service/{id}', [
+    'as'   => 'edit.service',
     'uses' => 'ServiceController@edit',
 ]);
 
 Route::get('show-service/{id}', [
-    'as'   => 'show-Service',
+    'as'   => 'show-service',
     'uses' => 'ServiceController@show',
 ]);
 
@@ -244,6 +244,10 @@ Route::get('change-member-status/{id}', [
     'as'   => 'change-member-status',
     'uses' => 'MemberController@changeStatus',
 ]);
+
+// Notice
+Route::resource('notice', 'NoticeController');
+
 
 Route::resource('slider', 'SliderController');
 Route::get('slider/delete/{id}', 'SliderController@destroy')->name('slider.delete');

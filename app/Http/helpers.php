@@ -13,13 +13,13 @@ function getSlider()
 function getPaidService()
 {
     return cache()->rememberForever('paid-service', function () {
-        return Service::where(['status' => 1, 'type' => 'সল্পমূল্যে'])->get();
+        return Service::where(['status' => 1, 'type' => '1'])->get();
     });
 }
 
 function getFreeService()
 {
     return cache()->rememberForever('free-service', function () {
-        return Service::where(['status' => 1, 'type' => 'বিনামূল্যে'])->get();
+        return Service::where(['status' => 1, 'type' => '0'])->get();
     });
 }

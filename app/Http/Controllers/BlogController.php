@@ -20,24 +20,27 @@ class BlogController extends Controller
     public function changeStatus($id)
     {
          $data = Blog::where('id',$id)->first();
+         $msg = '';
             if ($data->status == 0) {
                 $data->status = 1;
+                $msg .= 'Activated';
             }
             else {
                 $data->status = 0;
+                $msg .= 'Deactivited';
             }
         $data->update();
-        return back()->with(['alert-type' => 'info','message' => 'Blog status changed!']);
+        return back()->with(['alert-type' => 'info','message' => 'Blog status '.$msg]);
     }
 
     public function store(Request $request)
     {
         $status = $request->status ? 1 : 0;
-        $validation = Validator::make($request->all(),[
+        
+        $request->validate([
             'title'       => 'required',
             'description' => 'required'
         ]);
-        if (!$validation->fails()) {
             try {
                 DB::beginTransaction();
                 $insertid = Blog::insertGetId([
@@ -58,14 +61,12 @@ class BlogController extends Controller
                             ]);
                 }
                     DB::commit();
-                return back()->with(['alert-type' => 'success','message' => 'Blog Added successfull']);
+                return redirect()->route('blog')->with(['alert-type' => 'success','message' => 'Blog Added successfull']);
                             
             } catch (Exception $e) {
                 DB::rollback();
                return back()->with(['alert-type' => 'error','message' => 'Database error occured!']);
             }
-        }
-        return back()->with(['alert-type' => 'error','message' => 'Have validation Error']);
     }
 
     public function show($id)
@@ -83,14 +84,14 @@ class BlogController extends Controller
     public function update(Request $request, $id)
     {
         $status = $request->status ? 1 : 0;
-         $validation = Validator::make($request->all(),[
+        $request->validate([
             'title'       => 'required',
             'description' => 'required'
         ]);
-        if (!$validation->fails()) {
+    
            try {
                 DB::beginTransaction();
-                $updated = Blog::where('id',$id)->first();
+                $updated = Blog::find($id);
                     $updated->update([
                         'title'      =>  $request->title,
                         'slug'       => Helper::make_slug($request->title),
@@ -113,14 +114,13 @@ class BlogController extends Controller
                             ]);
                 }
                     DB::commit();
-                return back()->with(['alert-type' => 'success','message' => 'Blog updated successfull']);
+                return redirect()->route('blog')->with(['alert-type' => 'success','message' => 'Blog updated successfull']);
                             
             } catch (Exception $e) {
                 DB::rollback();
                 return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
             }
-        }
-        return back()->with(['alert-type' => 'error','message' => 'Have validation Error']);
+        
     }
 
     /**

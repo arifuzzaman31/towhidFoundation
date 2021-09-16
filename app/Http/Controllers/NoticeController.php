@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Member;
-use DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Notice;
 
-class MemberController extends Controller
+class NoticeController extends Controller
 {
     public function index()
     {
-        $members = Member::all();
-        return view('admin.members.allmember', compact('members'));
+    	$notice = Notice::where('status',1)->get();
+    	return view('admin.notice.notice',['notices' => $notice]);
+    }
+
+    public function create()
+    {
+    	return view('admin.notice.addnotice');
     }
 
     public function changestatus($id)

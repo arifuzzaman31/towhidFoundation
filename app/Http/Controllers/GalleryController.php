@@ -34,11 +34,11 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $status = $request->status ? 1 : 0;
-        $validation = Validator::make($request->all(),[
+        $request->validate([
             'album_id' => 'required',
             'image' => 'required|image|mimes:jpeg,bmp,jpg,png,gif,svg'
         ]);
-        if (!$validation->fails()) {
+        
         try {
             DB::beginTransaction();
             if ($request->hasFile('image')) {
@@ -52,15 +52,13 @@ class GalleryController extends Controller
                             'status' =>  $status
                         ]);
                 DB::commit();
-                return back()->with(['alert-type' => 'success','message' => 'Photo Added successfull']);
+                return redirect()->route('photo-gallery')->with(['alert-type' => 'success','message' => 'Photo Added successfull']);
             }
                         
         } catch (Exception $e) {
             DB::rollback();
             return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
         }
-    }
-    return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
     }
 
     public function show($id)
@@ -89,28 +87,25 @@ class GalleryController extends Controller
     	            $updated->update();
 
     	        if ($request->hasFile('image')) {
-                   $validation = Validator::make($request->all(),[
-                        'image' => 'required|image|mimes:jpeg,bmp,jpg,png,gif,svg'
+                   $request->validate([
+                        'image' => 'nullable|image|mimes:jpeg,bmp,jpg,png,gif,svg'
                     ]);
-                    if (!$validation->fails()) {
-            	        if(!empty($updated->image) && file_exists('images/our-gallery/'.$updated->image)){      
-            	            unlink('images/our-gallery/'.$updated->image);
-            	        }
-            	            $image = $request->file('image');
-            	            $imageName = time().'.'.$image->getClientOriginalExtension();
-            	            $image->move('images/our-gallery',$imageName);
+              
+        	        if(!empty($updated->image) && file_exists('images/our-gallery/'.$updated->image)){      
+        	            unlink('images/our-gallery/'.$updated->image);
+        	        }
+        	            $image = $request->file('image');
+        	            $imageName = time().'.'.$image->getClientOriginalExtension();
+        	            $image->move('images/our-gallery',$imageName);
 
-            	            Gallery::where('id', $updated->id)
-            	                    ->update([
-            	                        'image' => $imageName
-            	                    ]);
-        	        } else {
-                        return back()->with(['alert-type' => 'error','message' => 'Validaton error Occured!']);
-                    }
-                
+        	            Gallery::where('id', $updated->id)
+        	                    ->update([
+        	                        'image' => $imageName
+        	                    ]);
                 }
-    	           DB::commit();
-                    return back()->with(['alert-type' => 'success','message' => 'Photo Updated successfull']);             
+    	            DB::commit();
+                    return redirect()->route('photo-gallery')->with(['alert-type' => 'success','message' => 'Photo Updated successfull']);             
+               
     	    } catch (Exception $e) {
     	        DB::rollback();
     	        return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);

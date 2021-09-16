@@ -4,7 +4,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <button class="btn btn-primary" onclick="getModal('get-photo','Add Photo')" >Add More Photo</button>
+                <a href="{{ route('get-photo') }}" class="btn btn-primary">Add More Photo</a>
             </div>
             <div class="body">
                 <div class="table-responsive">
@@ -33,9 +33,9 @@
                         @endif
                         </td>
 	                    <td>
-	                    	<a onclick="getModal('edit.photo/{{$photo->id}}','Edit Photo')" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+	                    	<a href="{{ url('edit.photo/'.$photo->id) }}" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
                             
-                            <a onclick="getModal('show-photo/{{$photo->id}}','Show Photo')" title="View" type="button" class="btn btn-primary btn-xs">
+                            <a href="{{ url('show-photo/'.$photo->id) }}" title="View" type="button" class="btn btn-primary btn-xs">
                             <i class="fa fa-book"></i>
                           </a>
 

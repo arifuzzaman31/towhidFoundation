@@ -42,21 +42,20 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
         $status = $request->status ? 1 : 0;
-        $validation = Validator::make($request->all(),[
+       
+        $request->validate([
             'name' => 'required'
         ]);
-        if (!$validation->fails()) {
-            try {
-                DB::beginTransaction();
-                Album::create($request->all());
-                DB::commit();
-                return back()->with(['alert-type' => 'success','message' => 'Album Created successfull']);
-            } catch (Exception $e) {
-                DB::rollback();
-                return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
-            }
+
+        try {
+            DB::beginTransaction();
+            Album::create($request->all());
+            DB::commit();
+            return redirect()->route('get-album')->with(['alert-type' => 'success','message' => 'Album Created successfull']);
+        } catch (Exception $e) {
+            DB::rollback();
+            return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
         }
-        return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
     }
 
     /**
@@ -68,14 +67,17 @@ class AlbumController extends Controller
     public function changeStatus($id)
     {
         $data = Album::find($id);
+            $msg = '';
             if ($data->status == 0) {
                 $data->status = 1;
+                $msg .= 'Activated';
             }
             else {
                 $data->status = 0;
+                $msg .= 'Deactivited';
             }
         $data->update();
-        return back()->with(['alert-type' => 'info','message' => 'Album status changed!']);
+        return back()->with(['alert-type' => 'info','message' => 'Album status '.$msg]);
     }
 
     /**
@@ -101,25 +103,23 @@ class AlbumController extends Controller
     public function update(Request $request,$id)
     {
         $status = $request->status ? 1 : 0;
-            $validation = Validator::make($request->all(),[
+            $request->validate([
                 'name' => 'required'
             ]);
-            if (!$validation->fails()) {
-                try {
-                    DB::beginTransaction();
-                    $updated = Album::find($id);
-                        $updated->name  =  $request->name;
-                        $updated->status   =  $status;
-                    $updated->update();
+ 
+            try {
+                DB::beginTransaction();
+                $updated = Album::find($id);
+                    $updated->name  =  $request->name;
+                    $updated->status   =  $status;
+                $updated->update();
 
-                    DB::commit();
-                    return back()->with(['alert-type' => 'success','message' => 'Album Updated successfull']);
-                } catch (Exception $e) {
-                    DB::rollback();
-                    return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
-                }
+                DB::commit();
+                return redirect()->route('get-album')->with(['alert-type' => 'success','message' => 'Album Updated successfull']);
+            } catch (Exception $e) {
+                DB::rollback();
+                return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
             }
-            return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
     }
 
     /**
