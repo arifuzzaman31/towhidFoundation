@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="csrf-token" content="XZL3m0O0AH9CWAMEbkAKtUIFMW633GRo6bQ67ej1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="Towhind-Foundation">
     <meta name="keyword" content="তৌহিদ ফাউন্ডেশন,Towhind Foundation,Foundation in Dhaka,Free Ambulance Service in Dhaka,Free Primary Treatment Dhaka,Free Computer Course in Dhaka,Free Eye Operation Dhaka,Wasing Dead Body in Dhaka,Towhind,Foundation,lash gosol,প্যাথলজিক্যাল পরীক্ষা নিরীক্ষা,অ্যাম্বুলেন্স সার্ভিস,ফিজিওথেরাপি,লাশের কাপড়, কফিন ও অন্যান্য উপকরণ,সেলাই প্রশিক্ষণ">
     <meta property="og:url" content="{{  Request::url() }}" />
@@ -322,6 +322,14 @@
 <!-- REVOLUTION SLIDER SCRIPT FILES -->
 <script  src="{{ asset('assets/js/rev-script-2.js') }}"></script>
 <script  src="{{ asset('assets/js/swithcher.js') }}"></script>
+
+<script type="text/javascript">
+
+   var base_url = "{{ url('/') }}"+'/';
+
+</script>
+
+@stack('script')
 
 </body>
 

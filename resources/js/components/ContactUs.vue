@@ -1,191 +1,152 @@
 <template>
-	
-	<div class="container">
+  <form class="contact-form cons-contact-form" @submit.prevent="send()">
+    <div class="contact-one m-b30">
+      <!-- TITLE START -->
+      <div class="section-head">
+        <div class="mt-separator-outer separator-left">
+          <div class="mt-separator">
+            <h2 class="text-uppercase sep-line-one">
+              <span class="font-weight-300 text-primary">Get</span> In touch
+            </h2>
+          </div>
+        </div>
+      </div>
+      <!-- TITLE END -->
 
+      <div class="form-group" v-if="errors">
+        <div class="alert alert-danger">
+          <ul>
+            <li v-for="error in errors">{{ error[0] }}</li>
+          </ul>
+        </div>
+      </div>
 
-		<div class="row">
-			<div class="col-xl-6 offset-xl-3 text-center">
-				<div class="section-title color-white mb-45">
-					<h4 class="text-uppercase mb-20">contact us</h4>
-					<h1>Get In Touch</h1>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12" v-if="errors">
+      <div class="form-group">
+        <input
+          name="name"
+          type="text"
+          v-model="form.name"
+          required
+          class="form-control"
+          placeholder="Name"
+        />
+      </div>
 
-				<div class="form-group">
+      <div class="form-group">
+        <input
+          name="phone"
+          type="text"
+          v-model="form.phone"
+          class="form-control"
+          placeholder="Phone No"
+        />
+      </div>
 
-					<div class="alert alert-danger">
-						<ul>
-							<li v-for="error in errors">{{ error[0] }}</li>
-						</ul>
-					</div>
+      <div class="form-group">
+        <input
+          name="email"
+          type="email"
+          v-model="form.email"
+          class="form-control"
+          required
+          placeholder="Email"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          name="subject"
+          type="text"
+          v-model="form.subject"
+          class="form-control"
+          required
+          placeholder="Subject"
+        />
+      </div>
 
-				</div>
+      <div class="form-group">
+        <textarea
+          name="message"
+          v-model="form.message"
+          rows="4"
+          class="form-control"
+          required
+          placeholder="Message"
+        ></textarea>
+      </div>
 
-			</div>
-
-		</div>
-		<div class="row">
-			<div class="col-xl-12">
-				<div class="contact-form">
-					<form @submit.prevent="send()" id="contactForm">
-						<div class="row  mt-30">
-							<div class="col-xl-6">
-								<div class="form-element">
-									<i class="fa fa-user"></i>
-									<input type="text" v-model="form.name" id="name" class="name" placeholder="Enter Your Name">
-								</div>
-							</div>
-							<div class="col-xl-6">
-								<div class="form-element">
-									<i class="fa fa-envelope"></i>
-									<input type="email" v-model="form.email" id="email" class="email" placeholder="Enter Your Email">
-								</div>
-							</div>
-						</div>
-						<div class="row  mt-30">
-							<div class="col-xl-6">
-								<div class="form-element">
-									<i class="fa fa-phone"></i>
-									<input type="tel" v-model="form.phone" id="phone" class="phone" placeholder="Your Phone Number">
-								</div>
-							</div>
-							<div class="col-xl-6">
-								<div class="form-element">
-									<i class="zmdi zmdi-edit"></i>
-									<input type="text" v-model="form.subject" id="subject" class="subject" placeholder="Your Subject">
-								</div>
-							</div>
-						</div>
-						<div class="row  mt-30">
-							<div class="col-xl-12">
-								<div class="form-element">
-									<i class="fa fa-edit"></i>
-									<textarea name="message" v-model="form.message" id="message" placeholder="Write Your Message"></textarea>
-								</div>
-							</div>
-						</div>
-						<div class="row  mt-30">
-							<div class="col-xl-12 text-center">
-								<div class="form-element">
-									<div class="heuse-hero-btn">
-										<button type="submit" class="btn btn-filled btn-grad-color" id="contact-form">{{ message }}</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-
-
-		</div>
-
-        				<!-- 	<span
-					class="error"
-					v-if="(errors.hasOwnProperty('user_message'))"
-					>{{ (errors.hasOwnProperty('user_message')) ? errors.user_message[0] :'' }}</span> -->
-				</div>
-
-
-			</template>
+      <div class="text-right">
+        <button
+          name="submit"
+          type="submit"
+          value="Submit"
+          class="site-button btn-effect"
+        >
+          {{ message }}
+        </button>
+      </div>
+    </div>
+  </form>
+</template>
 
 			<script>
+export default {
+  data() {
+    return {
+      form: {
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      },
 
-				export default {
+      errors: null,
 
-					data(){
+      url: base_url,
 
-						return {
+      message: "Send Message",
+    };
+  },
 
-							form : {
+  methods: {
+    send() {
+      this.message = "Sending...";
+      axios
+        .post(base_url + "contact", this.form)
+        .then((response) => {
+          if (response.data.status === "success") {
+            this.resetForm();
+          }
 
-								name : '',
-								email : '',
-								phone : '',
-								subject : '',
-								message : ''
+          Swal.fire({
+            position: "top-end",
+            icon: response.data.status,
+            title: response.data.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          this.message = "Send Message";
+        })
+        .catch((error) => {
+          if (error.response.status === 422) {
+            Swal.fire("Oops", "please fill the form by correct data!", "error");
+            this.errors = error.response.data.errors;
+          }
+          this.message = "Send Message";
+        });
+    },
 
-							},
+    resetForm() {
+      this.form = {
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      };
 
-							errors : null,
-
-							url : base_url,
-
-							message : 'Send Message',
-
-						}
-					},	
-
-					methods : {
-
-						send(){
-
-                            this.message = 'Sending...';
-							axios.post(base_url+'contact',this.form)
-							.then(response => {
-
-								if(response.data.status === 'success'){
-
-
-
-									this.resetForm();
-								}
-
-								Swal.fire({
-									position: 'top-end',
-									type: response.data.status,
-									title: response.data.message,
-									showConfirmButton: false,
-									timer: 1500
-								});
-
-							})
-							.catch(error => {
-
-								if(error.response.status === 422){
-
-									Swal.fire("Oops", "please fill the form by correct data!", "error");
-									this.errors = error.response.data.errors;   
-
-								}
-
-
-
-
-
-							})
-
-							this.message = 'Send Message';
-
-
-						},
-
-
-						resetForm(){
-
-							this.form = {
-
-								name : '',
-								email : '',
-								phone : '',
-								subject : '',
-								message : ''
-
-							};
-
-
-							this.errors = null;
-
-
-
-						}
-
-					}
-
-
-				}
-
-			</script>
+      this.errors = null;
+    },
+  },
+};
+</script>

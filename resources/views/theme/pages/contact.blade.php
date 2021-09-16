@@ -4,7 +4,7 @@
 
 
    <!-- CONTENT START -->
-   <div class="page-content">
+   <div class="page-content" id="app">
 
         <!-- INNER PAGE BANNER -->
         <div class="mt-bnr-inr overlay-wraper bg-parallax bg-top-center"  data-stellar-background-ratio="0.5"  style="background-image:url(assets/images/banner/4.jpg);">
@@ -41,39 +41,7 @@
                     <!-- CONTACT FORM-->
                     <div class="row">
                         <div class="col-md-8 col-sm-6">
-                            <form class="contact-form cons-contact-form" method="post" action="form-handler.php">
-                                <div class="contact-one m-b30">
-
-                                <!-- TITLE START -->
-                                <div class="section-head">
-                                    <div class="mt-separator-outer separator-left">
-                                        <div class="mt-separator">
-                                            <h2 class="text-uppercase sep-line-one "><span class="font-weight-300 text-primary">Get</span> In touch</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- TITLE END -->
-
-                                    <div class="form-group">
-                                        <input name="username" type="text" required class="form-control" placeholder="Name">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <input name="email" type="text" class="form-control" required placeholder="Email">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <textarea name="message" rows="4" class="form-control " required placeholder="Message"></textarea>
-                                    </div>
-
-                                    <div class="text-right">
-                                        <button name="submit" type="submit" value="Submit" class="site-button btn-effect">submit
-
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </form>
+                        <contact-us></contact-us>
                         </div>
                         <div class="col-md-4 col-sm-6">
                             <div class="contact-info m-b30">
@@ -128,3 +96,10 @@
     </div>
     <!-- CONTENT END -->
 @endsection
+
+
+@push('script')
+
+<script src="{{ asset('/public/js/app.js') }}" ></script>
+
+@endpush
