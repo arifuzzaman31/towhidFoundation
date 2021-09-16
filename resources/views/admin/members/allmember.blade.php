@@ -4,7 +4,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <button class="btn btn-primary" onclick="getModal('get-member','Add Members')" >Add More Member</button>
+                <a class="btn btn-primary" href="{{ route('get-member') }}" >Add More Member</a>
             </div>
             <div class="body">
                 <div class="table-responsive">
@@ -29,16 +29,16 @@
 	                    <td>{{$member->designation}}</td>
                         <td>
                         @if($member->image)
-                            <img src="{{URL::to('images/team-member-image/'.$member->image)}}" height="40px" width="50px">
+                            <img src="{{URL::to('images/team-member-image/'.$member->image)}}" height="50px" width="50px">
                         @endif
                         </td>
                         <td>
                             {{ $member->member_type == 1 ? 'Executive Member' : 'Advisor' }}
                         </td>
 	                    <td>
-	                    	<a onclick="getModal('edit.member/{{$member->id}}','Edit member')" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+	                    	<a href="{{ url('edit.member/'.$member->id) }}" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
 
-                            <a onclick="getModal('show-member/{{$member->id}}','Show Member')" title="View" type="button" class="btn btn-primary btn-xs">
+                            <a href="{{ url('show-member/'.$member->id) }}" title="View" type="button" class="btn btn-primary btn-xs">
                             <i class="fa fa-book"></i>
                           </a>
 

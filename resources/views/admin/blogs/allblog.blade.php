@@ -4,11 +4,11 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card">
             <div class="header">
-                <button class="btn btn-primary" onclick="getModal('get-blog','Add Blog')" >Add More blog</button>
+                <a href="{{ url('get-blog') }}" class="btn btn btn-info">Add More blog</a>
             </div>
             <div class="body">
                 <div class="table-responsive">
-                    <table id="table-data" class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                    <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
                     <th>SL</th>
@@ -26,12 +26,12 @@
 	                <tr>
 	                    <td style="width: 5%">{{$i}}</td>
 	                    <td style="width: 20%">{{$blog->title}}</td>
-	                    <td style="width: 50%">{{ substr($blog->description,0,80) }}...</td>
+	                    <td style="width: 50%">{{ substr(strip_tags($blog->description),0,80) }}...</td>
 	                    <td style="width: 10%">{{$blog->created_at->toFormattedDateString()}}</td>
                         <td style="width: 15%">
-	                    	<a onclick="getModal('edit.blog/{{$blog->id}}','Edit Blog')" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+	                    	<a href="{{ url('edit.blog/'.$blog->id) }}" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
                             
-                            <a onclick="getModal('show-blog/{{$blog->id}}','Show blog')" title="View" type="button" class="btn btn-primary btn-xs">
+                            <a href="{{ url('show-blog/'.$blog->id) }}" title="View" type="button" class="btn btn-primary btn-xs">
                             <i class="fa fa-book"></i>
                           </a>
 
@@ -48,5 +48,8 @@
             </tbody>
         </table>
     </div>
+</div>
+</div>
+</div>
 </div>
 @endsection

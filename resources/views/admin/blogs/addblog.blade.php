@@ -1,5 +1,10 @@
-<div class="body">
-    @include('admin._partial.message')
+@extends('admin.main')
+@section('adminContent')
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+        <div class="header">
+            <div class="card-body">
+    <!-- @include('admin._partial.message') -->
     <form action="{{route('blog.store')}}" method="post" enctype="multipart/form-data">
        @csrf
         <label for="title">Title</label>
@@ -7,12 +12,18 @@
             <div class="form-line">
                 <input type="text" id="title" name="title" class="form-control">
             </div>
+            @error('title')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
         <label for="description">Description</label>
         <div class="form-group">
             <div class="form-line">
-                <textarea id="tinymce" name="description"></textarea>
+                <textarea rows="8" class="form-control tinymce-editor" name="description"></textarea>
             </div>
+            @error('description')
+                <div class="text-danger">{{ $message }}</div>
+            @enderror
         </div>
          <div class="form-group">
             <div class="form-line">
@@ -30,9 +41,7 @@
         </div>
     </form>
 </div>
-<script type="text/javascript">
-        tinymce.init({
-            selector: "#tinymce"
-
-        });
-</script>
+</div>
+    </div>
+</div>
+@endsection

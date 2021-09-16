@@ -14,7 +14,6 @@
 
     <!-- Bootstrap Core Css -->
     <link href="{{asset('admin/plugins/bootstrap/css/bootstrap.css')}}" rel="stylesheet">
-
     <!-- Waves Effect Css -->
     <link href="{{ asset('admin/node-waves/waves.css')}}" rel="stylesheet" />
 

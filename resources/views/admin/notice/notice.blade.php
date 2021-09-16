@@ -4,7 +4,7 @@
         <div class="card">
             <div class="header">
                 <!-- <button class="btn btn-primary"  ></button> -->
-                <a href="{{ url('get-service') }}" class="btn btn btn-info">Add More Service</a>
+                <a href="{{ route('notice.create') }}" class="btn btn btn-info">Add More</a>
             </div>
             <div class="body">
                 <div class="table-responsive">

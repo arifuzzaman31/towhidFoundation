@@ -33,13 +33,14 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $status     = $request->status ? 1 : 0;
-        $validation = Validator::make($request->all(), [
-            'title'       => 'required',
+         $request->validate([
+            'title_en'    => 'required',
+            'title_bn'    => 'required',
             'description' => 'required',
             'type'        => 'required',
-            'image'       => 'required|image|mimes:jpeg,bmp,jpg,png,gif,svg',
+            'image'       => 'nullable|image|mimes:jpeg,bmp,jpg,png,gif,svg',
         ]);
-        if (!$validation->fails()) {
+
             try {
                 DB::beginTransaction();
                 if ($request->hasFile('image')) {
@@ -47,8 +48,9 @@ class ServiceController extends Controller
                     $imageName = time() . '.' . $image->getClientOriginalExtension();
                     $image->move('images/service-image', $imageName);
                     Service::insert([
-                        'title'        => $request->title,
-                        'slug'         => Helper::make_slug($request->title),
+                        'title_en'     => $request->title_en,
+                        'title_bn'     => $request->title_bn,
+                        'slug'         => Helper::make_slug($request->title_en),
                         'description'  => $request->description,
                         'type'         => $request->type,
                         'image'        => $imageName,
@@ -58,14 +60,13 @@ class ServiceController extends Controller
                     DB::commit();
                     cache()->forget('free-service');
                     cache()->forget('paid-service');
-                    return back()->with(['alert-type' => 'success', 'message' => 'Service Added successfull']);
+                    return redirect()->route('service')->with(['alert-type' => 'success', 'message' => 'Service Added successfull']);
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 DB::rollback();
                 return back()->with(['alert-type' => 'error', 'message' => $e->errorInfo[2]]);
             }
-        }
-        return back()->with(['alert-type' => 'error', 'message' => 'Validation Error Occured!']);
+        
     }
 
     public function show($id)
@@ -83,17 +84,19 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         $status     = $request->status ? 1 : 0;
-        $validation = Validator::make($request->all(), [
-            'title'       => 'required',
+        $request->validate([
+            'title_en'    => 'required',
+            'title_bn'    => 'required',
             'description' => 'required',
-            'type'        => 'required',
+            'type'        => 'required'
         ]);
-        if (!$validation->fails()) {
+
             try {
                 DB::beginTransaction();
                 $updated               = Service::where('id', $id)->first();
-                $updated->title        = $request->title;
-                $updated->slug         = Helper::make_slug($request->title);
+                $updated->title_en     = $request->title_en;
+                $updated->title_bn     = $request->title_bn;
+                $updated->slug         = Helper::make_slug($request->title_en);
                 $updated->description  = $request->description;
                 $updated->type         = $request->type;
                 $updated->service_link = $request->service_link;
@@ -117,20 +120,17 @@ class ServiceController extends Controller
                 cache()->forget('free-service');
                 cache()->forget('paid-service');
                 DB::commit();
-                return back()->with(['alert-type' => 'success', 'message' => 'Service Updated successfull']);
+                return redirect()->route('service')->with(['alert-type' => 'success', 'message' => 'Service Updated successfull']);
 
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 DB::rollback();
                 return back()->with(['alert-type' => 'error', 'message' => $e->errorInfo[2]]);
             }
-        } else {
-            return back()->with(['alert-type' => 'error', 'message' => 'Validation Error Occured!']);
-        }
     }
 
     public function destroy($id)
     {
-        $data = Service::where('id', $id)->first();
+        $data = Service::find($id)->first();
         $data->delete();
         cache()->forget('free-service');
         cache()->forget('paid-service');
