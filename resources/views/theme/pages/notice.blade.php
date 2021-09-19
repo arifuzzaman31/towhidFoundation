@@ -74,20 +74,24 @@
 
                                 <!-- GALLERY CONTENT START -->
                                 <div class="portfolio-wrap mfp-gallery work-grid row clearfix">
+                                    @if($notices->count() > 0)
+                                    @foreach($notices as $notice)
                                     <div class="masonry-item cat-2 col-lg-6  col-md-6 col-sm-6 m-b30">
                                         <div class="image-effect-one1 hover-shadow">
-                                            <img src="assets/images/notice/slide1.jpg" alt="" />
+                                            <img src="{{ url('images/notice/'.$notice->image)}}" alt="" />
                                             <div class="figcaption">
-                                                <h4>Central Florida University</h4>
-                                                <p>lorem Ipsum available, but the majority have suffered alterati on in some form, by ious by accident.</p>
+                                                <h4>{{ $notice->title }}</h4>
+                                                <p>{{ $notice->short_description }}</p>
                                                 <div class="">
                                                     <ol class="list-num-count notice-date upper-alpha list-outline-none m-b0">
-                                                        <li><b>20 June 2019 </b></li>
+                                                        <li><b>{{ date('d  M, Y',strtotime($notice->date)) }}</b></li>
                                                     </ol>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    @endforeach
+                                    @endif
                                     <!-- COLUMNS 3 -->
                                     <div class="masonry-item cat-4 col-lg-6  col-md-6 col-sm-6 m-b30">
                                         <div class="image-effect-one1 hover-shadow">
