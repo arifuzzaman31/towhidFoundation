@@ -4,58 +4,52 @@
     <div class="card">
         <div class="header">
 			<div class="card-body">
-			    <form action="{{route('service.update',$data->id)}}" method="post" enctype="multipart/form-data">
+			    <form action="{{route('notice.update',$data->id)}}" method="post" enctype="multipart/form-data">
 			       @csrf
 			       
-			        <label for="title">Title <small>(English)</small></label>
+			        <label for="title">Title </label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" id="titleEn" name="title_en" value="{{$data->title_en}}" class="form-control">
+                            <input type="text" id="title" value="{{ $data->title }}" name="title" class="form-control">
                         </div>
+                        @error('title')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
 
-                    <label for="title">Title <small>(Bangla)</small></label>
+                    <label for="short_description">Short Description <small>(Optional)</small></label>
                     <div class="form-group">
                         <div class="form-line">
-                            <input type="text" id="titleBn" value="{{$data->title_bn}}" name="title_bn" class="form-control">
+                            <input type="text" id="short_description" value="{{ $data->short_description }}" name="short_description" class="form-control">
+                        </div>
+                        @error('short_description')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <label for="description">Description</label>
+                    <div class="form-group">
+                        <div class="form-line">
+                            <textarea rows="8" class="form-control tinymce-editor" name="description">{{ $data->description }}</textarea>
+                        </div>
+                        @error('description')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    
+                    <label for="icon">Image <small>(Optional)</small></label>
+                    <div class="form-group">
+                        <div class="form-line">
+                        	@if($data->image)
+			            	<img class="card-img-top" src="{{URL::to('images/notice/'.$data->image)}}" alt="Card image cap" height="60px" width="80px">@endif
+                            <input type="file" id="icon" name="image" class="form-control">
                         </div>
                     </div>
-			        <label for="description">Description</label>
-			        <div class="form-group">
-			            <div class="form-line">
-			                <textarea rows="8" class="form-control tinymce-editor" name="description">{{$data->description}}</textarea>
-			            </div>
-			        </div>
-			        <label for="type">Type :</label>
-			        <div class="row clearfix">
-			            <div class="col-sm-12">
-			                <select class="form-control show-tick" id="type" name="type">
-			                	<option value="">-- Please select --</option>
-			                	<option @if($data->type === 1) selected @endif value="1">সল্পমূল্যে</option>
-	                    		<option @if($data->type === 0) selected @endif value="0">বিনামূল্যে</option>
-	             
-			                </select>
-			            </div>
-			        </div></br>
-			        <label for="icon">Service Icon :</label>
-			        <div class="form-group">
-			            <div class="form-line">
-			            	@if($data->image)
-			            	<img class="card-img-top" src="{{URL::to('images/service-image/'.$data->image)}}" alt="Card image cap" height="60px" width="80px">@endif
-			                <input type="file" id="icon" name="image" class="form-control">
-			            </div>
-			        </div>
-			        <label for="service_link">Service FB link (Optional)</label>
-			        <div class="form-group">
-			            <div class="form-line">
-			                <input class="form-control" id="service_link" name="service_link" value="{{$data->service_link}}">
-			            </div>
-			        </div>
-			        <div class="demo-switch-title">Status</div>
-			            <div class="switch">
-			                <label><input type="checkbox" name="status" value="1" @if($data->status == 1) checked @endif><span class="lever switch-col-green"></span></label>
-			            </div>
-			        <br>
+                   
+                    <div class="demo-switch-title">Status</div>
+                        <div class="switch">
+                            <label><input type="checkbox" checked name="status" value="{{ $data->status }}"><span class="lever switch-col-green"></span></label>
+                        </div>
+                    </br>
 			        <button type="submit" class="btn btn-primary m-t-15 waves-effect">Update</button>
 			    </form>
 			</div>	

@@ -247,7 +247,10 @@ Route::get('change-member-status/{id}', [
 
 // Notice
 Route::resource('notice', 'NoticeController');
-
+Route::get('notice-destroy{id}', [
+    'as'   => 'notice-destroy',
+    'uses' => 'NoticeController@changeStatus',
+]);
 
 Route::resource('slider', 'SliderController');
 Route::get('slider/delete/{id}', 'SliderController@destroy')->name('slider.delete');
