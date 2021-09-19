@@ -17,7 +17,7 @@ class CreateNoticeTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('slug');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->mediumText('short_description');
             $table->longText('description');
             $table->dateTime('date');
