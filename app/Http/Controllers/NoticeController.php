@@ -11,7 +11,7 @@ class NoticeController extends Controller
 {
     public function index()
     {
-    	$notice = Notice::where('status',1)->get();
+    	$notice = Notice::all();
     	return view('admin.notice.notice',['notices' => $notice]);
     }
 
@@ -22,7 +22,7 @@ class NoticeController extends Controller
 
     public function changestatus($id)
     {
-        $data = Member::find($id);
+        $data = Notice::find($id);
         $msg = '';
         if ($data->status == 0) {
             $data->status = 1;
@@ -32,7 +32,7 @@ class NoticeController extends Controller
             $msg .= 'Deactivated';
         }
         $data->update();
-        return back()->with(['alert-type' => 'info', 'message' => 'Member status '.$msg]);
+        return back()->with(['alert-type' => 'info', 'message' => 'Notice status '.$msg]);
     }
 
     public function store(Request $request)
@@ -77,7 +77,7 @@ class NoticeController extends Controller
     public function show($id)
     {
         $data = Notice::find($id);
-        return view('admin.members.showmember', compact('data'));
+        return view('admin.notice.shownotice', compact('data'));
     }
 
     public function edit($id)
@@ -104,17 +104,17 @@ class NoticeController extends Controller
                 $update->description = $request->description;
                 $update->short_description = $request->short_description;
                 $update->status      = $status;
-               	$updated->update();
+               	$update->update();
 
                 if ($request->hasFile('image')) {
-	                if (!empty($updated->image) && file_exists('images/notice/' . $updated->image)) {
-	                    unlink('images/notice/' . $updated->image);
+	                if (!empty($update->image) && file_exists('images/notice/' . $update->image)) {
+	                    unlink('images/notice/' . $update->image);
 	                }
                     $image     = $request->file('image');
                     $imageName = time() . '.' . $image->getClientOriginalExtension();
                     $image->move('images/notice', $imageName);
 
-                    Notice::where('id', $updated->id)
+                    Notice::where('id', $update->id)
                     ->update([
                         'image' => $imageName,
                     ]);
@@ -130,9 +130,9 @@ class NoticeController extends Controller
 
     public function destroy($id)
     {
-        $data = Member::find($id);
-        if (!empty($data->image) && file_exists('images/team-member-image/' . $data->image)) {
-            unlink('images/team-member-image/' . $data->image);
+        $data = Notice::find($id);
+        if (!empty($data->image) && file_exists('images/notice/' . $data->image)) {
+            unlink('images/notice/' . $data->image);
         }
         $data->delete();
         return back()->with(['alert-type' => 'warning', 'message' => 'Data Deleted']);

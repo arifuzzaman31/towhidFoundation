@@ -38,13 +38,13 @@
 	                    <td style="width: 15%">
 	                    	<a href="{{ url('notice/'.$notice->id.'/edit') }}" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
 
-                            <a href="{{ url('show-notice/'.$notice->id)}}" title="View" type="button" class="btn btn-primary btn-xs">
+                            <a href="{{ url('notice/'.$notice->id)}}" title="View" type="button" class="btn btn-primary btn-xs">
                             <i class="fa fa-eye"></i>
                           </a>
 
-	                    	<a type="button" title="Status" href=" {{route('change-service-status',$notice->id)}}" class="btn @if($notice->status > 0) btn-success @else btn-warning @endif btn-xs">@if($notice->status > 0)<i class="fa fa-check-circle"></i> @else <i class="fa fa-ban"></i> @endif</a>
+	                    	<a type="button" title="Status" href=" {{ route('change-notice-status',$notice->id)}}" class="btn @if($notice->status > 0) btn-success @else btn-warning @endif btn-xs">@if($notice->status > 0)<i class="fa fa-check-circle"></i> @else <i class="fa fa-ban"></i> @endif</a>
 
-		                  <a type="button" title="Delete" href="{{route('notice-destroy',$notice->id)}}" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+		                  <a type="button" title="Delete" href="{{ route('notice-destroy',$notice->id)}}" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
 
 	                    </td>
 

@@ -7,21 +7,18 @@
 				<div class="row clearfix">
 				    <div class="col-md-12">
 				        <p class="align-left font-24">
-				            <b>{{$data->title_en}}</b> || <b>{{$data->title_bn}}</b>
+				            <b>{{$data->title}}</b>
 				        </p>
+				        <div style="margin: 20px; justify-content: center; display: flex;">
+				        	<img class="img-fluid" src="{{ url('images/notice/'.$data->image) }}" height="400">
+				        </div>
 				        <div class="align-left">
 				            {{ strip_tags($data->description) }}
 				        </div>
-				        <div style="margin: 20px; justify-content: center; display: flex;">
-				        	<img class="img-fluid" src="{{ url('images/service-image/'.$data->image) }}" height="400">
-				        </div>
 				    </div>
 				</div>
-				<p class="font-bold m-t-35">fb-link</label>
-				@if($data->service_link)
-					<p class="font-underline">{{$data->service_link}}</p>
-				@endif
-
+				<p class="font-bold m-t-35">Published</label>
+					<p class="font-underline">{{$data->date}}</p>
 				</div>	
 		</div>
     </div>

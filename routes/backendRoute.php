@@ -247,8 +247,13 @@ Route::get('change-member-status/{id}', [
 
 // Notice
 Route::resource('notice', 'NoticeController');
-Route::get('notice-destroy{id}', [
+Route::get('notice-destroy/{id}', [
     'as'   => 'notice-destroy',
+    'uses' => 'NoticeController@destroy',
+]);
+
+Route::get('change-notice-status/{id}', [
+    'as'   => 'change-notice-status',
     'uses' => 'NoticeController@changeStatus',
 ]);
 
