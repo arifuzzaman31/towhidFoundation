@@ -2,56 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use Illuminate\Http\Request;
 use Mail;
-use App\Contact;
-use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
 
+    public function store(Request $request)
+    {
 
-	public function store(Request $request){
+        $request->validate([
+            'name'    => 'required',
+            'email'   => 'required|email',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
 
-      $request->validate([
-         'name' => 'required',
-         'email' => 'required|email',
-         'subject' => 'required',
-         'message' => 'required'
-      ]);
- 
-   try{
-     
-      $contact = new Contact;
+        try {
 
-      $contact->name = $request->name;
-      $contact->email = $request->email;
-      $contact->subject = $request->subject;
-      $contact->phone = $request->phone;
-      $contact->message = $request->message;
+            $contact = new Contact;
 
-      $contact->save();
+            $contact->name    = $request->name;
+            $contact->email   = $request->email;
+            $contact->subject = $request->subject;
+            $contact->phone   = $request->phone;
+            $contact->message = $request->message;
 
-         $to = "arifuzzaman.rb@gmail.com";
+            $contact->save();
 
-         $name = $request->name;
-         $email = $request->email;
-         $subject = $request->subject;
+            $to = "towhid.foundation@gmail.com";
 
-        Mail::send('contact.us',[ 'name'=>$request->name, 'phone'=>$request->phone, 'email'=>$request->email, 'subject' => $request->subject, 'user_message' => $request->message  ], 
-                function ($message) use ($to,$email,$name,$subject){
-                    $message->from($email,$name);
+            $name    = $request->name;
+            $email   = $request->email;
+            $subject = $request->subject;
+
+            Mail::send('contact.us', ['name' => $request->name, 'phone' => $request->phone, 'email' => $request->email, 'subject' => $request->subject, 'user_message' => $request->message],
+                function ($message) use ($to, $email, $name, $subject) {
+                    $message->from($email, $name);
                     $message->to($to)->subject($subject);
-           });
-   	 return response()->json(['status'=>'success','message'=>'Your Contact Done!']);
+                });
+            return response()->json(['status' => 'success', 'message' => 'Your Query Successfully Sended!']);
 
-     }
+        } catch (\Exception $e) {
+            // return $e;
+            return response()->json(['status' => 'error', 'message' => 'Something Went Wrong !' . $e->errorInfo[2]]);
+        }
 
-   catch(\Exception $e){
-           		// return $e;
-            return response()->json(['status'=>'error','message'=>'Something Went Wrong !'.$e->errorInfo[2]]);
-          }
-     
-	}
-    
+    }
+
 }

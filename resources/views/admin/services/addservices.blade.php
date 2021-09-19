@@ -4,7 +4,7 @@
     <div class="card">
         <div class="header">
             <div class="card-body">
-                <form action="{{route('service.store')}}" method="post" enctype="multipart/form-data">
+                <form action="{{route('service.store')}}" method="POST" enctype="multipart/form-data">
                    @csrf
                     <label for="title">Title <small>(English)</small></label>
                     <div class="form-group">

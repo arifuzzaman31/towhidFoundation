@@ -29,12 +29,12 @@
                     <span>Home</span>
                 </a>
             </li>
-            <li @if(Route::is('userquery')) class="active" @endif>
+            <!-- <li @if(Route::is('userquery')) class="active" @endif>
                 <a href="{{route('userquery')}}">
                     <i class="material-icons">email</i>
                     <span>User Request</span>
                 </a>
-            </li>
+            </li> -->
             <li @if(Route::is('service')) class="active" @endif>
                  <a href="{{route('service')}}">
                     <i class="material-icons">build</i>

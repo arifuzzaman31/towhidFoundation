@@ -6,7 +6,7 @@
 			<div class="card-body">
 			    <form action="{{route('service.update',$data->id)}}" method="post" enctype="multipart/form-data">
 			       @csrf
-			       
+
 			        <label for="title">Title <small>(English)</small></label>
                     <div class="form-group">
                         <div class="form-line">
@@ -31,9 +31,9 @@
 			            <div class="col-sm-12">
 			                <select class="form-control show-tick" id="type" name="type">
 			                	<option value="">-- Please select --</option>
-			                	<option @if($data->type === 1) selected @endif value="1">সল্পমূল্যে</option>
-	                    		<option @if($data->type === 0) selected @endif value="0">বিনামূল্যে</option>
-	             
+			                	<option @if($data->type == 1) selected @endif value="1">সল্পমূল্যে</option>
+	                    		<option @if($data->type == 0) selected @endif value="0">বিনামূল্যে</option>
+
 			                </select>
 			            </div>
 			        </div></br>
@@ -58,7 +58,7 @@
 			        <br>
 			        <button type="submit" class="btn btn-primary m-t-15 waves-effect">Update</button>
 			    </form>
-			</div>	
+			</div>
 		</div>
     </div>
 </div>

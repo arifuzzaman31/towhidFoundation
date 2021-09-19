@@ -1,5 +1,13 @@
 @extends('theme.include.master')
 
+@section('meta')
+    <meta property="og:image" content="{{ url('assets/images/logo_seo.png') }}" />
+    <meta property="og:title" content="Towhid Foundation | Towhid Foundation Blog" />
+    <meta property="og:description" content="Towhid Foundation | Towhid Foundation Blog" />
+@endsection
+
+@section('title','News & Media')
+
 @section('content')
 
 <!-- CONTENT START -->
@@ -53,7 +61,7 @@
                             <div class="masonry-item col-md-6 col-sm-6">
                                 <div class="blog-post blog-grid date-style-1">
                                     <div class="mt-post-media mt-img-effect zoom-slow">
-                                        <a href="javascript:void(0);"><img src="{{ url('images/blog-image/'.$value->blog_image) }}" alt=""></a>
+                                        <a href="{{ route('blog.details',['id' => $value->id,'slug'=>$value->slug]) }}"><img src="{{ url('images/blog-image/'.$value->blog_image) }}" alt=""></a>
                                     </div>
                                     <div class="p-tb20 bg-white">
                                         <div class="mt-post-info">
@@ -63,12 +71,12 @@
                                                 </ul>
                                             </div>
                                             <div class="mt-post-title ">
-                                                <h4 class="post-title"><a href="javascript:void(0);" class=" font-weight-600 m-t0">{{ $value->title }}</a></h4>
+                                                <h4 class="post-title"><a href="{{ route('blog.details',['id' => $value->id,'slug'=>$value->slug]) }}" class=" font-weight-600 m-t0">{{ $value->title }}</a></h4>
                                             </div>
                                             <div class="mt-post-text">
                                                 <!-- <p>Our goal then and now is to provide quality on time projects. we let our quality work and commitment to customer satisfaction be our slogan.</p> -->
                                             </div>
-                                            <a href="media-news-details.php" class="site-button btn-effect ">ডিটেলস </a>
+                                            <a href="{{ route('blog.details',['id' => $value->id,'slug'=>$value->slug]) }}" class="site-button btn-effect ">ডিটেলস </a>
                                         </div>
                                     </div>
                                 </div>
@@ -77,15 +85,7 @@
                             @endforeach
 
                         </div>
-                        <ul class="pagination m-tb0">
-                            <li><a href="#">«</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">»</a></li>
-                        </ul>
+                        {!! $blog->links() !!}
                     </div>
                     <!-- GALLERY CONTENT END -->
 

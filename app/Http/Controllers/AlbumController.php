@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Album;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Gallery;
 use DB;
+use Illuminate\Http\Request;
+use Throwable;
 
 class AlbumController extends Controller
 {
@@ -18,7 +19,7 @@ class AlbumController extends Controller
     {
         // return 'Hello';
         $album = Album::all();
-        return view('admin.gallery.album.album',['albums' => $album]);
+        return view('admin.gallery.album.album', ['albums' => $album]);
 
     }
 
@@ -42,19 +43,19 @@ class AlbumController extends Controller
     public function store(Request $request)
     {
         $status = $request->status ? 1 : 0;
-       
+
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
         ]);
 
         try {
             DB::beginTransaction();
             Album::create($request->all());
             DB::commit();
-            return redirect()->route('get-album')->with(['alert-type' => 'success','message' => 'Album Created successfull']);
+            return redirect()->route('get-album')->with(['alert-type' => 'success', 'message' => 'Album Created successfull']);
         } catch (Exception $e) {
             DB::rollback();
-            return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
+            return back()->with(['alert-type' => 'error', 'message' => $e->errorInfo[2]]);
         }
     }
 
@@ -67,17 +68,16 @@ class AlbumController extends Controller
     public function changeStatus($id)
     {
         $data = Album::find($id);
-            $msg = '';
-            if ($data->status == 0) {
-                $data->status = 1;
-                $msg .= 'Activated';
-            }
-            else {
-                $data->status = 0;
-                $msg .= 'Deactivited';
-            }
+        $msg  = '';
+        if ($data->status == 0) {
+            $data->status = 1;
+            $msg .= 'Activated';
+        } else {
+            $data->status = 0;
+            $msg .= 'Deactivited';
+        }
         $data->update();
-        return back()->with(['alert-type' => 'info','message' => 'Album status '.$msg]);
+        return back()->with(['alert-type' => 'info', 'message' => 'Album status ' . $msg]);
     }
 
     /**
@@ -88,9 +88,9 @@ class AlbumController extends Controller
      */
     public function edit($id)
     {
-        
+
         $data = Album::find($id);
-        return view('admin/gallery/album/editalbum',compact('data'));
+        return view('admin/gallery/album/editalbum', compact('data'));
     }
 
     /**
@@ -100,26 +100,26 @@ class AlbumController extends Controller
      * @param  \App\Album  $album
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Request $request, $id)
     {
         $status = $request->status ? 1 : 0;
-            $request->validate([
-                'name' => 'required'
-            ]);
- 
-            try {
-                DB::beginTransaction();
-                $updated = Album::find($id);
-                    $updated->name  =  $request->name;
-                    $updated->status   =  $status;
-                $updated->update();
+        $request->validate([
+            'name' => 'required',
+        ]);
 
-                DB::commit();
-                return redirect()->route('get-album')->with(['alert-type' => 'success','message' => 'Album Updated successfull']);
-            } catch (Exception $e) {
-                DB::rollback();
-                return back()->with(['alert-type' => 'error','message' => $e->errorInfo[2]]);
-            }
+        try {
+            DB::beginTransaction();
+            $updated         = Album::find($id);
+            $updated->name   = $request->name;
+            $updated->status = $status;
+            $updated->update();
+
+            DB::commit();
+            return redirect()->route('get-album')->with(['alert-type' => 'success', 'message' => 'Album Updated successfull']);
+        } catch (Exception $e) {
+            DB::rollback();
+            return back()->with(['alert-type' => 'error', 'message' => $e->errorInfo[2]]);
+        }
     }
 
     /**
@@ -130,8 +130,15 @@ class AlbumController extends Controller
      */
     public function destroy($id)
     {
-         $data = Album::find($id);
-        $data->delete();
-        return back()->with(['alert-type' => 'warning','message' => 'Data Deleted']);
+        try {
+
+            $data = Album::find($id);
+            Gallery::were('album_id', $id)->delete();
+            $data->delete();
+            return back()->with(['alert-type' => 'success', 'message' => 'Data Deleted']);
+        } catch (Throwable $th) {
+            return back()->with(['alert-type' => 'warning', 'message' => 'Data Deleted']);
+        }
+
     }
 }

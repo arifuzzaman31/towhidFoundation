@@ -1,5 +1,12 @@
 @extends('theme.include.master')
 
+@section('meta')
+    <meta property="og:image" content="{{ url('assets/images/logo_seo.png') }}" />
+    <meta property="og:title" content="Towhid Foundation | Towhid Foundation Service" />
+    <meta property="og:description" content="Towhid Foundation | Towhid Foundation Service" />
+@endsection
+
+@section('title','Our Services')
 
 @section('content')
 

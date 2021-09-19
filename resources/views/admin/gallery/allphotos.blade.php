@@ -18,14 +18,14 @@
                     <th>Action</th>
                 </tr>
             </thead>
-           
+
             <tbody>
             	@if(count($photos) > 0)
-            	<?php $i = 1; ?>
+            	<?php $i = 1;?>
             	@foreach($photos as $photo)
 	                <tr>
 	                    <td style="width: 5%">{{$i}}</td>
-                        <td style="width: 10%">{{$photo->album_name->name}}</td>
+                        <td style="width: 10%">{{$photo->album_name->name ? $photo->album_name->name : '' }}</td>
 	                    <td style="width: 30%">{{$photo->caption}}</td>
                         <td>
                         @if($photo->image)
@@ -34,7 +34,7 @@
                         </td>
 	                    <td>
 	                    	<a href="{{ url('edit.photo/'.$photo->id) }}" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
-                            
+
                             <a href="{{ url('show-photo/'.$photo->id) }}" title="View" type="button" class="btn btn-primary btn-xs">
                             <i class="fa fa-book"></i>
                           </a>
@@ -44,13 +44,15 @@
 		                  <a type="button" title="Delete" href="{{route('photo-delete',$photo->id)}}" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
 
 	                    </td>
-	                    
+
 	                </tr>
-	                <?php $i++; ?>
+	                <?php $i++;?>
                 @endforeach
               @endif
             </tbody>
         </table>
+
+        {{ $photos->links() }}
     </div>
 </div>
 

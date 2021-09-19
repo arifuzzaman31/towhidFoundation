@@ -29,6 +29,15 @@ class FrontController extends Controller
         return view('theme.pages.index', compact('galleries', 'albums'));
     }
 
+    public function albums()
+    {
+        $albums = Album::where('status', '=', 1)
+            ->whereHas('gallery')
+            ->with('gallery')
+            ->paginate(8);
+        return view('theme.pages.albums', ['albums' => $albums]);
+    }
+
     public function getSpecificService($slug)
     {
         $services    = Service::where('slug', $slug)->first();
@@ -37,12 +46,15 @@ class FrontController extends Controller
         return view('pages.viewService', compact('services', 'allservices', 'blogs'));
     }
 
-    public function getSpecificBlog($slug)
+    public function getSpecificBlog($id, $slug)
     {
-        $blog        = Blog::where('slug', $slug)->first();
-        $allservices = Service::where('status', 1)->get();
-        $allblogs    = Blog::where('status', 1)->get();
-        return view('pages.viewBlog', compact('allblogs', 'allservices', 'blog'));
+        $blog        = Blog::find($id);
+        $recent_blog = Blog::where('status', 1)
+            ->where('id', '!=', $id)
+            ->orderBy('id', 'desc')
+            ->take(2)
+            ->get();
+        return view('theme.pages.blog_details', compact('blog', 'recent_blog'));
     }
 
     public function AllMember()
@@ -54,7 +66,7 @@ class FrontController extends Controller
 
     public function getAllBlog()
     {
-        $blog = Blog::where('status', 1)->latest()->Paginate(8);
+        $blog = Blog::where('status', 1)->orderBy('id', 'desc')->Paginate(8);
         return view('theme.pages.blog', compact('blog'));
     }
 
@@ -139,6 +151,24 @@ class FrontController extends Controller
     public function services()
     {
         return view('theme.pages.service');
+    }
+
+    public function albumDetails($id, $slug)
+    {
+        $album   = Album::find($id);
+        $gallery = Gallery::where('album_id', $id)->get();
+
+        return view('theme.pages.album_details', ['gallery' => $gallery, 'album' => $album]);
+    }
+
+    public function objective()
+    {
+        return view('theme.pages.objective');
+    }
+
+    public function notice()
+    {
+        return view('theme.pages.notice');
     }
 
 }

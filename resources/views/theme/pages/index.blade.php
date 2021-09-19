@@ -1,5 +1,12 @@
 @extends('theme.include.master')
 
+@section('meta')
+    <meta property="og:image" content="{{ url('assets/images/logo_seo.png') }}" />
+    <meta property="og:title" content="Towhid Foundation | A Completely non-political and non-profit Voluntary Organization" />
+    <meta property="og:description" content="Towhid Foundation | A Completely non-political and non-profit Voluntary Organization" />
+@endsection
+
+
 
 @section('content')
 
@@ -84,7 +91,12 @@
                                           <span class="large-title-info"> সালে স্থাপিত</span>
                                       </div>
                                       <h3 class="font-weight-600">তৌহিদ ফাউন্ডেশন</h3>
-                                      <p>অন্যকে সহায়তা করা কেবল তাদের পক্ষে ভালো এবং একটি ভালো জিনিসই নয়, এটি আমাদের আরও সুখী এবং স্বাস্থ্যকরও করে। প্রদানও আমাদের অন্যের সাথে সংযুক্ত করে, আরও শক্তিশালী সম্প্রদায় তৈরি করে এবং সবার জন্য একটি সুখী সমাজ গঠনে সহায়তা করে। এবং এটি অর্থের বিষয়ে নয় - আমরা আমাদের সময়, ধারণা এবং শক্তিও দিতে পারি। সুতরাং আপনি যদি ভাল বোধ করতে চান , ভালো করুন।</p>
+                                      <p>
+                                      জনাব তৌহিদুল ইসলাম একজন বিশিষ্ট ব্যবসায়ী, সমাজসেবী এবং আর্তমাবতার সেবায় এগিয়ে আসা একজন দানশীল ব্যক্তিত্ব।
+                                       তিনি দীর্ঘদিন যাবৎ মহান আল্লাহ্ তায়ালার রাজি খুশির জন্য অসহায় দরিদ্র বিশেষ কওে গরীব অসুস্থ মানুষের চিকিৎসা
+                                        ব্যয়সহ মসজিদ মাদ্রাসায় অকাতওে দান কওে আসছেন। তাঁর এই দানের এবং সেবার বিষয়টিকে প্রাতিষ্ঠানিক রুপ
+                                         দিয়ে চলমান রাখার প্রয়াসে “ তৌহিদ ফাউন্ডেশন” গঠনে আগ্রহ প্রকাশ করেছেন, তাঁর অবতর্ততমানেও যেন এই স্বেচ্ছাসেবী প্রতিষ্ঠানের কার্যক্রম যুগযুগ চলমান থাকে। তাঁর এই প্রয়াস একটি ব্যতিক্রমধর্মী এজন্য যে, তিনি আলোচ্য ফাউন্ডেশন পরিচালনার জন্য সকল ব্যয় ....  <a href="{{ route('about.us') }}" style="color: dodgerblue;">আরও দেখুন </a>
+                                     </p>
                                   </div>
                               </div>
 
@@ -120,7 +132,7 @@
 
                                   </div>
                                   <div class="col-md-4">
-                                      <div class="p-a30 bg-primary bg-bottom-right" style="background-image:url(assets/images/background/bg-site.png);">
+                                      <div class="p-a30 bg-primary bg-bottom-right" style="background-image: url({{URL:: to('assets/images/background/bg-site.png')}})">
                                           <div class="text-white text-center">
                                               <h4 class="mt-tilte m-t0">এছাড়া বিশেষ উপলক্ষ্যে এবং দুর্যোগময় মুহূর্তে প্রয়োজনীয় সেবা কার্যক্রম পরিচালনা</h4>
                                           </div>
@@ -180,7 +192,7 @@
       <!-- OUR SPECIALLIZATION END -->
 
       <!-- OUR SPECIALLIZATION START -->
-      <div class="section-full p-t80 p-b30 bg-dark" style="background-image:url(assets/images/background/bg-6.png);">
+      <div class="section-full p-t80 p-b30 bg-dark" style="background-image: url({{URL:: to('assets/images/background/bg-6.png')}});">
           <div class="container">
               <!-- IMAGE CAROUSEL START -->
               <div class="section-content">
@@ -251,7 +263,7 @@
                   <div class="section-head ">
                       <div class="mt-separator-outer  text-center">
                           <div class="mt-separator">
-                              <h2 class="text-uppercase sep-line-one "><span class="font-weight-300 text-primary"> অল ফটো  </span>albam</h2>
+                              <h2 class="text-uppercase sep-line-one "><span class="font-weight-300 text-primary"> ফটো  </span>এ্যালবাম</h2>
                           </div>
                       </div>
                   </div>
@@ -274,7 +286,7 @@
                                                           <h4>{{ $value->name }}</h4>
                                                           <!-- <p>Engineering your dreams with us.</p> -->
                                                           <div class="appint-btn">
-                                                              <a href="single-photo-gallery.php" class="site-button m-t10 "> অল ফটো  </a>
+                                                              <a href="{{ route('album.details',['id'=>$value->id,'slug'=>str_replace([' ', '/'],'-',$value->name)]) }}" class="site-button m-t10 "> সকল ছবি  </a>
                                                           </div>
                                                       </div>
                                                   </div>
@@ -284,7 +296,8 @@
                                           </div>
                                           <!-- GALLERY CONTENT END -->
                                           <div class="m-t50 m-b50 text-center">
-                                              <a href="photo-albam.php" class="m-b15 site-button-secondry btn-effect text-uppercase ">অল অ্যালবাম </a>
+                                              <a href="{{ route('album.all') }}" title="Towhid Foundation Photo Album"
+                                               class="m-b15 site-button-secondry btn-effect text-uppercase">সকল  অ্যালবাম দেখুন</a>
                                           </div>
                                       </div>
                                       <!-- GALLERY CONTENT END -->
