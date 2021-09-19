@@ -4,9 +4,9 @@
     <div class="card">
         <div class="header">
 			<div class="card-body">
-			    <form action="{{route('notice.update',$data->id)}}" method="post" enctype="multipart/form-data">
+			    <form action="{{ url('notice',$data->id)}}" method="PUT" enctype="multipart/form-data">
 			       @csrf
-			       
+			       @method('put')
 			        <label for="title">Title </label>
                     <div class="form-group">
                         <div class="form-line">

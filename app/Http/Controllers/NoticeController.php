@@ -99,11 +99,11 @@ class NoticeController extends Controller
             try {
                 DB::beginTransaction();
                 $update = Notice::find($id);
-                $update->title        => $request->title,
-                $update->slug 		  => Str::slug($request->title),
-                $update->description => $request->description,
-                $update->short_description => $request->short_description,
-                $update->status      => $status,
+                $update->title        = $request->title;
+                $update->slug 		  = Str::slug($request->title);
+                $update->description = $request->description;
+                $update->short_description = $request->short_description;
+                $update->status      = $status;
                	$updated->update();
 
                 if ($request->hasFile('image')) {
@@ -114,10 +114,10 @@ class NoticeController extends Controller
                     $imageName = time() . '.' . $image->getClientOriginalExtension();
                     $image->move('images/notice', $imageName);
 
-                    Notice::where('id', $insertid)
-                        ->update([
-                            'image' => $imageName,
-                        ]);
+                    Notice::where('id', $updated->id)
+                    ->update([
+                        'image' => $imageName,
+                    ]);
                 }
                 DB::commit();
                 return redirect()->route('notice.index')->with(['alert-type' => 'success', 'message' => 'Notice Updated successfull']);
