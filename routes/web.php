@@ -93,3 +93,13 @@ Route::get('albums', [
     'as'   => 'album.all',
     'uses' => 'FrontController@albums',
 ]);
+
+Route::get('objective', [
+    'as'   => 'objective.all',
+    'uses' => 'FrontController@objective',
+]);
+
+Route::get('notices', [
+    'as'   => 'notice.all',
+    'uses' => 'FrontController@notice',
+]);

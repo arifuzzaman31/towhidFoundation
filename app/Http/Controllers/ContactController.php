@@ -31,7 +31,7 @@ class ContactController extends Controller
 
             $contact->save();
 
-            $to = "arifuzzaman.rb@gmail.com";
+            $to = "towhid.foundation@gmail.com";
 
             $name    = $request->name;
             $email   = $request->email;

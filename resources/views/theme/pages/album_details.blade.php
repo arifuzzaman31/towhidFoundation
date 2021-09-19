@@ -1,5 +1,16 @@
 @extends('theme.include.master')
 
+@section('meta')
+    <meta property="og:image" content="{{ url('assets/images/logo_seo.png') }}" />
+    <meta property="og:title" content="Towhid Foundation | {{ $album->name }}" />
+    <meta property="og:description" content="Towhid Foundation | {{ $album->name }}" />
+@endsection
+
+@section('title')
+{{ $album->name }}
+@endsection
+
+
 
 @section('content')
 

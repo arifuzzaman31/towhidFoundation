@@ -1,5 +1,14 @@
 @extends('theme.include.master')
 
+@section('meta')
+    <meta property="og:image" content="{{ url('images/blog-image/'.$blog->blog_image) }}" />
+    <meta property="og:title" content="{{ $blog->title }}" />
+    <meta property="og:description" content="Towhid Foundation | {{ $blog->title }}" />
+@endsection
+
+@section('title')
+{{ $blog->title }}
+@endsection
 
 @section('content')
 

@@ -66,7 +66,7 @@ class FrontController extends Controller
 
     public function getAllBlog()
     {
-        $blog = Blog::where('status', 1)->latest()->Paginate(8);
+        $blog = Blog::where('status', 1)->orderBy('id', 'desc')->Paginate(8);
         return view('theme.pages.blog', compact('blog'));
     }
 
@@ -159,6 +159,16 @@ class FrontController extends Controller
         $gallery = Gallery::where('album_id', $id)->get();
 
         return view('theme.pages.album_details', ['gallery' => $gallery, 'album' => $album]);
+    }
+
+    public function objective()
+    {
+        return view('theme.pages.objective');
+    }
+
+    public function notice()
+    {
+        return view('theme.pages.notice');
     }
 
 }

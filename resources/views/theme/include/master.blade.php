@@ -10,15 +10,12 @@
     <meta name="keyword" content="তৌহিদ ফাউন্ডেশন,Towhind Foundation,Foundation in Dhaka,Free Ambulance Service in Dhaka,Free Primary Treatment Dhaka,Free Computer Course in Dhaka,Free Eye Operation Dhaka,Wasing Dead Body in Dhaka,Towhind,Foundation,lash gosol,প্যাথলজিক্যাল পরীক্ষা নিরীক্ষা,অ্যাম্বুলেন্স সার্ভিস,ফিজিওথেরাপি,লাশের কাপড়, কফিন ও অন্যান্য উপকরণ,সেলাই প্রশিক্ষণ">
     <meta property="og:url" content="{{  Request::url() }}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{ url('assets/images/logo_seo.png') }}" />
-    <meta property="og:title" content="Towhid Foundation | Members" />
-    <meta property="og:description" content="Towhid Foundation | Made for Humanity" />
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/images/favicon.png') }}" />
 
      @yield('meta')
 
     <!-- Title-->
-    <title>@yield('title','Towhid Foundation')</title>
+    <title>@yield('title','Towhid Foundation | A Completely non-political and non-profit Voluntary Organization ')</title>
     <!-- BOOTSTRAP STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}">
 
@@ -106,7 +103,7 @@
                         <div class="header-nav navbar-collapse collapse">
                             <ul class=" nav navbar-nav">
                                 <li class="active">
-                                    <a href="index.php">Home</a>
+                                    <a href="{{ url('/') }}">Home</a>
                                 </li>
                                  <li>
                                     <a href="#">About</a>
@@ -115,11 +112,11 @@
                                                 <a href="{{ route('about.us') }}" title="About Towhid Foundation"> About US</a>
                                             </li>
                                             <li>
-                                                <a href="Objectives.php"> Towhidfoundation Objectives</a>
+                                                <a href="{{ route('objective.all') }}">Objectives</a>
                                             </li>
-                                            <li>
+                                            <!-- <li>
                                                 <a href="success-activities.php"> Success Activities </a>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                 </li>
 
@@ -224,9 +221,9 @@
                             <div class="widget widget_services inline-links">
                                 <h4 class="widget-title">Our Organization</h4>
                                 <ul>
-                                   <li><a href="{{ route('about.us') }}">About Us</a></li>
-                                    <li><a href="#">Services</a></li>
-                                    <li><a href="#">Contact US</a></li>
+                                   <li><a href="{{ route('about.us') }}" title="About Towhid Foundation">About Us</a></li>
+                                    <li><a href="{{ route('our.service') }}" title="Towhid Foundation Service">Services</a></li>
+                                    <li><a href="{{ route('contact.us') }}" title="Towhid Foundation Contact">Contact US</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -236,8 +233,8 @@
                             <div class="widget widget_services inline-links">
                                 <h4 class="widget-title">Our Services</h4>
                                 <ul>
-                                   <li><a href="#">Low Cost Services</a></li>
-                                    <li><a href="#">Free Services</a></li>
+                                   <li><a href="{{ route('our.service') }}#paid-service" title="Low cost services">Low Cost Services</a></li>
+                                    <li><a href="{{ route('our.service') }}#free-service" title="Free Services">Free Services</a></li>
                                 </ul>
                             </div>
                         </div>
