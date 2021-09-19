@@ -133,7 +133,7 @@
                                     <a href="{{ route('album.all') }}" title="Photo Album">Photo Gallery</a>
                                 </li>
                                 <li>
-                                    <a href="notice.php" title="Notice">Notice</a>
+                                    <a href="{{ route('notice.all') }}" title="Notice">Notice</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('contact.us') }}" title="Contact Us">Contact Us</a>
@@ -207,7 +207,8 @@
                             <div class="widget widget_about">
                                 <!--<h4 class="widget-title">About Company</h4>-->
                                 <div class="logo-footer clearfix p-b15">
-                                    <a href="index.html"><img src="{{ url('assets/images/towhidfoundation-logo-white.png') }}" alt=""></a>
+                                    <a href="{{ url('/') }}" title="Towhid Foundation"><img
+                                    src="{{ url('assets/images/towhidfoundation-logo-white.png') }}" alt="Towhid Foundation Logo"></a>
                                 </div>
 								<p class="max-w400">A Completely non-political and non-profit Voluntary Organization</p>
                                 <ul class="social-icons  mt-social-links">
