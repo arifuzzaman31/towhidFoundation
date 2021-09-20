@@ -18,9 +18,10 @@ class CreateNoticeTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('image')->nullable();
-            $table->mediumText('short_description');
-            $table->longText('description');
+            $table->mediumText('short_description')->nullable();
+            $table->longText('description')->nullable();
             $table->dateTime('date');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }
