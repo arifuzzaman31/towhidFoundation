@@ -319,7 +319,7 @@
 
 <!-- REVOLUTION SLIDER SCRIPT FILES -->
 <script  src="{{ asset('assets/js/rev-script-2.js') }}"></script>
-<script  src="{{ asset('assets/js/swithcher.js') }}"></script>
+<script  src="{{ asset('assets/js/switcher.js') }}"></script>
 
 <script type="text/javascript">
 

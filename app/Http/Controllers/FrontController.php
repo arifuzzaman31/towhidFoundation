@@ -170,7 +170,7 @@ class FrontController extends Controller
     public function notice()
     {
         // $notice = Notice::where('status',1)->get();
-        $notice = Notice::where('status', 1)->paginate(8);
+        $notice = Notice::where('status', 1)->orderBy('id', 'desc')->paginate(8);
         return view('theme.pages.notice', ['notices' => $notice]);
     }
 
