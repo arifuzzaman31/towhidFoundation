@@ -18,10 +18,10 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            
+
             <tbody>
             	@if(count($blogs) > 0)
-            	<?php $i = 1; ?>
+            	<?php $i = 1;?>
             	@foreach($blogs as $blog)
 	                <tr>
 	                    <td style="width: 5%">{{$i}}</td>
@@ -30,19 +30,19 @@
 	                    <td style="width: 10%">{{$blog->created_at->toFormattedDateString()}}</td>
                         <td style="width: 15%">
 	                    	<a href="{{ url('edit.blog/'.$blog->id) }}" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
-                            
+
                             <a href="{{ url('show-blog/'.$blog->id) }}" title="View" type="button" class="btn btn-primary btn-xs">
                             <i class="fa fa-book"></i>
                           </a>
 
 	                    	<a type="button" title="Status" href=" {{route('change-blog-status',$blog->id)}}" class="btn @if($blog->status > 0) btn-success @else btn-warning @endif btn-xs">@if($blog->status > 0)<i class="fa fa-check-circle"></i> @else <i class="fa fa-ban"></i> @endif</a>
 
-		                  <a type="button" title="Delete" href="{{route('blog-delete',$blog->id)}}" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+		                  <a  title="Delete" href="{{route('blog-delete',$blog->id)}}" onclick="return confirm('Are you sure you want to delete this?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
 
 	                    </td>
-	                    
+
 	                </tr>
-	                <?php $i++; ?>
+	                <?php $i++;?>
                 @endforeach
               @endif
             </tbody>
