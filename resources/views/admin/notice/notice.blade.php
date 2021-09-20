@@ -14,7 +14,7 @@
                     <th>SL</th>
                     <th>Title</th>
                     <th>Image</th>
-                    <th>Short-Description</th>
+                    <!-- <th>Short-Description</th> -->
                     <th>Date</th>
                     <th>Action</th>
                 </tr>
@@ -33,7 +33,7 @@
                                 <img src="{{URL::to('images/notice/'.$notice->image)}}" height="40px" width="50px">
                             @endif
                         </td>
-	                    <td style="width: 30%">{!! $notice->short_description !!}</td>
+	                    <!-- <td style="width: 30%">{!! $notice->short_description !!}</td> -->
                         <td style="width: 12%">{{ $notice->date }}</td>
 	                    <td style="width: 15%">
 	                    	<a href="{{ url('notice/'.$notice->id.'/edit') }}" title="Edit" type="button" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>

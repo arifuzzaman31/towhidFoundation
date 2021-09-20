@@ -81,7 +81,7 @@
                                             <img src="{{ url('images/notice/'.$notice->image)}}" alt="" />
                                             <div class="figcaption">
                                                 <h4>{{ $notice->title }}</h4>
-                                                <p>{{ $notice->short_description }}</p>
+                                                <p>{!! $notice->description !!}</p>
                                                 <div class="">
                                                     <ol class="list-num-count notice-date upper-alpha list-outline-none m-b0">
                                                         <li><b>{{ date('d  M, Y',strtotime($notice->date)) }}</b></li>

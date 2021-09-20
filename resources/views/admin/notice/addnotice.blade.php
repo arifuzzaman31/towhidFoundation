@@ -16,15 +16,6 @@
                         @enderror
                     </div>
 
-                    <label for="short_description">Short Description <small>(Optional)</small></label>
-                    <div class="form-group">
-                        <div class="form-line">
-                            <input type="text" id="short_description" name="short_description" class="form-control">
-                        </div>
-                        @error('short_description')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
                     <label for="description">Description</label>
                     <div class="form-group">
                         <div class="form-line">
@@ -34,14 +25,14 @@
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
                     </div>
-                    
+
                     <label for="icon">Image <small>(Optional)</small></label>
                     <div class="form-group">
                         <div class="form-line">
                             <input type="file" id="icon" name="image" class="form-control">
                         </div>
                     </div>
-                   
+
                     <div class="demo-switch-title">Status</div>
                         <div class="switch">
                             <label><input type="checkbox" checked name="status" value="1"><span class="lever switch-col-green"></span></label>

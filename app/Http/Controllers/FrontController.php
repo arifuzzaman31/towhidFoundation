@@ -7,9 +7,9 @@ use App\Blog;
 use App\custom\Helper;
 use App\Gallery;
 use App\Member;
+use App\Notice;
 use App\Service;
 use App\Userquery;
-use App\Notice;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -170,8 +170,8 @@ class FrontController extends Controller
     public function notice()
     {
         // $notice = Notice::where('status',1)->get();
-        $notice = Notice::where('status',1)->paginate(4);
-        return view('theme.pages.notice',['notices' => $notice]);
+        $notice = Notice::where('status', 1)->orderBy('id', 'desc')->paginate(8);
+        return view('theme.pages.notice', ['notices' => $notice]);
     }
 
 }
