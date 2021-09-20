@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Admin Automation</title>
+    <title>Admin Towhid Foundation</title>
     <!-- Favicon-->
     <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -33,6 +33,11 @@
         </div>
         <div class="card">
             <div class="body">
+                @if(Session::has('message'))
+                    <div class="alert alert-success" role="alert">
+                        {{ Session::get('message') }}
+                    </div>
+                @endif
                 <form id="sign_in" action="{{route('login-check.post')}}" method="POST">
                 	{{ csrf_field()}}
                     <div class="msg">Sign in to start your session</div>
@@ -66,7 +71,7 @@
                             <a href="#">Register Now!</a>
                         </div>
                         <div class="col-xs-6 align-right">
-                            <a href="#">Forgot Password?</a>
+                            <a href="{{ route('get/forgot/password') }}">Forgot Password?</a>
                         </div>
                     </div>
                 </form>

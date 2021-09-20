@@ -28,6 +28,26 @@ Route::post('login-check.post', [
     'uses' => 'DashboardController@logincheck',
 ]);
 
+Route::get('forget/password', [
+    'as'   => 'get/forgot/password',
+    'uses' => 'DashboardController@getForgotPassw',
+]);
+
+Route::post('send/mail', [
+    'as'   => 'send/mail/forgot/password',
+    'uses' => 'DashboardController@sendmail',
+]);
+
+Route::get('password/reset', [
+    'as'   => 'password/reset',
+    'uses' => 'DashboardController@viewResetPage',
+]);
+
+Route::post('confirm/password', [
+    'as'   => 'password/confirm',
+    'uses' => 'DashboardController@storeNewPassword',
+]);
+
 Route::get('/', [
     'as'   => '/',
     'uses' => 'FrontController@index',

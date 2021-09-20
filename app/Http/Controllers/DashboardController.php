@@ -76,4 +76,57 @@ class DashboardController extends Controller
        return back()->with(['alert-type' => 'error','message' => 'Validation Error Occured!']);
     }
   }
+
+  public function getForgotPassw()
+  {
+      return view('admin.login.forgetPassword');
+  }
+
+  public function sendmail(Request $request)
+    {
+        $request->validate([
+          'email' => 'required|email|exists:users,email'
+        ]);
+
+        $token = \Hash::make(substr(str_shuffle('abcdefghijklmnopqrstuvwxyz0123456789'),0,6));
+        $result = User::where('email',$request->email)->first();
+        $result->reset_token = $token;
+        $result->update();
+
+        $subject = 'Confim Email For Reset Admin Password';
+        $to = $request->email;
+        $email = "host@towhidfoundation.org";
+        $name = "towhidfoundation.org";
+        \Mail::send('admin.login.reset_password_mail_temp',['token' => $token], 
+                  function ($message) use ($to,$email,$name,$subject){
+                      $message->from($email,$name);
+                      $message->to($to)->subject($subject);
+             });
+        \Session::flash('message','A fresh verification link has been sent to your email address.');
+        return redirect()->back();
+    }
+
+    public function viewResetPage(Request $request)
+    { 
+      $result = User::where('reset_token',$request->token)->first();
+      if($result->count() > 0){
+        return view('admin.login.confirm_mail',['token' => $request->token]);
+      } else {
+        Session::flash('error','Please, try again!!');
+        return redirect()->back();
+      }
+    }
+
+    public function storeNewPassword(Request $request)
+    { 
+      $request->validate([
+        'password' => 'required|confirmed|min:6'
+      ]);
+      $admin = User::where('reset_token',$request->identity)->first();
+      $admin->password = Hash::make($request->password);
+      $admin->update();
+      Auth::guard('admin')->logout();
+      Session::flash('message','Password is Changed Successfully!');
+      return redirect()->route('login');
+    }
 }

@@ -18,6 +18,7 @@ class CreateUserQueryTable extends Migration
             $table->integer('service_id');
             $table->string('name');
             $table->string('phone')->nullable();
+            $table->string('reset_token')->nullable();
             $table->longText('address');
             $table->longText('message')->nullable();
             $table->tinyInteger('seen')->default(0);
