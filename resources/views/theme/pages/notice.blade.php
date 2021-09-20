@@ -93,70 +93,12 @@
                                     @endforeach
                                     @endif
                                     <!-- COLUMNS 3 -->
-                                    <div class="masonry-item cat-4 col-lg-6  col-md-6 col-sm-6 m-b30">
-                                        <div class="image-effect-one1 hover-shadow">
-                                            <img src="assets/images/notice/large-blog.jpg" alt="" />
-                                            <div class="figcaption">
-                                                <h4>Central Florida University</h4>
-                                                <p>lorem Ipsum available, but the majority have suffered alterati on in some form, by ious by accident.</p>
-                                                <div class="">
-                                                    <ol class="list-num-count notice-date upper-alpha list-outline-none m-b0">
-                                                        <li><b>20 June 2019 </b></li>
-                                                    </ol>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- COLUMNS 5 -->
-                                    <div class="masonry-item cat-2 col-lg-6  col-md-6 col-sm-6 m-b30">
-                                        <div class="image-effect-one1 hover-shadow">
-                                            <img src="assets/images/notice/slide2.jpg" alt="" />
-                                            <div class="figcaption">
-                                                <h4>Central Florida University</h4>
-                                                <p>lorem Ipsum available, but the majority have suffered alterati on in some form, by ious by accident.</p>
-                                                <div class="">
-                                                    <ol class="list-num-count notice-date upper-alpha list-outline-none m-b0">
-                                                        <li><b>20 June 2019 </b></li>
-                                                    </ol>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- COLUMNS 3 -->
-                                    <div class="masonry-item cat-4 col-lg-6  col-md-6 col-sm-6 m-b30">
-                                        <div class="image-effect-one1 hover-shadow">
-                                            <img src="assets/images/notice/large-blog.jpg" alt="" />
-                                            <div class="figcaption">
-                                                <h4>Central Florida University</h4>
-                                                <p>lorem Ipsum available, but the majority have suffered alterati on in some form, by ious by accident.</p>
-                                                <div class="">
-                                                    <ol class="list-num-count notice-date upper-alpha list-outline-none m-b0">
-                                                        <li><b>20 June 2019 </b></li>
-                                                    </ol>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- COLUMNS 5 -->
-                                    <div class="masonry-item cat-3 col-lg-6  col-md-6 col-sm-6 m-b30">
-                                        <div class="image-effect-one1 hover-shadow">
-                                            <img src="assets/images/notice/slide3.jpg" alt="" />
-                                            <div class="figcaption">
-                                                <h4>Central Florida University</h4>
-                                                <p>lorem Ipsum available, but the majority have suffered alterati on in some form, by ious by accident.</p>
-                                                <div class="">
-                                                    <ol class="list-num-count notice-date upper-alpha list-outline-none m-b0">
-                                                        <li><b>20 June 2019 </b></li>
-                                                    </ol>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <!-- COLUMNS 4 -->
                                 </div>
                                 <!-- GALLERY CONTENT END -->
                                 <div class="m-t50 text-center">
                                    <!-- pagination will go here  -->
+                                   {{ $notices->links() }}
                                 </div>
                             </div>
                             <!-- GALLERY CONTENT END -->
@@ -170,8 +112,4 @@
     </div>
     <!-- OUR SPECIALLIZATION END -->
 </div>
-
-
-
-
 @endsection
