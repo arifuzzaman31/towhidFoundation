@@ -28,7 +28,7 @@
                                   <div class="author-info p-t20">
 
                                       <div class="author-name">
-                                          <h4 class="m-b5">তৌহিদ ফাউন্ডেশন</h4>
+                                          <h4 class="m-b5">মো . তৌহিদুল ইসলাম </h4>
                                           <p>চেয়ারম্যান</p>
                                       </div>
                                   </div>
@@ -63,7 +63,7 @@
                                   </p>
                                   <div class="author-info p-t20">
                                       <div class="author-name">
-                                          <h4 class="m-b5">তৌহিদ ফাউন্ডেশন</h4>
+                                          <h4 class="m-b5">মো . শহীদুল ইসলাম </h4>
                                           <p>সাধারণ  সম্পাদক</p>
                                       </div>
                                   </div>

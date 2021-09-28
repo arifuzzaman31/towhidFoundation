@@ -208,17 +208,10 @@ All JavaScript fuctions Start
 			});
 			ev.stopPropagation();
 		});
+		jQuery("li").on('click', function () {
+			jQuery(this).find('ul.sub-menu').toggleClass('active-class');
+		});
 
-		//		  jQuery('.has-child').on('click',function(ev) {
-		//		   jQuery(this).find(jQuery('.sub-menu')).slideToggle('fast', function(){
-		//			jQuery(this).parent().toggleClass('nav-active');
-		//		   });
-		//		  });
-
-		//         jQuery('.has-child a').on('click', function(){
-		//             jQuery(this).toggleClass('sub-menu');
-		//         });
-		//		
 	}
 
 
@@ -708,7 +701,11 @@ All JavaScript fuctions Start
 
 	//________Switcher panal slide function END	________//	
 
-
+	$(".header-nav ul li a").each(function () {
+		if (this.href == window.location.href) {
+			$(this).addClass("active-menu");
+		}
+	});
 
 
 })(window.jQuery);

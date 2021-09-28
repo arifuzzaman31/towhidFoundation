@@ -47,7 +47,7 @@
                 <div class="section-head ">
                     <div class="mt-separator-outer  text-center">
                         <div class="mt-separator">
-                            <h2 class="text-uppercase sep-line-one "><span class="font-weight-300 text-primary"> অল ফটো  </span>albam</h2>
+                            <h2 class="text-uppercase sep-line-one "><span class="font-weight-300 text-primary"> সকল  </span>এ্যালবাম</h2>
                         </div>
                     </div>
                 </div>

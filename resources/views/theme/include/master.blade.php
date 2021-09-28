@@ -94,7 +94,7 @@
                         <!-- ETRA Nav -->
                         <div class="extra-nav">
                             <div class="extra-cell">
-                                <a href="#" class="contact-slide-show"><i class="fa fa-angle-left arrow-animation"></i></a>
+                                <a href="#" class="contact-slide-show"><i class="fa fa-phone arrow-animation"></i></a>
                             </div>
                         </div>
                         <!-- ETRA Nav -->
@@ -102,11 +102,11 @@
                         <!-- MAIN Vav -->
                         <div class="header-nav navbar-collapse collapse">
                             <ul class=" nav navbar-nav">
-                                <li class="active">
-                                    <a href="{{ url('/') }}">Home</a>
+                                <li class="{{ Route::currentRouteName() == '/' ? 'active' : '' }}">
+                                    <a  href="{{ url('/') }}">Home</a>
                                 </li>
-                                 <li>
-                                    <a href="#">About</a>
+                                 <li @if(Route::currentRouteName() == 'about.us' || Route::currentRouteName() == 'objective.all') class="active" @endif>
+                                    <a href="#" >About</a>
                                        <ul class="sub-menu">
                                             <li>
                                                 <a href="{{ route('about.us') }}" title="About Towhid Foundation"> About US</a>
@@ -120,22 +120,22 @@
                                         </ul>
                                 </li>
 
-                                <li>
+                                <li class="{{ Route::currentRouteName() == 'our.service' ? 'active' : '' }}">
                                     <a href="{{ route('our.service') }}" title="Services">Services</a>
                                 </li>
-                                <li>
+                                <li class="{{ Route::currentRouteName() == 'our.member' ? 'active' : '' }}">
                                     <a href="{{ route('our.member') }}" title="Members">Members</a>
                                 </li>
-                                <li>
+                                <li class="{{ Route::currentRouteName() == 'our.blog' ? 'active' : '' }}">
                                     <a href="{{ route('our.blog') }}" title="Media & News">Media & News</a>
                                 </li>
-                                <li>
+                                <li class="{{ Route::currentRouteName() == 'album.all' ? 'active' : '' }}">
                                     <a href="{{ route('album.all') }}" title="Photo Album">Photo Gallery</a>
                                 </li>
-                                <li>
+                                <li class="{{ Route::currentRouteName() == 'notice.all' ? 'active' : '' }}">
                                     <a href="{{ route('notice.all') }}" title="Notice">Notice</a>
                                 </li>
-                                <li>
+                                <li class="{{ Route::currentRouteName() == 'contact.us' ? 'active' : '' }}">
                                     <a href="{{ route('contact.us') }}" title="Contact Us">Contact Us</a>
                                 </li>
                             </ul>
